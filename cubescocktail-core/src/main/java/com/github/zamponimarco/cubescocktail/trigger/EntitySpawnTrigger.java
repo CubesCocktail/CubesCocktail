@@ -5,8 +5,8 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
-import com.github.zamponimarco.cubescocktail.target.CasterTarget;
-import com.github.zamponimarco.cubescocktail.target.Target;
+import com.github.zamponimarco.cubescocktail.trgt.CasterTarget;
+import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 

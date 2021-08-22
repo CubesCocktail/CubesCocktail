@@ -7,7 +7,7 @@ import com.github.zamponimarco.cubescocktail.source.CasterSource;
 import com.github.zamponimarco.cubescocktail.source.DamagedSource;
 import com.github.zamponimarco.cubescocktail.source.RayTraceSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
-import com.github.zamponimarco.cubescocktail.target.*;
+import com.github.zamponimarco.cubescocktail.trgt.*;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 

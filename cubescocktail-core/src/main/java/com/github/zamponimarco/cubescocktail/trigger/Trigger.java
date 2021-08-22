@@ -9,7 +9,7 @@ import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownOptions;
 import com.github.zamponimarco.cubescocktail.slot.Slot;
 import com.github.zamponimarco.cubescocktail.source.Source;
-import com.github.zamponimarco.cubescocktail.target.Target;
+import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;

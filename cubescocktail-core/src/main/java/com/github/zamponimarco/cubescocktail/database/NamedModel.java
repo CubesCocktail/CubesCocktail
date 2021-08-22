@@ -89,7 +89,7 @@ public abstract class NamedModel implements Model {
         string = string.replaceAll("com.github.zamponimarco.cubescocktail.goal",
                 "com.github.zamponimarco.cubescocktail.ai.goal");
         string = string.replaceAll("com.github.zamponimarco.cubescocktail.targetted",
-                "com.github.zamponimarco.cubescocktail.ai.target");
+                "com.github.zamponimarco.cubescocktail.ai.trgt");
         string = string.replaceAll("com.github.zamponimarco.cubescocktail.mob",
                 "com.github.zamponimarco.mobdrink.mob");
         string = string.replaceAll("com.github.zamponimarco.cubescocktail.spawner",

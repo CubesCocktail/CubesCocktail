@@ -4,7 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.source.*;
-import com.github.zamponimarco.cubescocktail.target.*;
+import com.github.zamponimarco.cubescocktail.trgt.*;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 

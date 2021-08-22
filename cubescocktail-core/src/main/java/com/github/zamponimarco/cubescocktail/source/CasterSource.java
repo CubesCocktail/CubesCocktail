@@ -4,7 +4,6 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
-import com.github.zamponimarco.cubescocktail.target.CasterTarget;
 import org.bukkit.entity.LivingEntity;
 
 import java.util.Map;

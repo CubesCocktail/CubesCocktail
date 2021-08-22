@@ -7,17 +7,17 @@
     <groupId>com.github.zamponimarco</groupId>
     <artifactId>cubescocktail</artifactId>
     <packaging>pom</packaging>
-    <version>0.1</version>
+    <version>transition</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <modules>
         <module>cubescocktail-core</module>
+        <module>cubescocktail-craftbukkit_1_16_R1</module>
+        <module>cubescocktail-craftbukkit_1_16_R2</module>
+        <module>cubescocktail-craftbukkit_1_16_R3</module>
         <module>cubescocktail-craftbukkit_1_17_R1</module>
         <module>cubescocktail-dist</module>
-        <module>cubescocktail-craftbukkit_1_16_R3</module>
-        <module>cubescocktail-craftbukkit_1_16_R2</module>
-        <module>cubescocktail-craftbukkit_1_16_R1</module>
     </modules>
 </project>
