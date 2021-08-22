@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.trigger;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
@@ -13,13 +14,11 @@ import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Enumerable.Child
-@Enumerable.Displayable(name = "&c&lOn Entity Sprint", description = "gui.trigger.movement.entity-sprint.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJhN2RjYmY3ZWNhNmI2ZjYzODY1OTFkMjM3OTkxY2ExYjg4OGE0ZjBjNzUzZmY5YTMyMDJjZjBlOTIyMjllMyJ9fX0=")
+@Enumerable.Displayable(condition = "isCasterOnlyPlayer", name = "&c&lOn Entity Sprint", description = "gui.trigger.movement.entity-sprint.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJhN2RjYmY3ZWNhNmI2ZjYzODY1OTFkMjM3OTkxY2ExYjg4OGE0ZjBjNzUzZmY5YTMyMDJjZjBlOTIyMjllMyJ9fX0=")
 public class EntitySprintTrigger extends MovementTrigger {
 
     private static final boolean ACTIVATE_DEFAULT = true;

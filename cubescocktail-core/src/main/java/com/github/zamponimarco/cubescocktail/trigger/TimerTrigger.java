@@ -15,10 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
-@Deprecated
-@Enumerable.Child
-@Enumerable.Displayable(name = "&c&lTimer trigger", description = "gui.trigger.timer.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=")
-public class TimerTrigger extends Trigger {
+@Deprecated public class TimerTrigger extends Trigger {
 
     private int timer;
 

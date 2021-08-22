@@ -1,6 +1,7 @@
 package com.github.zamponimarco.cubescocktail.trigger;
 
 import com.github.jummes.libs.annotation.Enumerable;
+import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.source.*;
@@ -8,9 +9,7 @@ import com.github.zamponimarco.cubescocktail.trgt.*;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Enumerable.Child

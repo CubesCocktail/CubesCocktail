@@ -3,9 +3,11 @@ package com.github.zamponimarco.cubescocktail.trigger;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.core.Libs;
 import com.github.jummes.libs.model.Model;
+import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
+import com.github.zamponimarco.cubescocktail.annotation.CasterOnlyPlayer;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownOptions;
 import com.github.zamponimarco.cubescocktail.slot.Slot;
 import com.github.zamponimarco.cubescocktail.source.Source;
@@ -15,10 +17,8 @@ import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 @Enumerable.Parent(classArray = {CombatTrigger.class, InteractionTrigger.class, MovementTrigger.class})
@@ -49,6 +49,10 @@ public abstract class Trigger implements Model, Cloneable {
 
     public Trigger(Map<String, Object> map) {
         generalLegacyTransition(map);
+    }
+
+    public static boolean isCasterOnlyPlayer(ModelPath<?> path) {
+        return path.getModelPath().stream().anyMatch(model -> model.getClass().isAnnotationPresent(CasterOnlyPlayer.class));
     }
 
     @Deprecated

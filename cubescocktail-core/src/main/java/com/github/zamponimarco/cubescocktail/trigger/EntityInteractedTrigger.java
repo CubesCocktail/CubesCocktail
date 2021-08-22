@@ -1,6 +1,7 @@
 package com.github.zamponimarco.cubescocktail.trigger;
 
 import com.github.jummes.libs.annotation.Enumerable;
+import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
@@ -13,9 +14,7 @@ import com.github.zamponimarco.cubescocktail.trgt.RayTraceTarget;
 import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lEntity Interaction", description = "gui.trigger.movement.jump.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQ3ZDFkZDRhN2RhZmYyYWFmMjhlNmExMmEwMWY0MmQ3ZTUxNTkzZWYzZGVhNzYyZWY4MTg0N2IxZDRjNTUzOCJ9fX0=")
