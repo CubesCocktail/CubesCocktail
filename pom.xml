@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.zamponimarco</groupId>
+    <artifactId>cubescocktail</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <modules>
+        <module>cubescocktail-core</module>
+        <module>cubescocktail-craftbukkit_1_17_R1</module>
+        <module>cubescocktail-dist</module>
+        <module>cubescocktail-craftbukkit_1_16_R3</module>
+        <module>cubescocktail-craftbukkit_1_16_R2</module>
+        <module>cubescocktail-craftbukkit_1_16_R1</module>
+    </modules>
+</project>

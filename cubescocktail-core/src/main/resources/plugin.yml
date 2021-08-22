@@ -1,0 +1,10 @@
+name: CubesCocktail
+author: jummes
+version: ${version}
+main: com.github.zamponimarco.cubescocktail.CubesCocktail
+api-version: 1.17
+commands:
+  cc:
+softdepend:
+  - WorldGuard
+  - Vault
