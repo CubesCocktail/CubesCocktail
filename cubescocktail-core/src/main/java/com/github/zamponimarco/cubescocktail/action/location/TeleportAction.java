@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.action.location;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
@@ -27,7 +28,7 @@ public class TeleportAction extends LocationAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         LivingEntity entity = getEntity(target, source);
 
         if (entity == null) {

@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.StringValue;
@@ -38,7 +39,7 @@ public class ItemNameAction extends ItemAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         ItemStack item = getItemStack(target, source);
         if (item != null) {
             ItemMeta meta = item.getItemMeta();

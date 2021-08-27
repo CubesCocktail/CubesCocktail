@@ -6,6 +6,7 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.MapperUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
@@ -98,7 +99,7 @@ public class FakeBlockAction extends PacketAction {
     }
 
     @Override
-    public Action.ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public Action.ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         Location location = getLocation(target, source);
         World world = location.getWorld();
 

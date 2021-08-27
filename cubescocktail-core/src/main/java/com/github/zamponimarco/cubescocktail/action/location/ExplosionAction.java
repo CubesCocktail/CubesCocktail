@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.action.location;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
@@ -53,7 +54,7 @@ public class ExplosionAction extends LocationAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         Location l = getLocation(target, source);
         if (l != null && l.getWorld() != null) {
             l.getWorld().createExplosion(l.getX(), l.getY(), l.getZ(), power.getRealValue(target, source).floatValue(),

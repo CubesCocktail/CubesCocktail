@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.action.meta;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
@@ -52,9 +53,9 @@ public class ConditionAction extends WrapperAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         if (condition.checkCondition(target, source)) {
-            actions.forEach(action -> action.execute(target, source, map));
+            actions.forEach(action -> action.execute(target, source, args));
         }
         return ActionResult.SUCCESS;
     }

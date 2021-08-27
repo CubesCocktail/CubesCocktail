@@ -6,6 +6,7 @@ import com.github.jummes.libs.core.Libs;
 import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.entity.EntityAction;
 import com.github.zamponimarco.cubescocktail.action.item.ItemAction;
 import com.github.zamponimarco.cubescocktail.action.location.LocationAction;
@@ -44,7 +45,7 @@ public abstract class Action implements Model, Cloneable {
         this.target = (boolean) map.getOrDefault("target", TARGET_DEFAULT);
     }
 
-    public abstract ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map);
+    public abstract ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args);
 
     public abstract String getName();
 
@@ -86,13 +87,7 @@ public abstract class Action implements Model, Cloneable {
     public abstract Action clone();
 
     public enum ActionResult {
-        /**
-         * An action concluded with success.
-         */
         SUCCESS,
-        /**
-         * An action that failed.
-         */
         FAILURE
     }
 }

@@ -3,6 +3,8 @@ package com.github.zamponimarco.cubescocktail.listener;
 import com.destroystokyo.paper.event.player.PlayerArmorChangeEvent;
 import com.destroystokyo.paper.event.player.PlayerJumpEvent;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.loot.DropTable;
 import com.github.zamponimarco.cubescocktail.slot.EquipmentSlot;
 import com.github.zamponimarco.cubescocktail.trigger.*;
@@ -13,6 +15,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
+import org.bukkit.event.Cancellable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -29,7 +32,9 @@ import org.bukkit.loot.LootContext;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -44,8 +49,8 @@ public class PlayerItemListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e) {
         Player player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
         if (e.getAction().equals(Action.RIGHT_CLICK_AIR)) {
             getListeners(RightClickTrigger.class, trigger -> true).forEach(listener ->
                     listener.onTrigger(args));
@@ -78,116 +83,101 @@ public class PlayerItemListener implements Listener {
                 return;
             }
 
-            Map<String, Object> args = new HashMap<>();
-            args.put("damager", damager);
-            args.put("damaged", damaged);
-            args.put("damage", e.getDamage());
-            args.put("damageCause", e.getCause().name());
+            ActionArgument args = new ActionArgument();
+            args.setArgument(ActionArgumentKey.DAMAGER, damager);
+            args.setArgument(ActionArgumentKey.DAMAGED, damaged);
+
+            //args.put("damage", e.getDamage());
+            //args.put("damageCause", e.getCause().name());
 
             if (e.getEntity().getMetadata("siattack").stream().noneMatch(metadataValue ->
                     Objects.equals(metadataValue.getOwningPlugin(), CubesCocktail.getInstance()))) {
-                args.put("caster", damager);
+                args.setArgument(ActionArgumentKey.CASTER, damager);
                 getListeners(HitEntityTrigger.class, trigger -> true).forEach(listener -> listener.onTrigger(args));
-                args.put("caster", damaged);
+                args.setArgument(ActionArgumentKey.CASTER, damaged);
                 getListeners(DamageEntityTrigger.class, trigger -> true).forEach(listener -> listener.onTrigger(args));
             } else {
                 e.getEntity().removeMetadata("siattack", CubesCocktail.getInstance());
             }
-            if ((boolean) args.getOrDefault("cancelled", false)) {
-                e.setCancelled(true);
-            }
+            cancelIfCancellable(e, args);
 
-            double damage = (double) args.get("damage");
-            e.setDamage(damage);
+            //double damage = (double) args.get("damage");
+            //e.setDamage(damage);
         }
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerSneak(PlayerToggleSneakEvent e) {
         Player player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
         getListeners(EntitySneakTrigger.class, trigger -> e.isSneaking() == trigger.isOnActivate()).
                 forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerSprint(PlayerToggleSprintEvent e) {
         Player player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
         getListeners(EntitySprintTrigger.class, trigger -> e.isSprinting() == trigger.isOnActivate()).
                 forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerShoot(ProjectileLaunchEvent e) {
         if (e.getEntity().getShooter() instanceof LivingEntity) {
             LivingEntity entity = (LivingEntity) e.getEntity().getShooter();
-            Map<String, Object> args = new HashMap<>();
-            args.put("caster", entity);
+            ActionArgument args = new ActionArgument();
+            args.setArgument(ActionArgumentKey.CASTER, entity);
             getListeners(EntityShootProjectileTrigger.class, trigger -> true).
                     forEach(listener -> listener.onTrigger(args));
-            if ((boolean) args.getOrDefault("cancelled", false)) {
-                e.setCancelled(true);
-            }
+            cancelIfCancellable(e, args);
         }
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onBlockPlaced(BlockPlaceEvent e) {
         Player player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("location", e.getBlock().getLocation().clone().add(.5, .5, .5));
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
+        args.setArgument(ActionArgumentKey.LOCATION, e.getBlock().getLocation().clone().add(.5, .5, .5));
         getListeners(BlockPlaceTrigger.class, trigger -> true).
                 forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onBlockBroken(BlockBreakEvent e) {
         Player player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("location", e.getBlock().getLocation().clone().add(.5, .5, .5));
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
+        args.setArgument(ActionArgumentKey.LOCATION, e.getBlock().getLocation().clone().add(.5, .5, .5));
         getListeners(BlockBreakTrigger.class, trigger -> true).
                 forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerFish(PlayerFishEvent e) {
         Player player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("location", e.getHook().getLocation());
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
+        args.setArgument(ActionArgumentKey.LOCATION, e.getHook().getLocation());
         getListeners(EntityFishTrigger.class, trigger -> trigger.getState().equals(e.getState())).
                 forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerConsumeItem(PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
         getListeners(EntityItemConsumeTrigger.class, trigger -> true).forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
@@ -198,34 +188,28 @@ public class PlayerItemListener implements Listener {
         }
 
         LivingEntity player = e.getPlayer();
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", player);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, player);
         getListeners(EntityJumpTrigger.class, trigger -> true).forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onCrossbowLoad(EntityLoadCrossbowEvent e) {
         LivingEntity entity = e.getEntity();
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", entity);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, entity);
         getListeners(EntityCrossbowLoadTrigger.class, trigger -> true).forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onEntityDeath(EntityDeathEvent e) {
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", e.getEntity());
-        args.put("killer", e.getEntity().getKiller());
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, e.getEntity());
+        args.setArgument(ActionArgumentKey.KILLER, e.getEntity().getKiller());
         getListeners(EntityDeathTrigger.class, trigger -> true).forEach(listener -> listener.onTrigger(args));
-        if ((boolean) args.getOrDefault("cancelled", false)) {
-            e.setCancelled(true);
-        }
+        cancelIfCancellable(e, args);
 
         DropTable dropTable = (DropTable) Utils.getMetadata(e.getEntity().getMetadata("drops"), null).
                 value();
@@ -241,9 +225,9 @@ public class PlayerItemListener implements Listener {
                 e.getHand().equals(org.bukkit.inventory.EquipmentSlot.OFF_HAND)) {
             return;
         }
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", e.getRightClicked());
-        args.put("interactor", e.getPlayer());
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, (LivingEntity) e.getRightClicked());
+        args.setArgument(ActionArgumentKey.INTERACTOR, e.getPlayer());
         getListeners(EntityInteractedTrigger.class, trigger -> true).forEach(listener -> listener.onTrigger(args));
     }
 
@@ -254,19 +238,24 @@ public class PlayerItemListener implements Listener {
                 org.bukkit.inventory.EquipmentSlot.valueOf(e.getSlotType().name())));
     }
 
+    private void cancelIfCancellable(Cancellable e, ActionArgument args) {
+        if (args.getArgument(ActionArgumentKey.CANCELLED) != null && args.getArgument(ActionArgumentKey.CANCELLED)) {
+            e.setCancelled(true);
+        }
+    }
 
     private void executeEquipSkill(LivingEntity entity, ItemStack oldItem, ItemStack newItem, EquipmentSlot slot) {
-        Map<String, Object> args = new HashMap<>();
-        args.put("caster", entity);
+        ActionArgument args = new ActionArgument();
+        args.setArgument(ActionArgumentKey.CASTER, entity);
 
         if (!oldItem.getType().equals(Material.AIR)) {
-            args.put("item", oldItem);
+            args.setArgument(ActionArgumentKey.ITEM, oldItem);
             getListeners(EntityEquipArmorTrigger.class, trigger -> !trigger.isOnEquip()).
                     forEach(listener -> listener.onTrigger(args));
         }
 
         if (!newItem.getType().equals(Material.AIR)) {
-            args.put("item", newItem);
+            args.setArgument(ActionArgumentKey.ITEM, newItem);
             getListeners(EntityEquipArmorTrigger.class, EntityEquipArmorTrigger::isOnEquip).
                     forEach(listener -> listener.onTrigger(args));
         }

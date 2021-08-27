@@ -3,11 +3,12 @@ package com.github.zamponimarco.cubescocktail.action.meta;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
-import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
+import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
+import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.LocationTarget;
-import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.NoEntity;
 import com.github.zamponimarco.cubescocktail.projectile.Projectile;
@@ -65,7 +66,7 @@ public class ProjectileAction extends AbstractProjectileAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         Location sourceLocation = source.getLocation();
 
         if (sourceLocation == null) {
@@ -93,7 +94,7 @@ public class ProjectileAction extends AbstractProjectileAction {
             }
         }
 
-        new Projectile(target, source, sourceLocation, gravity.getRealValue(target, source), initialSpeed.getRealValue(target, source),
+        new Projectile(args.clone(), target, source, sourceLocation, gravity.getRealValue(target, source), initialSpeed.getRealValue(target, source),
                 onStartActions, onEntityHitActions, onBlockHitActions, onProjectileTickActions,
                 this.entity, this.hitBoxSize.getRealValue(target, source), maxLife.getRealValue(target, source).intValue(),
                 projectileSpread.getRealValue(target, source).intValue()).run();

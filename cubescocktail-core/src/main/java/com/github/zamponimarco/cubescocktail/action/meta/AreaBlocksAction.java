@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.action.meta;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.LocationTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
@@ -66,10 +67,10 @@ public class AreaBlocksAction extends WrapperAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         Predicate<Location> select = loc -> condition.checkCondition(new LocationTarget(loc), source);
         area.getBlocks(getLocation(target, source), target, source).stream().filter(select).forEach(block -> actions.
-                forEach(action -> action.execute(new LocationTarget(block), source, map)));
+                forEach(action -> action.execute(new LocationTarget(block), source, args)));
         return ActionResult.SUCCESS;
     }
 

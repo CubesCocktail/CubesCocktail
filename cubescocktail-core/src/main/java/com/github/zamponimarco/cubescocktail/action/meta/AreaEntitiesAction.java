@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.action.meta;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
@@ -104,7 +105,7 @@ public class AreaEntitiesAction extends WrapperAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         Location l = getLocation(target, source);
 
         LivingEntity caster = source.getCaster();
@@ -121,7 +122,7 @@ public class AreaEntitiesAction extends WrapperAction {
                     entityStream = entityStream.limit(realCount);
                 }
                 entityStream.forEach(entity -> actions.forEach(action -> action.execute(new EntityTarget(entity),
-                        castFromLocation ? new LocationSource(l, caster, source.getSourceItem()) : source, map)));
+                        castFromLocation ? new LocationSource(l, caster, source.getSourceItem()) : source, args)));
             } else {
                 return ActionResult.FAILURE;
             }

@@ -2,8 +2,9 @@ package com.github.zamponimarco.cubescocktail.trgt;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
-import org.bukkit.Location;
 
 import java.util.Map;
 
@@ -18,14 +19,14 @@ public class LocationTarget extends Target {
         super(map);
     }
 
-    @Override
-    public ActionTarget getTarget(Map<String, Object> args) {
-        Location location = (Location) args.get("location");
-        return new com.github.zamponimarco.cubescocktail.action.targeter.LocationTarget(location);
+    public static boolean targetEnabled(ModelPath<?> path) {
+        return getPossibleTargets(path).contains(LocationTarget.class);
     }
 
-    public static boolean targetEnabled(ModelPath path) {
-        return getPossibleTargets(path).contains(LocationTarget.class);
+    @Override
+    public ActionTarget getTarget(ActionArgument args) {
+        return new com.github.zamponimarco.cubescocktail.action.targeter.
+                LocationTarget(args.getArgument(ActionArgumentKey.LOCATION));
     }
 
     @Override

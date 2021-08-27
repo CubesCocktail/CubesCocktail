@@ -6,6 +6,7 @@ import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.CasterTarget;
@@ -48,7 +49,7 @@ public class ActionGroup implements Model, Cloneable {
         actions = (List<Action>) map.getOrDefault("actions", Lists.newArrayList());
     }
 
-    public void executeGroup(Map<String, Object> args) {
+    public void executeGroup(ActionArgument args) {
         actions.forEach(action -> action.execute(target.getTarget(args), source.getSource(args), args));
     }
 

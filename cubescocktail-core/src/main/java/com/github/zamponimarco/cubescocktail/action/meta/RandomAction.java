@@ -7,6 +7,7 @@ import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.entity.DamageAction;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
@@ -57,7 +58,7 @@ public class RandomAction extends MetaAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         TreeMap<Integer, Action> utilityMap = new TreeMap<>();
         AtomicInteger integer = new AtomicInteger(0);
         actions.forEach(action -> utilityMap.put(integer.getAndAccumulate(action.weight.getRealValue(target, source).
@@ -66,7 +67,7 @@ public class RandomAction extends MetaAction {
         Random random = new Random();
         int number = random.nextInt(integer.get());
         IntStream.range(0, rolls).forEach(i ->
-                utilityMap.floorEntry(number).getValue().execute(target, source, map));
+                utilityMap.floorEntry(number).getValue().execute(target, source, args));
         return ActionResult.SUCCESS;
     }
 

@@ -2,6 +2,8 @@ package com.github.zamponimarco.cubescocktail.trgt;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
@@ -19,15 +21,15 @@ public class ItemTarget extends Target {
         super(map);
     }
 
-    @Override
-    public ActionTarget getTarget(Map<String, Object> args) {
-        LivingEntity caster = (LivingEntity) args.get("caster");
-        ItemStack item = (ItemStack) args.get("item");
-        return new com.github.zamponimarco.cubescocktail.action.targeter.ItemTarget(item, caster);
+    public static boolean targetEnabled(ModelPath<?> path) {
+        return getPossibleTargets(path).contains(ItemTarget.class);
     }
 
-    public static boolean targetEnabled(ModelPath path) {
-        return getPossibleTargets(path).contains(ItemTarget.class);
+    @Override
+    public ActionTarget getTarget(ActionArgument args) {
+        LivingEntity caster = args.getArgument(ActionArgumentKey.CASTER);
+        ItemStack item = args.getArgument(ActionArgumentKey.ITEM);
+        return new com.github.zamponimarco.cubescocktail.action.targeter.ItemTarget(item, caster);
     }
 
     @Override

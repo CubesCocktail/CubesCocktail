@@ -6,6 +6,7 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.model.util.particle.options.ParticleOptions;
 import com.github.jummes.libs.util.MapperUtils;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
@@ -103,7 +104,7 @@ public class ParticleAction extends PacketAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         int count = this.count.getRealValue(target, source).intValue();
         double offset = this.offset.getRealValue(target, source);
         double speed = this.speed.getRealValue(target, source);

@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.action.projectile;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ProjectileTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
@@ -35,7 +36,7 @@ public class SetProjectileHitBoxSizeAction extends ProjectileAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         if (!(target instanceof ProjectileTarget)) {
             return ActionResult.FAILURE;
         }

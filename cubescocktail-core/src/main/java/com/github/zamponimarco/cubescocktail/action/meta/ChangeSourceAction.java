@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.action.meta;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
 import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
@@ -43,7 +44,7 @@ public class ChangeSourceAction extends WrapperAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         ActionSource newSource = null;
         if (target instanceof LocationTarget) {
             newSource = new LocationSource(target.getLocation().clone(), source.getCaster(), source.getSourceItem());
@@ -55,7 +56,7 @@ public class ChangeSourceAction extends WrapperAction {
             newSource = new LocationSource(target.getLocation(), source.getCaster(), source.getSourceItem());
         }
         ActionSource finalNewSource = newSource;
-        actions.forEach(action -> action.execute(target, finalNewSource, map));
+        actions.forEach(action -> action.execute(target, finalNewSource, args));
         return ActionResult.SUCCESS;
     }
 

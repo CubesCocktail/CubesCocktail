@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
@@ -14,7 +15,6 @@ import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -76,22 +76,22 @@ public class RepeatUntilAction extends WrapperAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
-        getRunnable(target, source).runTaskTimer(CubesCocktail.getInstance(), 0, timer);
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
+        getRunnable(target, source, args).runTaskTimer(CubesCocktail.getInstance(), 0, timer);
         return ActionResult.SUCCESS;
     }
 
-    private BukkitRunnable getRunnable(ActionTarget target, ActionSource source) {
+    private BukkitRunnable getRunnable(ActionTarget target, ActionSource source, ActionArgument args) {
         return new BukkitRunnable() {
             @Override
             public void run() {
                 if (condition.checkCondition(target, source)) {
-                    finalActions.forEach(action -> action.execute(target, source, new HashMap<>()));
+                    finalActions.forEach(action -> action.execute(target, source, args.clone()));
                     this.cancel();
                     return;
                 }
 
-                actions.forEach(action -> action.execute(target, source, new HashMap<>()));
+                actions.forEach(action -> action.execute(target, source, args.clone()));
             }
         };
     }

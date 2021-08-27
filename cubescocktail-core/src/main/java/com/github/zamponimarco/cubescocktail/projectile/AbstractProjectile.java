@@ -2,10 +2,12 @@ package com.github.zamponimarco.cubescocktail.projectile;
 
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
+import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ProjectileTarget;
-import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,9 +20,7 @@ import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 public abstract class AbstractProjectile {
 
     protected AbstractProjectile projectile;
+    protected ActionArgument args;
     protected ActionTarget target;
     protected ActionSource source;
     protected Location location;
@@ -45,10 +46,11 @@ public abstract class AbstractProjectile {
     private Location oldLocation;
     private com.github.zamponimarco.cubescocktail.entity.Entity baseEntity;
 
-    public AbstractProjectile(ActionTarget target, ActionSource source, Location location, double gravity, double speed,
+    public AbstractProjectile(ActionArgument args, ActionTarget target, ActionSource source, Location location, double gravity, double speed,
                               List<Action> onStartActions, List<Action> onEntityHitActions, List<Action> onBlockHitActions,
                               List<Action> onProjectileTickActions, com.github.zamponimarco.cubescocktail.entity.Entity baseEntity,
                               double hitBoxSize, int maxLife) {
+        this.args = args;
         this.target = target;
         this.source = source;
         this.location = location;
@@ -79,17 +81,17 @@ public abstract class AbstractProjectile {
         location.setDirection(getProjectileDirection());
         oldLocation = location.clone();
 
-        onStartActions.forEach(action -> action.execute(new ProjectileTarget(projectile), source,
-                new HashMap<>()));
+        args.setArgument(ActionArgumentKey.PROJECTILE, projectile);
+
+        onStartActions.forEach(action -> action.execute(new ProjectileTarget(projectile), source, args));
 
         this.entity = getEntity(baseEntity);
         new BukkitRunnable() {
             @Override
             public void run() {
-                Map<String, Object> map = new HashMap<>();
                 if (projectileHitBlock()) {
-                    onBlockHitActions.forEach(Action -> Action.execute(new ProjectileTarget(projectile), source, map));
-                    if (!(boolean) map.getOrDefault("cancelled", false))
+                    onBlockHitActions.forEach(Action -> Action.execute(new ProjectileTarget(projectile), source, args));
+                    if (!args.getArgument(ActionArgumentKey.CANCELLED))
                         remove();
                     source.getCaster().removeMetadata("hitFace", CubesCocktail.getInstance());
                 }
@@ -97,12 +99,11 @@ public abstract class AbstractProjectile {
                 List<LivingEntity> hitEntities = getHitEntities();
                 if (!hitEntities.isEmpty()) {
                     hitEntities.forEach(livingEntity -> onEntityHitActions.forEach(action -> action.
-                            execute(new EntityTarget(livingEntity), source, new HashMap<>())));
+                            execute(new EntityTarget(livingEntity), source, args)));
                     remove();
                 }
 
-                onProjectileTickActions.forEach(action -> action.execute(new ProjectileTarget(projectile), source,
-                        new HashMap<>()));
+                onProjectileTickActions.forEach(action -> action.execute(new ProjectileTarget(projectile), source, args));
 
                 if (projectileLife++ > maxLife) {
                     remove();

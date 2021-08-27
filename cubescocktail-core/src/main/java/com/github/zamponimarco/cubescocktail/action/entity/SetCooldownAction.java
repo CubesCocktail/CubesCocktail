@@ -5,6 +5,7 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.cooldown.Cooldownable;
@@ -13,7 +14,6 @@ import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -60,7 +60,7 @@ public class SetCooldownAction extends EntityAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         LivingEntity entity = getEntity(target, source);
         if (entity == null) {
             return ActionResult.FAILURE;

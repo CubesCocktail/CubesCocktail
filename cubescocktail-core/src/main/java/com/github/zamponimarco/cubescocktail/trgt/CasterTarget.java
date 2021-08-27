@@ -2,9 +2,10 @@ package com.github.zamponimarco.cubescocktail.trgt;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
-import org.bukkit.entity.LivingEntity;
 
 import java.util.Map;
 
@@ -19,14 +20,13 @@ public class CasterTarget extends Target {
         super(map);
     }
 
-    public static boolean targetEnabled(ModelPath path) {
+    public static boolean targetEnabled(ModelPath<?> path) {
         return getPossibleTargets(path).contains(CasterTarget.class);
     }
 
     @Override
-    public ActionTarget getTarget(Map<String, Object> args) {
-        LivingEntity caster = (LivingEntity) args.get("caster");
-        return new EntityTarget(caster);
+    public ActionTarget getTarget(ActionArgument args) {
+        return new EntityTarget(args.getArgument(ActionArgumentKey.CASTER));
     }
 
     @Override

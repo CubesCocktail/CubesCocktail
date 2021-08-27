@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.google.common.collect.Lists;
@@ -12,7 +13,6 @@ import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -65,7 +65,7 @@ public class TimerAction extends WrapperAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         BukkitRunnable runnable = new BukkitRunnable() {
             private int counter = 1;
 
@@ -74,7 +74,7 @@ public class TimerAction extends WrapperAction {
                 if (counter >= repetitions) {
                     this.cancel();
                 }
-                actions.forEach(action -> action.execute(target, source, new HashMap<>()));
+                actions.forEach(action -> action.execute(target, source, args.clone()));
                 counter++;
             }
         };

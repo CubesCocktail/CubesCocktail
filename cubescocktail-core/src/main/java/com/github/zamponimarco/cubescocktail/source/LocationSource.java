@@ -2,6 +2,8 @@ package com.github.zamponimarco.cubescocktail.source;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
@@ -20,16 +22,16 @@ public class LocationSource extends Source {
         super(map);
     }
 
-    @Override
-    public ActionSource getSource(Map<String, Object> args) {
-        Location location = (Location) args.get("location");
-        LivingEntity entity = (LivingEntity) args.get("caster");
-        ItemStack item = (ItemStack) args.get("item");
-        return new com.github.zamponimarco.cubescocktail.action.source.LocationSource(location, entity, item);
+    public static boolean sourceEnabled(ModelPath<?> path) {
+        return getPossibleSources(path).contains(LocationSource.class);
     }
 
-    public static boolean sourceEnabled(ModelPath path) {
-        return getPossibleSources(path).contains(LocationSource.class);
+    @Override
+    public ActionSource getSource(ActionArgument args) {
+        Location location = args.getArgument(ActionArgumentKey.LOCATION);
+        LivingEntity entity = args.getArgument(ActionArgumentKey.CASTER);
+        ItemStack item = args.getArgument(ActionArgumentKey.ITEM);
+        return new com.github.zamponimarco.cubescocktail.action.source.LocationSource(location, entity, item);
     }
 
     @Override

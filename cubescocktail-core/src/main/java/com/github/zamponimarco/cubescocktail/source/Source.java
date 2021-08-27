@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.source;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleSources;
 
@@ -21,22 +22,22 @@ public abstract class Source implements Model, Cloneable {
     }
 
     protected static Set<Class<? extends Source>> getPossibleSources(ModelPath<?> path) {
-        Set<Class<? extends Source>> targetSet = new HashSet<>();
+        Set<Class<? extends Source>> sourceSet = new HashSet<>();
         path.getModelPath().forEach(model -> {
             PossibleSources targets = model.getClass().getAnnotation(PossibleSources.class);
 
             if (Objects.nonNull(targets)) {
                 try {
-                    targetSet.addAll((Collection<? extends Class<? extends Source>>)
+                    sourceSet.addAll((Collection<? extends Class<? extends Source>>)
                             model.getClass().getDeclaredMethod(targets.value()).invoke(model));
                 } catch (Exception ignored) {
                 }
             }
         });
-        return targetSet;
+        return sourceSet;
     }
 
-    public abstract ActionSource getSource(Map<String, Object> args);
+    public abstract ActionSource getSource(ActionArgument args);
 
     @Override
     public abstract Source clone();

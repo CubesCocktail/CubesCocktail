@@ -3,6 +3,8 @@ package com.github.zamponimarco.cubescocktail.source;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import org.bukkit.Location;
@@ -33,19 +35,19 @@ public class RayTraceSource extends Source {
         this.rayCastMaxDistance = (double) map.getOrDefault("rayCastMaxDistance", 30);
     }
 
+    public static boolean sourceEnabled(ModelPath<?> path) {
+        return getPossibleSources(path).contains(RayTraceSource.class);
+    }
+
     @Override
-    public ActionSource getSource(Map<String, Object> args) {
-        LivingEntity e = (LivingEntity) args.get("caster");
+    public ActionSource getSource(ActionArgument args) {
+        LivingEntity e = args.getArgument(ActionArgumentKey.CASTER);
         RayTraceResult result = e.rayTraceBlocks(rayCastMaxDistance);
         if (result != null) {
             Location l = result.getHitPosition().toLocation(e.getWorld());
             return new LocationSource(l, e, null);
         }
         return new LocationSource(e.getEyeLocation(), e, null);
-    }
-
-    public static boolean sourceEnabled(ModelPath path) {
-        return getPossibleSources(path).contains(RayTraceSource.class);
     }
 
     @Override

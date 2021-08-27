@@ -3,6 +3,8 @@ package com.github.zamponimarco.cubescocktail.trgt;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.LocationTarget;
 import org.bukkit.Location;
@@ -33,19 +35,19 @@ public class RayTraceTarget extends Target {
         this.rayCastMaxDistance = (double) map.getOrDefault("rayCastMaxDistance", 30);
     }
 
+    public static boolean targetEnabled(ModelPath<?> path) {
+        return getPossibleTargets(path).contains(RayTraceTarget.class);
+    }
+
     @Override
-    public ActionTarget getTarget(Map<String, Object> args) {
-        LivingEntity e = (LivingEntity) args.get("caster");
+    public ActionTarget getTarget(ActionArgument args) {
+        LivingEntity e = args.getArgument(ActionArgumentKey.CASTER);
         RayTraceResult result = e.rayTraceBlocks(rayCastMaxDistance);
         if (result != null) {
             Location l = result.getHitPosition().toLocation(e.getWorld());
             return new LocationTarget(l);
         }
         return new LocationTarget(e.getEyeLocation());
-    }
-
-    public static boolean targetEnabled(ModelPath path) {
-        return getPossibleTargets(path).contains(RayTraceTarget.class);
     }
 
     @Override

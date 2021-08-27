@@ -7,6 +7,7 @@ import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.function.Function;
@@ -67,10 +68,10 @@ public class FunctionAction extends MetaAction {
     }
 
     @Override
-    public ActionResult execute(ActionTarget target, ActionSource source, Map<String, Object> map) {
+    public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
         Function skill = CubesCocktail.getInstance().getFunctionManager().getFunctionByName(functionName);
         if (skill != null) {
-            skill.getActions().forEach(action -> action.execute(target, source, map));
+            skill.getActions().forEach(action -> action.execute(target, source, args));
             return ActionResult.SUCCESS;
         }
         return ActionResult.FAILURE;

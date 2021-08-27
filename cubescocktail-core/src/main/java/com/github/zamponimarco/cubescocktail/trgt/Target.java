@@ -3,6 +3,7 @@ package com.github.zamponimarco.cubescocktail.trgt;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 
@@ -36,7 +37,7 @@ public abstract class Target implements Model, Cloneable {
         return targetSet;
     }
 
-    public abstract ActionTarget getTarget(Map<String, Object> args);
+    public abstract ActionTarget getTarget(ActionArgument args);
 
     @Override
     public abstract Target clone();

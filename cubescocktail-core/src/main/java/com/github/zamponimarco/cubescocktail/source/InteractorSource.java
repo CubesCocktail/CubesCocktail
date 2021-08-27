@@ -2,9 +2,10 @@ package com.github.zamponimarco.cubescocktail.source;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
-import org.bukkit.entity.LivingEntity;
 
 import java.util.Map;
 
@@ -19,14 +20,13 @@ public class InteractorSource extends Source {
         super(map);
     }
 
-    @Override
-    public ActionSource getSource(Map<String, Object> args) {
-        LivingEntity interactor = (LivingEntity) args.get("interactor");
-        return new EntitySource(interactor, null);
+    public static boolean sourceEnabled(ModelPath<?> path) {
+        return getPossibleSources(path).contains(InteractorSource.class);
     }
 
-    public static boolean sourceEnabled(ModelPath path) {
-        return getPossibleSources(path).contains(InteractorSource.class);
+    @Override
+    public ActionSource getSource(ActionArgument args) {
+        return new EntitySource(args.getArgument(ActionArgumentKey.INTERACTOR), null);
     }
 
     @Override
