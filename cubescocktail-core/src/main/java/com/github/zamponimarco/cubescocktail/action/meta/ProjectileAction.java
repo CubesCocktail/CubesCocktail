@@ -13,13 +13,17 @@ import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.NoEntity;
 import com.github.zamponimarco.cubescocktail.projectile.Projectile;
+import com.github.zamponimarco.cubescocktail.trgt.ProjectileTarget;
+import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.inventory.MainHand;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -65,6 +69,10 @@ public class ProjectileAction extends AbstractProjectileAction {
         super(map);
         this.shootFromHand = (boolean) map.getOrDefault("shootFromHand", SHOOT_FROM_HAND_DEFAULT);
         this.projectileSpread = (NumericValue) map.getOrDefault("projectileSpread", PROJECTILE_SPREAD_DEFAULT.clone());
+    }
+
+    public Collection<Class<? extends Target>> getPossibleTargets() {
+        return Sets.newHashSet(ProjectileTarget.class);
     }
 
     @Override

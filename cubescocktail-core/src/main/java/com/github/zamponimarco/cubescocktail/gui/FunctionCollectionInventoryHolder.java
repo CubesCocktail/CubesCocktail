@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class SavedSkillCollectionInventoryHolder extends SelectableCollectionInventoryHolder<AbstractFunction> {
+public class FunctionCollectionInventoryHolder extends SelectableCollectionInventoryHolder<AbstractFunction> {
 
-    public SavedSkillCollectionInventoryHolder(JavaPlugin plugin, PluginInventoryHolder parent, ModelPath<AbstractFunction> path,
-                                               Field field, int page, Predicate<AbstractFunction> filter) {
+    public FunctionCollectionInventoryHolder(JavaPlugin plugin, PluginInventoryHolder parent, ModelPath<AbstractFunction> path,
+                                             Field field, int page, Predicate<AbstractFunction> filter) {
         super(plugin, parent, path, field, page, filter);
     }
 

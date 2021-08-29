@@ -87,7 +87,6 @@ public class NumericValue extends Value<Double, NumericPlaceholder> {
         map.put(ClickType.LEFT, () -> {
             if (objectValue) {
                 path.addModel(this);
-                path.addField(field);
                 if (field.isAnnotationPresent(Serializable.Number.class)) {
                     return new DoubleFieldChangeInventoryHolder(plugin, parent, path,
                             new FieldChangeInformation(valueField),

@@ -66,7 +66,6 @@ public class StringValue extends Value<String, StringPlaceholder> {
         map.putIfAbsent(ClickType.LEFT, () -> {
             if (objectValue) {
                 path.addModel(this);
-                path.addField(field);
                 return new StringFieldChangeInventoryHolder(plugin, parent, path,
                         new FieldChangeInformation(valueField));
             } else {

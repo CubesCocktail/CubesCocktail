@@ -113,10 +113,6 @@ public abstract class AbstractProjectileAction extends MetaAction {
         }
     }
 
-    public Collection<Class<? extends Target>> getPossibleTargets() {
-        return Sets.newHashSet(ProjectileTarget.class);
-    }
-
     @Override
     public ItemStack targetItem() {
         return null;

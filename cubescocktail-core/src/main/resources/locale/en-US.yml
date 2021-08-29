@@ -1272,6 +1272,10 @@ gui:
       description:
         - "&7&oSet a location target based on the location"
         - "&7&owhere the trigger is applied."
+    projectile:
+      description:
+        - "&7&oSet a target that is based on the projectile"
+        - "&7&ospawned by an action."
     selected-entity:
       description:
         - "&7&oSet a target that is based on the entity"

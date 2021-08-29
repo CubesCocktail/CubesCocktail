@@ -85,7 +85,6 @@ public class MaterialValue extends Value<Material, MaterialPlaceholder> {
         map.putIfAbsent(ClickType.LEFT, () -> {
             if (objectValue) {
                 path.addModel(this);
-                path.addField(field);
                 return new FromListFieldChangeInventoryHolder(plugin, parent, path, new FieldChangeInformation(valueField),
                         1, Lists.newArrayList(Material.values()), MapperUtils.getMaterialMapper());
             } else {

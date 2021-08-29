@@ -24,7 +24,7 @@ import com.github.zamponimarco.cubescocktail.entity.sorter.EntitySorter;
 import com.github.zamponimarco.cubescocktail.function.AbstractFunction;
 import com.github.zamponimarco.cubescocktail.function.Function;
 import com.github.zamponimarco.cubescocktail.gui.ActionCollectionInventoryHolder;
-import com.github.zamponimarco.cubescocktail.gui.SavedSkillCollectionInventoryHolder;
+import com.github.zamponimarco.cubescocktail.gui.FunctionCollectionInventoryHolder;
 import com.github.zamponimarco.cubescocktail.hook.VaultHook;
 import com.github.zamponimarco.cubescocktail.hook.WorldGuardHook;
 import com.github.zamponimarco.cubescocktail.listener.PlayerItemListener;
@@ -214,7 +214,7 @@ public class CubesCocktail extends JavaPlugin {
     private void setUpLibrary() {
         DatabaseFactory.getMap().put("comp", CompressedYamlDatabase.class);
         FieldInventoryHolderFactory.collectionGUIMap.put(Action.class, ActionCollectionInventoryHolder.class);
-        FieldInventoryHolderFactory.collectionGUIMap.put(AbstractFunction.class, SavedSkillCollectionInventoryHolder.class);
+        FieldInventoryHolderFactory.collectionGUIMap.put(AbstractFunction.class, FunctionCollectionInventoryHolder.class);
         Libs.initializeLibrary(this);
         Libs.getLocale().registerLocaleFiles(this, Lists.newArrayList("en-US"), "en-US");
     }
