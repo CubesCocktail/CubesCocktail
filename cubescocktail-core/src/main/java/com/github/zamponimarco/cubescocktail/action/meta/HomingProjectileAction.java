@@ -9,6 +9,7 @@ import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.NoEntity;
 import com.github.zamponimarco.cubescocktail.projectile.HomingProjectile;
@@ -26,6 +27,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
+@PossibleTargets("getPossibleTargets")
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lHoming Projectile", description = "gui.action.meta.projectile.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjE1ZmVjNjUxOGE0MWYxNjYxMzFlNjViMTBmNDZmYjg3ZTk3YzQ5MmI0NmRiYzI1ZGUyNjM3NjcyMWZhNjRlMCJ9fX0=")
 public class HomingProjectileAction extends AbstractProjectileAction {

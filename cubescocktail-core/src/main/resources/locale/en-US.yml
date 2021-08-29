@@ -1241,6 +1241,14 @@ gui:
       description:
         - "&7&oSet a location source based on the location"
         - "&7&owhere the trigger is applied."
+    selected-entity:
+      description:
+        - "&7&oSet a source that is based on the entity"
+        - "&7&othat is being currently selected."
+    selected-block:
+      description:
+        - "&7&oSet a source that is based on the location"
+        - "&7&oof the block that is being currently selected."
     raycast:
       description:
         - "&7&oSet a location source based on the point"
@@ -1264,6 +1272,14 @@ gui:
       description:
         - "&7&oSet a location target based on the location"
         - "&7&owhere the trigger is applied."
+    selected-entity:
+      description:
+        - "&7&oSet a target that is based on the entity"
+        - "&7&othat is being currently selected."
+    selected-block:
+      description:
+        - "&7&oSet a target that is based on the location"
+        - "&7&oof the block that is being currently selected."
     raycast:
       description:
         - "&7&oSet a location target based on the point"

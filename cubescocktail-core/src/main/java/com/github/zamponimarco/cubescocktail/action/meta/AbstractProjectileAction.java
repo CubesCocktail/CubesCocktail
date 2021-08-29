@@ -2,9 +2,12 @@ package com.github.zamponimarco.cubescocktail.action.meta;
 
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.NoEntity;
 import com.github.zamponimarco.cubescocktail.function.Function;
+import com.github.zamponimarco.cubescocktail.trgt.ProjectileTarget;
+import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -12,10 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 public abstract class AbstractProjectileAction extends MetaAction {
@@ -113,6 +113,10 @@ public abstract class AbstractProjectileAction extends MetaAction {
         }
     }
 
+    public Collection<Class<? extends Target>> getPossibleTargets() {
+        return Sets.newHashSet(ProjectileTarget.class);
+    }
+
     @Override
     public ItemStack targetItem() {
         return null;
@@ -130,8 +134,8 @@ public abstract class AbstractProjectileAction extends MetaAction {
 
     @Override
     public Set<Function> getUsedSavedSkills() {
-        return Stream.concat(Stream.concat(onBlockHitActions.stream(), onEntityHitActions.stream()),
-                onProjectileTickActions.stream()).reduce(Sets.newHashSet(), (list, action) -> {
+        return Stream.concat(Stream.concat(Stream.concat(onBlockHitActions.stream(), onEntityHitActions.stream()),
+                onProjectileTickActions.stream()), onStartActions.stream()).reduce(Sets.newHashSet(), (list, action) -> {
             list.addAll(action.getUsedSavedSkills());
             return list;
         }, (list1, list2) -> {

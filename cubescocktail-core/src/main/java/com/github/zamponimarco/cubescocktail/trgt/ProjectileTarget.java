@@ -10,32 +10,33 @@ import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import java.util.Map;
 
 @Enumerable.Child
-@Enumerable.Displayable(condition = "targetEnabled", name = "&c&lSelected Entity Target", description = "gui.target.selected-entity.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZmYzg1NGJiODRjZjRiNzY5NzI5Nzk3M2UwMmI3OWJjMTA2OTg0NjBiNTFhNjM5YzYwZTVlNDE3NzM0ZTExIn19fQ")
-public class SelectedEntityTarget extends Target {
+@Enumerable.Displayable(condition = "targetEnabled", name = "&c&lProjectile Target", description = "gui.target.projectile.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjE1ZmVjNjUxOGE0MWYxNjYxMzFlNjViMTBmNDZmYjg3ZTk3YzQ5MmI0NmRiYzI1ZGUyNjM3NjcyMWZhNjRlMCJ9fX0=")
+public class ProjectileTarget extends Target {
 
-    public SelectedEntityTarget() {
+    public ProjectileTarget() {
     }
 
-    public SelectedEntityTarget(Map<String, Object> map) {
+    public ProjectileTarget(Map<String, Object> map) {
         super(map);
     }
 
     public static boolean targetEnabled(ModelPath<?> path) {
-        return getPossibleTargets(path).contains(SelectedEntityTarget.class);
+        return getPossibleTargets(path).contains(ProjectileTarget.class);
     }
 
     @Override
     public ActionTarget getTarget(ActionArgument args) {
-        return new EntityTarget(args.getArgument(ActionArgumentKey.SELECTED_ENTITY));
+        return new com.github.zamponimarco.cubescocktail.action.targeter.
+                ProjectileTarget(args.getArgument(ActionArgumentKey.PROJECTILE));
     }
 
     @Override
     public Target clone() {
-        return new SelectedEntityTarget();
+        return new ProjectileTarget();
     }
 
     @Override
     public String getName() {
-        return "Selected Entity Target";
+        return "Projectile Target";
     }
 }

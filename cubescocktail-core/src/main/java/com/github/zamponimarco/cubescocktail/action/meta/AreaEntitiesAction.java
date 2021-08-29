@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.annotation.PossibleSources;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import com.github.zamponimarco.cubescocktail.area.Area;
 import com.github.zamponimarco.cubescocktail.area.SphericArea;
@@ -16,6 +17,8 @@ import com.github.zamponimarco.cubescocktail.condition.bool.BooleanCondition;
 import com.github.zamponimarco.cubescocktail.entity.sorter.EntitySorter;
 import com.github.zamponimarco.cubescocktail.entity.sorter.ProximitySorter;
 import com.github.zamponimarco.cubescocktail.placeholder.bool.IsSourcePlaceholder;
+import com.github.zamponimarco.cubescocktail.source.SelectedEntitySource;
+import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.SelectedEntityTarget;
 import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
@@ -38,6 +41,7 @@ import java.util.stream.Stream;
 @Getter
 @Setter
 @PossibleTargets("getPossibleTargets")
+@PossibleSources("getPossibleSources")
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lApply actions to entities in Area", description = "gui.action.meta.wrapper.area-entities.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZmYzg1NGJiODRjZjRiNzY5NzI5Nzk3M2UwMmI3OWJjMTA2OTg0NjBiNTFhNjM5YzYwZTVlNDE3NzM0ZTExIn19fQ==")
 public class AreaEntitiesAction extends WrapperAction {
@@ -107,6 +111,10 @@ public class AreaEntitiesAction extends WrapperAction {
 
     public Collection<Class<? extends Target>> getPossibleTargets() {
         return Sets.newHashSet(SelectedEntityTarget.class);
+    }
+
+    public Collection<Class<? extends Source>> getPossibleSources() {
+        return Sets.newHashSet(SelectedEntitySource.class);
     }
 
     @Override

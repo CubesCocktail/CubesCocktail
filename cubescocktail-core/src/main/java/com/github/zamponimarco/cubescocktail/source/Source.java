@@ -10,7 +10,8 @@ import com.github.zamponimarco.cubescocktail.annotation.PossibleSources;
 import java.util.*;
 
 @Enumerable.Parent(classArray = {CasterSource.class, RayTraceSource.class, DamagedSource.class, DamagerSource.class,
-        LocationSource.class, KillerSource.class, InteractorSource.class, SpawnedSource.class})
+        LocationSource.class, KillerSource.class, InteractorSource.class, SpawnedSource.class, SelectedEntitySource.class,
+        SelectedBlockSource.class})
 public abstract class Source implements Model, Cloneable {
 
     public Source() {
