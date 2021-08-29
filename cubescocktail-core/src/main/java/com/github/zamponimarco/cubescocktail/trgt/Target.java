@@ -10,7 +10,8 @@ import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import java.util.*;
 
 @Enumerable.Parent(classArray = {CasterTarget.class, RayTraceTarget.class, LocationTarget.class, DamagedTarget.class,
-        ItemTarget.class, DamagerTarget.class, KillerTarget.class, InteractorTarget.class, SpawnedTarget.class})
+        ItemTarget.class, DamagerTarget.class, KillerTarget.class, InteractorTarget.class, SpawnedTarget.class,
+        SelectedEntityTarget.class})
 public abstract class Target implements Model, Cloneable {
 
     public Target() {

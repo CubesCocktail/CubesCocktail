@@ -22,6 +22,7 @@ public interface ActionArgumentKey<Z> {
     ActionArgumentKey<Location> LOCATION = new ActionArgumentKeyImpl<>("location");
     ActionArgumentKey<AbstractProjectile> PROJECTILE = new ActionArgumentKeyImpl<>("projectile");
     ActionArgumentKey<LivingEntity> SPAWNED = new ActionArgumentKeyImpl<>("spawned");
+    ActionArgumentKey<LivingEntity> SELECTED_ENTITY = new ActionArgumentKeyImpl<>("selected_entity");
 
     @Getter
     @EqualsAndHashCode

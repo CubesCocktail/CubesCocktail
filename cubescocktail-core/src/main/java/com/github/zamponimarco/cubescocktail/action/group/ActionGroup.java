@@ -49,6 +49,10 @@ public class ActionGroup implements Model, Cloneable {
         actions = (List<Action>) map.getOrDefault("actions", Lists.newArrayList());
     }
 
+    public List<Action> getWrappedActions() {
+        return actions;
+    }
+
     public void executeGroup(ActionArgument args) {
         actions.forEach(action -> action.execute(target.getTarget(args), source.getSource(args), args));
     }

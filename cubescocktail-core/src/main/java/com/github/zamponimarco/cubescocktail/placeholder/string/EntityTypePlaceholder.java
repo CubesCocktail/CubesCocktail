@@ -44,7 +44,7 @@ public class EntityTypePlaceholder extends StringPlaceholder {
 
     @Override
     public String getName() {
-        return String.format("%s Entity Name", target ? "Target" : "Source");
+        return String.format("%s Entity Type", target ? "Target" : "Source");
     }
 
     @Override

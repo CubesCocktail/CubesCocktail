@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import com.github.zamponimarco.cubescocktail.area.Area;
 import com.github.zamponimarco.cubescocktail.area.SphericArea;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
@@ -15,14 +16,18 @@ import com.github.zamponimarco.cubescocktail.condition.bool.BooleanCondition;
 import com.github.zamponimarco.cubescocktail.entity.sorter.EntitySorter;
 import com.github.zamponimarco.cubescocktail.entity.sorter.ProximitySorter;
 import com.github.zamponimarco.cubescocktail.placeholder.bool.IsSourcePlaceholder;
+import com.github.zamponimarco.cubescocktail.trgt.SelectedEntityTarget;
+import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.LivingEntity;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -32,6 +37,7 @@ import java.util.stream.Stream;
 
 @Getter
 @Setter
+@PossibleTargets("getPossibleTargets")
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lApply actions to entities in Area", description = "gui.action.meta.wrapper.area-entities.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZmYzg1NGJiODRjZjRiNzY5NzI5Nzk3M2UwMmI3OWJjMTA2OTg0NjBiNTFhNjM5YzYwZTVlNDE3NzM0ZTExIn19fQ==")
 public class AreaEntitiesAction extends WrapperAction {
@@ -97,6 +103,10 @@ public class AreaEntitiesAction extends WrapperAction {
 
         this.area = (Area) map.getOrDefault("area", new SphericArea());
         this.condition = (Condition) map.getOrDefault("condition", CONDITION_DEFAULT.clone());
+    }
+
+    public Collection<Class<? extends Target>> getPossibleTargets() {
+        return Sets.newHashSet(SelectedEntityTarget.class);
     }
 
     @Override
