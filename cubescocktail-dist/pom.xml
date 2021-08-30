@@ -78,5 +78,20 @@
             <artifactId>cubescocktail-craftbukkit_1_17_R1</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.zamponimarco</groupId>
+            <artifactId>cubescocktail-craftbukkit_1_16_R3</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.zamponimarco</groupId>
+            <artifactId>cubescocktail-craftbukkit_1_16_R2</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.zamponimarco</groupId>
+            <artifactId>cubescocktail-craftbukkit_1_16_R1</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 </project>
