@@ -27,7 +27,7 @@ public class IsBlockingPlaceholder extends PlayerPropertyBooleanPlaceholder {
 
     @Override
     public String getName() {
-        return String.format("%s Is Flying", target ? "Target" : "Source");
+        return String.format("%s Is Blocking", target ? "Target" : "Source");
     }
 
     @Override
