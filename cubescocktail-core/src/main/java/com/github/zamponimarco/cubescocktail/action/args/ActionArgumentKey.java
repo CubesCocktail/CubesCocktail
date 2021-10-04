@@ -7,7 +7,6 @@ import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
 
 public interface ActionArgumentKey<Z> {

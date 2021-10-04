@@ -91,7 +91,8 @@ public abstract class AbstractProjectile {
             public void run() {
                 if (projectileHitBlock()) {
                     onBlockHitActions.forEach(Action -> Action.execute(new ProjectileTarget(projectile), source, args));
-                    if (!args.getArgument(ActionArgumentKey.CANCELLED))
+                    if (!args.isArgumentPresent(ActionArgumentKey.CANCELLED) ||
+                            !args.getArgument(ActionArgumentKey.CANCELLED))
                         remove();
                     source.getCaster().removeMetadata("hitFace", CubesCocktail.getInstance());
                 }

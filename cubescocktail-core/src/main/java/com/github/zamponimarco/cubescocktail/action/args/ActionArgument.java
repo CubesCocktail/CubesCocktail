@@ -19,6 +19,10 @@ public class ActionArgument implements Cloneable {
         map.put(key, value);
     }
 
+    public boolean isArgumentPresent(ActionArgumentKey<?> key) {
+        return map.containsKey(key);
+    }
+
     public <Z> Z getArgument(ActionArgumentKey<Z> key) {
         return (Z) map.get(key);
     }
