@@ -7,11 +7,12 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.value.StringValue;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.command.CommandSender;
 
 import java.util.Map;
 
@@ -43,19 +44,22 @@ public class CommandAction extends MetaAction {
 
     @Override
     public ActionResult execute(ActionTarget target, ActionSource source, ActionArgument args) {
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), CubesCocktail.getInstance().
+        CommandSender sender = Bukkit.getConsoleSender();
+        if (this.target) {
+            if (target instanceof EntityTarget)
+                sender = ((EntityTarget) target).getTarget();
+        } else {
+            sender = source.getCaster();
+        }
+
+        Bukkit.dispatchCommand(sender, CubesCocktail.getInstance().
                 getSavedPlaceholderManager().computePlaceholders(command.getRealValue(target, source), source, target));
         return ActionResult.SUCCESS;
     }
 
     @Override
     public Action clone() {
-        return new CommandAction(TARGET_DEFAULT, command);
-    }
-
-    @Override
-    public ItemStack targetItem() {
-        return null;
+        return new CommandAction(target, command);
     }
 
     @Override
