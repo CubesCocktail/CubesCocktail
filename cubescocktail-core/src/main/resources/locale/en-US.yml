@@ -136,6 +136,14 @@ gui:
         coordinates:
           - "&7&oThe vector that defines the relative"
           - "&7&ocoordinates."
+      set-cooldown:
+        description:
+          - "&7&oSet an action that modifies the cooldown"
+          - "&7&oof another skill for the targeted entity."
+        key:
+          - "&7&oThe key of the skill cooldown."
+        cooldown:
+          - "&7&oThe new value of the cooldown."
       set-fire:
         description:
           - "&7&oSet an action that sets an entity on fire."

@@ -19,14 +19,15 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Enumerable.Child
-@Enumerable.Displayable(name = "&c&lRelative Cooldown", description = "gui.action.entity.relative-teleport.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTU5MzM1ZDkxYmIzOWJhNjg1YmE1NjEyY2NmY2FlOGFhZGEzNDYxYTlkMDc4NjZjZDRlMGIyNjZjODY0ZTEwNyJ9fX0=")
+@Enumerable.Displayable(name = "&c&lSet Cooldown", description = "gui.action.entity.set-cooldown.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTU5MzM1ZDkxYmIzOWJhNjg1YmE1NjEyY2NmY2FlOGFhZGEzNDYxYTlkMDc4NjZjZDRlMGIyNjZjODY0ZTEwNyJ9fX0=")
 public class SetCooldownAction extends EntityAction {
 
     private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGViNDYxMzU0NDBjMmUwNDJhZWY4NzUyNGMzMTkyMDRhZjcwMWQzNWFiY2U3NDc4YWY2NGU4ZWY4ZTU5MGQzNSJ9fX0=";
 
-    @Serializable(headTexture = HEAD, fromList = "getColdownables", fromListMapper = "cooldownablesMapper", description = "gui.placeholder.double.entity.cooldown.key")
+    @Serializable(headTexture = HEAD, fromList = "getColdownables", fromListMapper = "cooldownablesMapper",
+            description = "gui.action.entity.set-cooldown.key")
     private Key key;
-    @Serializable(headTexture = HEAD, description = "gui.placeholder.double.entity.cooldown.key")
+    @Serializable(headTexture = HEAD, description = "gui.action.entity.set-cooldown.cooldown")
     private NumericValue cooldown;
 
     public SetCooldownAction() {
