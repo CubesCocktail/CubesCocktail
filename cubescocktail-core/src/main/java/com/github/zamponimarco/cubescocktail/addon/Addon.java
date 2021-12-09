@@ -34,6 +34,10 @@ public abstract class Addon {
 
     }
 
+    public <T> T sendMessageToAddon(AddonMessage<T> message) {
+        return null;
+    }
+
     public abstract void renameFunction(String oldName, String newName);
 
     public void saveResource(String fileName) {

@@ -1,7 +1,8 @@
-package com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.suprememob;
+package com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.mobdrink;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
@@ -11,7 +12,7 @@ import org.bukkit.entity.LivingEntity;
 import java.util.Map;
 
 @Enumerable.Parent(classArray = {MobLevelPlaceholder.class})
-@Enumerable.Displayable(name = "&c&lSupremeMob Placeholders", condition = "supremeMobsEnabled", description = "gui.placeholder.double.mob.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjEyYjU4Yzg0MWIzOTQ4NjNkYmNjNTRkZTFjMmFkMjY0OGFmOGYwM2U2NDg5ODhjMWY5Y2VmMGJjMjBlZTIzYyJ9fX0=")
+@Enumerable.Displayable(name = "&c&lMobDrink Placeholders", condition = "mobDrinkEnabled", description = "gui.placeholder.double.mob.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjEyYjU4Yzg0MWIzOTQ4NjNkYmNjNTRkZTFjMmFkMjY0OGFmOGYwM2U2NDg5ODhjMWY5Y2VmMGJjMjBlZTIzYyJ9fX0=")
 public abstract class MobNumericPlaceholder extends NumericPlaceholder {
 
     public MobNumericPlaceholder(boolean target) {
@@ -22,8 +23,8 @@ public abstract class MobNumericPlaceholder extends NumericPlaceholder {
         super(map);
     }
 
-    public static boolean supremeMobsEnabled(ModelPath path) {
-        return true;
+    public static boolean mobDrinkEnabled(ModelPath path) {
+        return CubesCocktail.getInstance().getMobDrinkHook().isEnabled();
     }
 
     protected LivingEntity getEntity(ActionTarget target, ActionSource source) {

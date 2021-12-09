@@ -1,9 +1,11 @@
-package com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.suprememob;
+package com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.mobdrink;
 
 import com.github.jummes.libs.annotation.Enumerable;
+import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
+import org.bukkit.entity.LivingEntity;
 
 import java.util.Map;
 
@@ -25,8 +27,7 @@ public class MobLevelPlaceholder extends MobNumericPlaceholder {
 
     @Override
     public Double computePlaceholder(ActionTarget target, ActionSource source) {
-        /*
-        if (!SupremeMob.getInstance().isEnabled()) {
+        if (!CubesCocktail.getInstance().getMobDrinkHook().isEnabled()) {
             return 0.0;
         }
 
@@ -36,9 +37,7 @@ public class MobLevelPlaceholder extends MobNumericPlaceholder {
             return 0.0;
         }
 
-        return (double) Mob.getLevel(entity);
-        */
-        return 0.0;
+        return CubesCocktail.getInstance().getMobDrinkHook().getLevel(entity).doubleValue();
     }
 
     @Override

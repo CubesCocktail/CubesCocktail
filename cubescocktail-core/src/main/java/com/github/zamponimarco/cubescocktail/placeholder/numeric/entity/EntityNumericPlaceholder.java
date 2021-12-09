@@ -6,7 +6,7 @@ import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.player.PlayerNumericPlaceholder;
-import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.suprememob.MobNumericPlaceholder;
+import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.mobdrink.MobNumericPlaceholder;
 import org.bukkit.entity.LivingEntity;
 
 import java.util.Map;

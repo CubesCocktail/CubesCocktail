@@ -10,7 +10,7 @@ import org.bukkit.entity.EntityType;
 import java.util.Map;
 
 @Enumerable.Parent(classArray = {NoEntity.class, GenericEntity.class, ItemEntity.class, FallingBlockEntity.class,
-        SupremeMobEntity.class})
+        MobDrinkEntity.class})
 public abstract class Entity implements Model, Cloneable {
 
     public Entity() {

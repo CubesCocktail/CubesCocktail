@@ -10,6 +10,8 @@ import org.bukkit.plugin.InvalidDescriptionException;
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
@@ -74,5 +76,10 @@ public class AddonManager {
 
     public List<Addon> getLoadedAddons() {
         return addonClassLoaders.stream().map(AddonClassLoader::getAddon).collect(Collectors.toList());
+    }
+
+    public Addon getAddon(String name) {
+        return addonClassLoaders.stream().map(AddonClassLoader::getAddon).filter(addon -> addon.getDescription().
+                getName().equals(name)).findFirst().orElse(null);
     }
 }

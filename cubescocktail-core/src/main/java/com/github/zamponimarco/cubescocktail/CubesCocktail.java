@@ -20,11 +20,13 @@ import com.github.zamponimarco.cubescocktail.cooldown.CooldownOptions;
 import com.github.zamponimarco.cubescocktail.cooldown.bar.CooldownBar;
 import com.github.zamponimarco.cubescocktail.database.CompressedYamlDatabase;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
+import com.github.zamponimarco.cubescocktail.entity.MobDrinkEntity;
 import com.github.zamponimarco.cubescocktail.entity.sorter.EntitySorter;
 import com.github.zamponimarco.cubescocktail.function.AbstractFunction;
 import com.github.zamponimarco.cubescocktail.function.Function;
 import com.github.zamponimarco.cubescocktail.gui.ActionCollectionInventoryHolder;
 import com.github.zamponimarco.cubescocktail.gui.FunctionCollectionInventoryHolder;
+import com.github.zamponimarco.cubescocktail.hook.MobDrinkHook;
 import com.github.zamponimarco.cubescocktail.hook.VaultHook;
 import com.github.zamponimarco.cubescocktail.hook.WorldGuardHook;
 import com.github.zamponimarco.cubescocktail.listener.PlayerItemListener;
@@ -37,6 +39,8 @@ import com.github.zamponimarco.cubescocktail.manager.SavedPlaceholderManager;
 import com.github.zamponimarco.cubescocktail.manager.TimerManager;
 import com.github.zamponimarco.cubescocktail.math.Vector;
 import com.github.zamponimarco.cubescocktail.placeholder.Placeholder;
+import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.mobdrink.MobLevelPlaceholder;
+import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.mobdrink.MobNumericPlaceholder;
 import com.github.zamponimarco.cubescocktail.savedplaceholder.SavedPlaceholder;
 import com.github.zamponimarco.cubescocktail.slot.EquipmentSlot;
 import com.github.zamponimarco.cubescocktail.slot.NumberedSlot;
@@ -116,6 +120,9 @@ public class CubesCocktail extends JavaPlugin {
 
     private WorldGuardHook worldGuardHook;
     private VaultHook vaultHook;
+    private MobDrinkHook mobDrinkHook;
+
+
     private PluginCommandExecutor commandExecutor;
 
     private ProtocolWrapper protocolWrapper;
@@ -164,6 +171,12 @@ public class CubesCocktail extends JavaPlugin {
                 "com.github.zamponimarco.itemdrink.skill.Skill$NumberedSlot");
         ConfigurationSerialization.registerClass(CooldownOptions.class,
                 "com.github.zamponimarco.itemdrink.skill.CooldownSkill$CooldownOptions");
+        ConfigurationSerialization.registerClass(MobDrinkEntity.class,
+                "com.github.zamponimarco.cubescocktail.entity.SupremeMobEntity");
+        ConfigurationSerialization.registerClass(MobNumericPlaceholder.class,
+                "com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.suprememob.MobNumericPlaceholder");
+        ConfigurationSerialization.registerClass(MobLevelPlaceholder.class,
+                "com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.suprememob.MobLevelPlaceholder");
         ConfigurationSerialization.registerClass(EntitySpawnTrigger.class);
     }
 
@@ -230,6 +243,7 @@ public class CubesCocktail extends JavaPlugin {
     private void setUpHooks() {
         worldGuardHook = new WorldGuardHook();
         vaultHook = new VaultHook();
+        mobDrinkHook = new MobDrinkHook();
         String serverVersion = getServer().getClass().getPackage().getName();
         String version = serverVersion.substring(serverVersion.lastIndexOf('.') + 1);
         try {
