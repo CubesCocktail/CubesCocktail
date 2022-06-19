@@ -9,7 +9,6 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
-import scala.Int;
 
 import java.util.List;
 
