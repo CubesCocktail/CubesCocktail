@@ -47,7 +47,7 @@ public abstract class WrapperAction extends MetaAction {
 
     @Override
     public ItemStack getGUIItem() {
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(getClass().
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(getClass().
                 getAnnotation(Enumerable.Displayable.class).headTexture()), MessageUtils.color(getName()), modifiedLore());
     }
 

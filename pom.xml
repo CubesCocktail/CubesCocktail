@@ -14,10 +14,6 @@
     </properties>
     <modules>
         <module>cubescocktail-core</module>
-        <module>cubescocktail-craftbukkit_1_16_R1</module>
-        <module>cubescocktail-craftbukkit_1_16_R2</module>
-        <module>cubescocktail-craftbukkit_1_16_R3</module>
-        <module>cubescocktail-craftbukkit_1_17_R1</module>
         <module>cubescocktail-dist</module>
     </modules>
 </project>

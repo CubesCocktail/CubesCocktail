@@ -58,12 +58,12 @@ public abstract class Area implements Model, Cloneable {
     }
 
     public ItemStack getTranslationItem() {
-        return Libs.getWrapper().
+        return Libs.getVersionWrapper().
                 skullFromValue("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNmYzUyMjY0ZDhhZDllNjU0ZjQxNWJlZjAxYTIzOTQ3ZWRiY2NjY2Y2NDkzNzMyODliZWE0ZDE0OTU0MWY3MCJ9fX0=");
     }
 
     public ItemStack getGUIItem() {
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).
                 headTexture()), MessageUtils.color(getName()), Libs.getLocale().getList("gui.area.description"));
     }
 }

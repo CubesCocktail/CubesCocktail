@@ -40,7 +40,7 @@ public class FunctionCollectionInventoryHolder extends SelectableCollectionInven
     public ItemStack getGlintedItem(AbstractFunction item) {
         List<Component> lore = Libs.getLocale().getList("gui.saved-skill.description");
         lore.set(0, MessageUtils.color("&6&lApply actions &eto all selected skills:"));
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(SELECTED_HEAD),
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(SELECTED_HEAD),
                 MessageUtils.color("&6&lName: &c" + item.getName()), lore);
     }
 

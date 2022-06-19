@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.action.location;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.jummes.libs.core.Libs;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
@@ -69,9 +70,9 @@ public class SetBlockCrackAction extends PacketAction {
 
     private void sendSetBlockCrackPacket(Player player, Location location, int stage, int ticks) {
         int randomEid = new Random().nextInt();
-        CubesCocktail.getInstance().getProtocolWrapper().sendBlockBreakAnimationPacket(player, location, stage, randomEid);
+        Libs.getProtocolWrapper().sendBlockBreakAnimationPacket(player, location, stage, randomEid);
         Bukkit.getScheduler().runTaskLater(CubesCocktail.getInstance(), () -> {
-            CubesCocktail.getInstance().getProtocolWrapper().sendBlockBreakAnimationPacket(player, location, -1, randomEid);
+            Libs.getProtocolWrapper().sendBlockBreakAnimationPacket(player, location, -1, randomEid);
         }, ticks);
     }
 

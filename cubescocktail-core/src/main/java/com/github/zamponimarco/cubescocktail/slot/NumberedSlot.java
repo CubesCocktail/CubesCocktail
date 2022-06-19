@@ -67,7 +67,7 @@ public class NumberedSlot extends Slot {
     }
 
     private static ItemStack getItem(int slot) {
-        ItemStack item = ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(SLOTS_HEAD),
+        ItemStack item = ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(SLOTS_HEAD),
                 MessageUtils.color("&6&lSlot: &c" + slot), Lists.newArrayList());
         item.setAmount(slot);
         return item;

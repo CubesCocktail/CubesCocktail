@@ -80,6 +80,6 @@ public class FunctionFolder extends AbstractFunction {
                 MessageUtils.color("&6&lid: &c" + name)
         );
         lore.addAll(Libs.getLocale().getList("gui.function.folder-description"));
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(FOLDER_HEAD), MessageUtils.color(displayName), lore);
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(FOLDER_HEAD), MessageUtils.color(displayName), lore);
     }
 }

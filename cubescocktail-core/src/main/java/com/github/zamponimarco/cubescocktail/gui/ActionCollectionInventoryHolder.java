@@ -40,7 +40,7 @@ public class ActionCollectionInventoryHolder extends SelectableCollectionInvento
         List<Component> lore = Libs.getLocale().getList("gui.action.description");
         lore.set(0, MessageUtils.color("&6&lApply actions &eto all selected actions:"));
         lore.add(3 + WrapperAction.WRAPPERS_MAP.size(), MessageUtils.color("&6&l- [9] &eto wrap in a new skill"));
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(SELECTED_HEAD), MessageUtils.color(action.getName()), lore);
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(SELECTED_HEAD), MessageUtils.color(action.getName()), lore);
     }
 
     @SneakyThrows

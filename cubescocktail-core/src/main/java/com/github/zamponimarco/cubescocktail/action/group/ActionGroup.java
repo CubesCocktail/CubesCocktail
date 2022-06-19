@@ -65,7 +65,7 @@ public class ActionGroup implements Model, Cloneable {
 
     @Override
     public ItemStack getGUIItem() {
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(ACTIONS_HEAD),
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(ACTIONS_HEAD),
                 MessageUtils.color(String.format("&6&lGroup of %d actions", actions.size())),
                 Lists.newArrayList(
                    MessageUtils.color("&6&lSource: &c" + source.getName()),

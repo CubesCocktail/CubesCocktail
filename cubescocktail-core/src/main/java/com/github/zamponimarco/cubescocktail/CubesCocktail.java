@@ -49,7 +49,6 @@ import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.github.zamponimarco.cubescocktail.trigger.*;
 import com.github.zamponimarco.cubescocktail.value.*;
-import com.github.zamponimarco.cubescocktail.wrapper.ProtocolWrapper;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
@@ -107,9 +106,6 @@ public class CubesCocktail extends JavaPlugin {
 
         ConfigurationSerialization.registerClass(TargetSelector.class);
         ConfigurationSerialization.registerClass(GoalSelector.class);
-
-        legacyTransition();
-
     }
 
     private FunctionManager functionManager;
@@ -125,59 +121,8 @@ public class CubesCocktail extends JavaPlugin {
 
     private PluginCommandExecutor commandExecutor;
 
-    private ProtocolWrapper protocolWrapper;
-
     public static CubesCocktail getInstance() {
         return getPlugin(CubesCocktail.class);
-    }
-
-    @Deprecated
-    private static void legacyTransition() {
-        ConfigurationSerialization.registerClass(BlockBreakTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.BlockBreakSkill");
-        ConfigurationSerialization.registerClass(BlockPlaceTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.BlockPlaceSkill");
-        ConfigurationSerialization.registerClass(DamageEntityTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.DamageEntitySkill");
-        ConfigurationSerialization.registerClass(EntityCrossbowLoadTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntityCrossbowLoadSkill");
-        ConfigurationSerialization.registerClass(EntityEquipArmorTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntityEquipArmorSkill");
-        ConfigurationSerialization.registerClass(EntityFishTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntityFishSkill");
-        ConfigurationSerialization.registerClass(EntityItemConsumeTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntityItemConsumeSkill");
-        ConfigurationSerialization.registerClass(EntityJumpTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntityJumpSkill");
-        ConfigurationSerialization.registerClass(EntityShootProjectileTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntityShootProjectileSkill");
-        ConfigurationSerialization.registerClass(EntitySneakTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntitySneakSkill");
-        ConfigurationSerialization.registerClass(EntitySprintTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.EntitySprintSprint");
-        ConfigurationSerialization.registerClass(HitEntityTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.HitEntitySkill");
-        ConfigurationSerialization.registerClass(LeftClickTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.LeftClickSkill");
-        ConfigurationSerialization.registerClass(RightClickTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.RightClickSkill");
-        ConfigurationSerialization.registerClass(TimerTrigger.class,
-                "com.github.zamponimarco.itemdrink.skill.TimerSkill");
-        ConfigurationSerialization.registerClass(Slot.class,
-                "com.github.zamponimarco.itemdrink.skill.Skill$Slot");
-        ConfigurationSerialization.registerClass(EquipmentSlot.class,
-                "com.github.zamponimarco.itemdrink.skill.Skill$EquipmentSlot");
-        ConfigurationSerialization.registerClass(NumberedSlot.class,
-                "com.github.zamponimarco.itemdrink.skill.Skill$NumberedSlot");
-        ConfigurationSerialization.registerClass(CooldownOptions.class,
-                "com.github.zamponimarco.itemdrink.skill.CooldownSkill$CooldownOptions");
-        ConfigurationSerialization.registerClass(MobDrinkEntity.class,
-                "com.github.zamponimarco.cubescocktail.entity.SupremeMobEntity");
-        ConfigurationSerialization.registerClass(MobNumericPlaceholder.class,
-                "com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.suprememob.MobNumericPlaceholder");
-        ConfigurationSerialization.registerClass(MobLevelPlaceholder.class,
-                "com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.suprememob.MobLevelPlaceholder");
-        ConfigurationSerialization.registerClass(EntitySpawnTrigger.class);
     }
 
     @Override
@@ -244,15 +189,6 @@ public class CubesCocktail extends JavaPlugin {
         worldGuardHook = new WorldGuardHook();
         vaultHook = new VaultHook();
         mobDrinkHook = new MobDrinkHook();
-        String serverVersion = getServer().getClass().getPackage().getName();
-        String version = serverVersion.substring(serverVersion.lastIndexOf('.') + 1);
-        try {
-            protocolWrapper = (ProtocolWrapper) Class.forName(PACKAGE_PREFIX + version).getConstructor().newInstance();
-        } catch (Exception e) {
-            getLogger().severe("This plugin is not supported in your server version, please check the " +
-                    "spigot page to find which versions are supported.");
-            getPluginLoader().disablePlugin(this);
-        }
     }
 
     private void setUpCommands() {

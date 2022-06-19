@@ -70,7 +70,7 @@ public class BossBar extends CooldownBar {
     }
 
     public static Function<Object, ItemStack> colorsMapper() {
-        return obj -> ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(COLOR_HEAD),
+        return obj -> ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(COLOR_HEAD),
                 MessageUtils.color(((BarColor) obj).name()), Lists.newArrayList());
     }
 
@@ -79,7 +79,7 @@ public class BossBar extends CooldownBar {
     }
 
     public static Function<Object, ItemStack> stylesMapper() {
-        return obj -> ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(STYLE_HEAD),
+        return obj -> ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(STYLE_HEAD),
                 MessageUtils.color(((BarStyle) obj).name()), Lists.newArrayList());
     }
 

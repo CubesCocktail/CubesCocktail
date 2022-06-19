@@ -41,14 +41,14 @@ public abstract class Placeholder<S> implements Model, Cloneable {
     public abstract String getName();
 
     public ItemStack targetItem() {
-        return Libs.getWrapper().skullFromValue(TARGET_HEAD);
+        return Libs.getVersionWrapper().skullFromValue(TARGET_HEAD);
     }
 
     public abstract Placeholder clone();
 
     @Override
     public ItemStack getGUIItem() {
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).headTexture()),
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).headTexture()),
                 MessageUtils.color(String.format("&6&l%s", getName())), Libs.getLocale().getList("gui.placeholder.description"));
     }
 

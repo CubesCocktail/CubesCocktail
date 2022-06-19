@@ -62,7 +62,7 @@ public class HighlightBlockAction extends PacketAction {
     }
 
     public static Function<Object, ItemStack> colorsMapper() {
-        return obj -> ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(COLOR_HEAD), MessageUtils.color(((ChatColor) obj).name()),
+        return obj -> ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(COLOR_HEAD), MessageUtils.color(((ChatColor) obj).name()),
                 Lists.newArrayList());
     }
 
@@ -98,14 +98,14 @@ public class HighlightBlockAction extends PacketAction {
         UUID id = UUID.randomUUID();
         String team = RandomStringUtils.random(16);
 
-        CubesCocktail.getInstance().getProtocolWrapper().sendSpawnEntityPacket(player, location.getBlock().getLocation().
+        Libs.getProtocolWrapper().sendSpawnEntityPacket(player, location.getBlock().getLocation().
                 clone().add(.5, 0, .5), eid, id);
-        CubesCocktail.getInstance().getProtocolWrapper().sendEntityMetadataPacket(player, eid, (byte) 0x60);
-        CubesCocktail.getInstance().getProtocolWrapper().sendCreateTeamPacket(player, color, id, team);
+        Libs.getProtocolWrapper().sendEntityMetadataPacket(player, eid, (byte) 0x60);
+        Libs.getProtocolWrapper().sendCreateTeamPacket(player, color, id, team);
 
         Bukkit.getScheduler().runTaskLater(CubesCocktail.getInstance(), () -> {
-            CubesCocktail.getInstance().getProtocolWrapper().sendDestroyEntityPacket(player, eid);
-            CubesCocktail.getInstance().getProtocolWrapper().sendDestroyTeamPacket(player, team);
+            Libs.getProtocolWrapper().sendDestroyEntityPacket(player, eid);
+            Libs.getProtocolWrapper().sendDestroyTeamPacket(player, team);
         }, ticks);
     }
 

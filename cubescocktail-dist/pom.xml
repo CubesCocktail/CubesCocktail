@@ -20,7 +20,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -71,26 +71,6 @@
         <dependency>
             <groupId>com.github.zamponimarco</groupId>
             <artifactId>cubescocktail-core</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.zamponimarco</groupId>
-            <artifactId>cubescocktail-craftbukkit_1_17_R1</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.zamponimarco</groupId>
-            <artifactId>cubescocktail-craftbukkit_1_16_R3</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.zamponimarco</groupId>
-            <artifactId>cubescocktail-craftbukkit_1_16_R2</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.zamponimarco</groupId>
-            <artifactId>cubescocktail-craftbukkit_1_16_R1</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

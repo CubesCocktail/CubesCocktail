@@ -79,7 +79,7 @@ public abstract class Trigger implements Model, Cloneable {
     public ItemStack getGUIItem() {
         List<Component> lore = getCustomLore();
         lore.addAll(Libs.getLocale().getList("gui.additional-tooltips.delete"));
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).headTexture()),
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).headTexture()),
                 MessageUtils.color(getName()), lore);
     }
 

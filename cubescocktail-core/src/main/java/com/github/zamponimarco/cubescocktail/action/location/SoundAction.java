@@ -87,7 +87,7 @@ public class SoundAction extends PacketAction {
     public static Function<Object, ItemStack> soundsMapper() {
         return obj -> {
             Sound type = (Sound) obj;
-            return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(TYPE_HEAD),
+            return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(TYPE_HEAD),
                     MessageUtils.color(type.name()), new ArrayList<>());
         };
     }
@@ -99,7 +99,7 @@ public class SoundAction extends PacketAction {
     public static Function<Object, ItemStack> soundCategoriesMapper() {
         return obj -> {
             SoundCategory type = (SoundCategory) obj;
-            return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2EzMjA4OGU4NGM4ODExOWYwZTBkMmM5ZmZhMzlkYmVmZGZlOWQzYTYyM2MzNGVkMjkwZTFmNWEzZWMyODMzZiJ9fX0="),
+            return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2EzMjA4OGU4NGM4ODExOWYwZTBkMmM5ZmZhMzlkYmVmZGZlOWQzYTYyM2MzNGVkMjkwZTFmNWEzZWMyODMzZiJ9fX0="),
                     MessageUtils.color(type.name()), new ArrayList<>());
         };
     }

@@ -147,35 +147,35 @@ public class EffectAction extends EntityAction {
 
     public ItemStack getDurationItem() {
         if (!remove) {
-            return Libs.getWrapper().skullFromValue(DURATION_HEAD);
+            return Libs.getVersionWrapper().skullFromValue(DURATION_HEAD);
         }
         return null;
     }
 
     public ItemStack getParticlesItem() {
         if (!remove) {
-            return Libs.getWrapper().skullFromValue(PARTICLE_HEAD);
+            return Libs.getVersionWrapper().skullFromValue(PARTICLE_HEAD);
         }
         return null;
     }
 
     public ItemStack getLevelItem() {
         if (!remove) {
-            return Libs.getWrapper().skullFromValue(LEVEL_HEAD);
+            return Libs.getVersionWrapper().skullFromValue(LEVEL_HEAD);
         }
         return null;
     }
 
     public ItemStack getIconItem() {
         if (!remove) {
-            return Libs.getWrapper().skullFromValue(ICON_HEAD);
+            return Libs.getVersionWrapper().skullFromValue(ICON_HEAD);
         }
         return null;
     }
 
     public ItemStack getAmbientItem() {
         if (!remove) {
-            return Libs.getWrapper().skullFromValue(AMBIENT_HEAD);
+            return Libs.getVersionWrapper().skullFromValue(AMBIENT_HEAD);
         }
         return null;
     }

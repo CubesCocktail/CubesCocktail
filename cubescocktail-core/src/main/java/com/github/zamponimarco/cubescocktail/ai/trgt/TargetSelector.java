@@ -27,7 +27,7 @@ public abstract class TargetSelector implements Model {
 
     @Override
     public ItemStack getGUIItem() {
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(getClass().
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(getClass().
                 getAnnotation(Enumerable.Displayable.class).headTexture()), MessageUtils.color(getName()), Libs.getLocale().
                 getList("gui.additional-tooltips.delete"));
     }

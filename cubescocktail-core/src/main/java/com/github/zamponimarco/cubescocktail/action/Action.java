@@ -67,7 +67,7 @@ public abstract class Action implements Model, Cloneable {
     }
 
     public ItemStack targetItem() {
-        return Libs.getWrapper().skullFromValue(TARGET_HEAD);
+        return Libs.getVersionWrapper().skullFromValue(TARGET_HEAD);
     }
 
     public void changeSkillName(String oldName, String newName) {
@@ -79,7 +79,7 @@ public abstract class Action implements Model, Cloneable {
 
     @Override
     public ItemStack getGUIItem() {
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(getClass().getAnnotation(Enumerable.Displayable.class).
                 headTexture()), MessageUtils.color(getName()), Libs.getLocale().getList("gui.action.description"));
     }
 

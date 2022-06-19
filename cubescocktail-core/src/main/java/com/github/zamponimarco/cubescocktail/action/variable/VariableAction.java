@@ -69,6 +69,6 @@ public abstract class VariableAction extends Action {
     }
 
     public ItemStack getPersistentItem() {
-        return Libs.getWrapper().skullFromValue(PERSISTENT_HEAD);
+        return Libs.getVersionWrapper().skullFromValue(PERSISTENT_HEAD);
     }
 }
