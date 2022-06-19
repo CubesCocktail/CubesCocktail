@@ -112,7 +112,7 @@ public class SphericArea extends Area {
         double radius = range.getRealValue(target, source);
         Location l = finalLocation(center, target, source);
         return l.getWorld().getNearbyEntities(getMinimumBoundingBox(radius, l)).stream().filter(entity ->
-                (entity instanceof LivingEntity) && entity.getLocation().distance(l) <= radius).
+                        (entity instanceof LivingEntity) && entity.getLocation().distance(l) <= radius).
                 map(entity -> (LivingEntity) entity).collect(Collectors.toList());
     }
 

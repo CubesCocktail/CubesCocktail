@@ -1,8 +1,8 @@
 package com.github.zamponimarco.cubescocktail.loot;
 
-import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;

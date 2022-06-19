@@ -17,8 +17,10 @@ import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @Enumerable.Parent(classArray = {CombatTrigger.class, InteractionTrigger.class, MovementTrigger.class})

@@ -4,7 +4,6 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.model.Model;
 import com.google.common.collect.Sets;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 

@@ -1,8 +1,8 @@
 package com.github.zamponimarco.cubescocktail.ai.goal;
 
+import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
-import com.github.jummes.libs.annotation.Serializable;
 
 import java.util.Map;
 

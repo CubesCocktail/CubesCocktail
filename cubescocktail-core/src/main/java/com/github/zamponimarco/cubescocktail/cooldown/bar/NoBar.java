@@ -3,7 +3,6 @@ package com.github.zamponimarco.cubescocktail.cooldown.bar;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Map;
 

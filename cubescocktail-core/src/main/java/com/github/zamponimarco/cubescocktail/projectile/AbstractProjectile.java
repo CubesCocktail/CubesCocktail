@@ -165,8 +165,8 @@ public abstract class AbstractProjectile {
         }
         try {
             return location.getWorld().getNearbyEntities(location, hitBoxSize, hitBoxSize, hitBoxSize,
-                    entity -> entity instanceof LivingEntity && !entity.equals(source.getCaster())
-                            && !isProjectile(entity)).stream().map(entity -> (LivingEntity) entity).
+                            entity -> entity instanceof LivingEntity && !entity.equals(source.getCaster())
+                                    && !isProjectile(entity)).stream().map(entity -> (LivingEntity) entity).
                     collect(Collectors.toList());
         } catch (IllegalArgumentException e) {
             return Lists.newArrayList();

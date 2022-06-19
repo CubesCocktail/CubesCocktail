@@ -26,7 +26,7 @@ public class SimpleDropTable extends DropTable {
 
     private static final String DROPS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTliOTA2YjIxNTVmMTkzNzg3MDQyMzM4ZDA1Zjg0MDM5MWMwNWE2ZDNlODE2MjM5MDFiMjk2YmVlM2ZmZGQyIn19fQ";
     private static final String PLAYER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDI4NDNjM2MyMzU3MTZmM2ViNWNkOWMzYmRiZjIwODUzZjUwYTY1ZGMyMjMwNThiMWUxZWVmZmRlOTlmNjExMCJ9fX0=";
-    
+
     @Serializable(headTexture = PLAYER_HEAD, description = "gui.loot.simple.player")
     private boolean onlyPlayerKill;
 

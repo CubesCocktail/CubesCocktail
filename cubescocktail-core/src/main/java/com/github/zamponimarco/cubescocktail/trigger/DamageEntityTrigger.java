@@ -1,15 +1,22 @@
 package com.github.zamponimarco.cubescocktail.trigger;
 
 import com.github.jummes.libs.annotation.Enumerable;
-import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
-import com.github.zamponimarco.cubescocktail.source.*;
-import com.github.zamponimarco.cubescocktail.trgt.*;
+import com.github.zamponimarco.cubescocktail.source.CasterSource;
+import com.github.zamponimarco.cubescocktail.source.DamagerSource;
+import com.github.zamponimarco.cubescocktail.source.RayTraceSource;
+import com.github.zamponimarco.cubescocktail.source.Source;
+import com.github.zamponimarco.cubescocktail.trgt.CasterTarget;
+import com.github.zamponimarco.cubescocktail.trgt.DamagerTarget;
+import com.github.zamponimarco.cubescocktail.trgt.RayTraceTarget;
+import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @Enumerable.Child

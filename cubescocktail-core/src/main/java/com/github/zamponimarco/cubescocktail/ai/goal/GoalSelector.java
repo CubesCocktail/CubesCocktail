@@ -1,12 +1,12 @@
 package com.github.zamponimarco.cubescocktail.ai.goal;
 
-import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
-import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.core.Libs;
 import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
+import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
+import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import org.bukkit.entity.Mob;
 import org.bukkit.inventory.ItemStack;

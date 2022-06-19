@@ -2,7 +2,6 @@ package com.github.zamponimarco.cubescocktail.manager;
 
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
-import com.github.zamponimarco.cubescocktail.cooldown.CooldownOptions;
 import com.github.zamponimarco.cubescocktail.cooldown.bar.CooldownBar;
 import com.github.zamponimarco.cubescocktail.key.Key;
 import com.google.common.collect.Lists;

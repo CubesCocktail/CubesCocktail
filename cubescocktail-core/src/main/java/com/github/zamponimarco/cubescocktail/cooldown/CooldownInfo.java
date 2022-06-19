@@ -2,8 +2,6 @@ package com.github.zamponimarco.cubescocktail.cooldown;
 
 import lombok.*;
 
-import java.util.UUID;
-
 @AllArgsConstructor
 @ToString
 @Getter

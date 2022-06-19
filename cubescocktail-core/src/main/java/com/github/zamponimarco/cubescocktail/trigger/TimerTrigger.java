@@ -1,6 +1,5 @@
 package com.github.zamponimarco.cubescocktail.trigger;
 
-import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
@@ -15,7 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
-@Deprecated public class TimerTrigger extends Trigger {
+@Deprecated
+public class TimerTrigger extends Trigger {
 
     private int timer;
 

@@ -6,7 +6,6 @@ import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
 import com.github.zamponimarco.cubescocktail.key.Key;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 @Enumerable.Parent(classArray = {ActionBar.class, BossBar.class, NoBar.class})
 public abstract class CooldownBar implements Model, Cloneable {

@@ -1,13 +1,9 @@
 package com.github.zamponimarco.cubescocktail.action.projectile;
 
 import com.github.jummes.libs.annotation.Enumerable;
-import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.Action;
-import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import org.bukkit.inventory.ItemStack;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.Map;
 
 @Enumerable.Parent(classArray = {SetProjectileDirectionAction.class, SetProjectileGravityAction.class,

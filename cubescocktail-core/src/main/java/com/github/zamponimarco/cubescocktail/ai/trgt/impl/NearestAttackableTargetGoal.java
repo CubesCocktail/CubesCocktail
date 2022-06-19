@@ -48,7 +48,7 @@ public class NearestAttackableTargetGoal implements Goal<Mob> {
 
     protected void findTarget() {
         this.target = this.mob.getLocation().getNearbyLivingEntities(getFollowDistance(), e -> !e.equals(mob) && condition.
-                checkCondition(new EntityTarget(e), new EntitySource(mob, new ItemStack(Material.CARROT)))).stream().
+                        checkCondition(new EntityTarget(e), new EntitySource(mob, new ItemStack(Material.CARROT)))).stream().
                 min((e1, e2) -> (int) (mob.getLocation().distanceSquared(e1.getLocation()) -
                         mob.getLocation().distanceSquared(e2.getLocation()))).orElse(null);
     }

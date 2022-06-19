@@ -1,8 +1,8 @@
 package com.github.zamponimarco.cubescocktail.placeholder.numeric.projectile;
 
 import com.github.jummes.libs.annotation.Enumerable;
-import com.github.zamponimarco.cubescocktail.action.targeter.ProjectileTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.action.targeter.ProjectileTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import com.github.zamponimarco.cubescocktail.projectile.AbstractProjectile;
 import org.bukkit.inventory.ItemStack;

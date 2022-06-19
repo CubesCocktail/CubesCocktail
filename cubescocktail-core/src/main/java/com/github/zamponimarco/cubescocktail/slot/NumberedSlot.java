@@ -49,7 +49,7 @@ public class NumberedSlot extends Slot {
 
     @Override
     public ItemStack getItem(LivingEntity e) {
-        if (e instanceof Player){
+        if (e instanceof Player) {
             return ((Player) e).getInventory().getItem(this.slot);
         }
         return null;

@@ -1,10 +1,10 @@
 package com.github.zamponimarco.cubescocktail.ai.goal;
 
+import com.github.jummes.libs.annotation.Enumerable;
+import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
-import com.github.jummes.libs.annotation.Enumerable;
-import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import org.bukkit.entity.Mob;
 

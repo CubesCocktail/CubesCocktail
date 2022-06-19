@@ -2,8 +2,8 @@ package com.github.zamponimarco.cubescocktail.placeholder.vector.entity;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
-import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.VectorPlaceholder;
 import org.bukkit.entity.LivingEntity;
 
