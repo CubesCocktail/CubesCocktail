@@ -7,7 +7,7 @@
     <groupId>com.github.zamponimarco</groupId>
     <artifactId>cubescocktail</artifactId>
     <packaging>pom</packaging>
-    <version>transition</version>
+    <version>0.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
