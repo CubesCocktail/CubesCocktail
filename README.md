@@ -7,11 +7,11 @@ Each aspect of the game can be customized installing the related addon, the curr
 - ⚔️ [ItemDrink](https://github.com/CubesCocktail/ItemDrink), to create custom items with special abilities
 - 🧟 [MobDrink](https://github.com/CubesCocktail/MobDrink), to create custom mobs
 
-### Download
+### Building
 
-You can download the latest build of CubesCocktail from the [Jenkins page](http://49.12.216.90:8080/job/CubesCocktail/).
+In order to build your own copy of the plugin you need to build [JummesLibs](https://github.com/ZamponiMarco/JummesLibs) and publish it to the local Maven repository.
 
-You can also compile the plugin by yourself using Maven.
+After building JummesLibs, you can simply build CubesCocktail using Maven, executing the Maven install task.
 
 ### Installation
 
