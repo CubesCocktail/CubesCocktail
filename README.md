@@ -9,13 +9,13 @@ Each aspect of the game can be customized installing the related addon, the curr
 
 ### Building
 
-In order to build your own copy of the plugin you need to build [JummesLibs](https://github.com/ZamponiMarco/JummesLibs) and publish it to the local Maven repository.
+In order to build your own copy of the plugin you need to build [JummesLibs](https://github.com/ZamponiMarco/JummesLibs) and publish it to the local Maven repository. Further instruction about this task are contained inside the library GitHub page.
 
 After building JummesLibs, you can simply build CubesCocktail using Maven, executing the Maven install task.
 
 ### Installation
 
-To install the plugin simply drag and drop the associated jar file inside the plugins folder of your server and start it.
+To install the plugin simply drag and drop the associated jar file inside the plugins folder of your server and start it. 
 
 After the first start, a folder named addons will appear inside the plugin folder. Inside there you can insert all the addons you want to install. After a server reload they will be usable. Check out the addons Github pages to see how to download them.
 
