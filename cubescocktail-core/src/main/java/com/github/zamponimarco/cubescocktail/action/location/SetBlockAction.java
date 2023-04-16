@@ -12,19 +12,22 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.MaterialValue;
 import com.google.common.collect.Sets;
+import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Enumerable.Child
-@Setter
 @Enumerable.Displayable(name = "&c&lSet block", description = "gui.action.location.set-block.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2ZmOTgxN2Q3NjdkMmVkZTcxODFhMDU3YWEyNmYwOGY3ZWNmNDY1MWRlYzk3ZGU1YjU0ZWVkZTFkZDJiNDJjNyJ9fX0=")
+@Getter
+@Setter
 public class SetBlockAction extends LocationAction {
 
     private static final boolean ALLOW_MATERIALS_DEFAULT = false;
@@ -70,13 +73,9 @@ public class SetBlockAction extends LocationAction {
     }
 
     @Override
-    public Map<String, Object> serialize() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("==", getClass().getName());
-        map.put("target", target);
-        map.put("material", material);
+    public @NotNull Map<String, Object> serialize() {
+        Map<String, Object> map = super.serialize();
         map.put("excludedMaterials", excludedMaterials.stream().map(Material::name).collect(Collectors.toList()));
-        map.put("allowMaterials", allowMaterials);
         return map;
     }
 
@@ -89,8 +88,8 @@ public class SetBlockAction extends LocationAction {
         }
 
         if (source.getCaster() instanceof Player &&
-                !CubesCocktail.getInstance().getWorldGuardHook().
-                        canBuild((Player) source.getCaster(), location)) {
+                CubesCocktail.getInstance().getWorldGuardHook().
+                        protectedLocation((Player) source.getCaster(), location)) {
             return ActionResult.FAILURE;
         }
 

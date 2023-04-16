@@ -6,10 +6,12 @@ import com.github.zamponimarco.cubescocktail.cooldown.bar.ActionBar;
 import com.github.zamponimarco.cubescocktail.cooldown.bar.CooldownBar;
 import com.github.zamponimarco.cubescocktail.cooldown.bar.NoBar;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
 @Getter
+@Setter
 public class CooldownOptions implements Model, Cloneable {
     protected static final int COOLDOWN_DEFAULT = 0;
     protected static final String COOLDOWN_MESSAGE_FORMAT_DEFAULT = "&2Cooldown &6[%bar&6]";

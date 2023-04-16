@@ -7,6 +7,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
 @GUINameable(GUIName = "getName")
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lAnd Condition", description = "gui.condition.and.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTJiOGIzMTVmODcxNmEzMWYzMmQ1NDM4NzRhMzdmOTRjZmY1ZGFmZDJhNTg2NTZmZjNhOWU4MjgwZWM0OWM3In19fQ")
+@Getter
+@Setter
 public class AndCondition extends TrueFalseCondition {
 
     private static final List<Condition> CONDITIONS_DEFAULT = Lists.newArrayList();

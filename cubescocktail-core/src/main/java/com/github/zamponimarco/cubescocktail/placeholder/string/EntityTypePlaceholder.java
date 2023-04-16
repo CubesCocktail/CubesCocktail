@@ -4,12 +4,16 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lEntity Type Placeholder", description = "gui.placeholder.string.entity-type.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZmYzg1NGJiODRjZjRiNzY5NzI5Nzk3M2UwMmI3OWJjMTA2OTg0NjBiNTFhNjM5YzYwZTVlNDE3NzM0ZTExIn19fQ==")
+@Getter
+@Setter
 public class EntityTypePlaceholder extends StringPlaceholder {
 
     public EntityTypePlaceholder() {

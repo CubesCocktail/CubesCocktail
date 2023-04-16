@@ -25,15 +25,15 @@ public class WorldGuardHook implements ExternalHook {
         return worldGuard != null;
     }
 
-    public boolean canBuild(Player p, Location l) {
+    public boolean protectedLocation(Player p, Location l) {
         if (!isEnabled()) {
-            return true;
+            return false;
         }
 
         LocalPlayer localPlayer = worldGuard.wrapPlayer(p);
         com.sk89q.worldedit.util.Location location = BukkitAdapter.adapt(l);
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
-        return query.testBuild(location, localPlayer);
+        return !query.testBuild(location, localPlayer);
     }
 }

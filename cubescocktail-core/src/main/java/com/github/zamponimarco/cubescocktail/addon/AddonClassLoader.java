@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Objects;
 import java.util.jar.JarFile;
 
 @Getter
@@ -35,6 +36,6 @@ public class AddonClassLoader extends URLClassLoader {
     @SneakyThrows
     @Override
     public InputStream getResourceAsStream(String name) {
-        return getResource(name).openConnection().getInputStream();
+        return Objects.requireNonNull(getResource(name)).openConnection().getInputStream();
     }
 }

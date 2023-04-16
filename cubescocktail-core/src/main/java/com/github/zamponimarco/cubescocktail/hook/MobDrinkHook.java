@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MobDrinkHook implements ExternalHook {
 
-    private Addon mobDrink;
+    private final Addon mobDrink;
 
     public MobDrinkHook() {
         this.mobDrink = CubesCocktail.getInstance().getAddonManager().getAddon("MobDrink");

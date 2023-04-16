@@ -3,6 +3,8 @@ package com.github.zamponimarco.cubescocktail.ai.goal.impl;
 import com.destroystokyo.paper.entity.ai.Goal;
 import com.destroystokyo.paper.entity.ai.GoalKey;
 import com.destroystokyo.paper.entity.ai.GoalType;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Mob;
 import org.jetbrains.annotations.NotNull;

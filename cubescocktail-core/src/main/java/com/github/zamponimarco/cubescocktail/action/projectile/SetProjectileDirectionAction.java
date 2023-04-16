@@ -9,11 +9,15 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ProjectileTarget;
 import com.github.zamponimarco.cubescocktail.projectile.AbstractProjectile;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
 @Enumerable.Child()
 @Enumerable.Displayable(name = "&c&lSet Projectile Direction", description = "gui.action.projectile.direction.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q0ZTZjMzkyZTE0ZjM0YjZhMzFlMzYzNWE4YmYxOGQ5NzNlZWY2ZGM5YjFhMzUxOTQ1MTQ5NzE5N2Q0YyJ9fX0")
+@Getter
+@Setter
 public class SetProjectileDirectionAction extends ProjectileAction {
 
     private static final String VECTOR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q0ZTZjMzkyZTE0ZjM0YjZhMzFlMzYzNWE4YmYxOGQ5NzNlZWY2ZGM5YjFhMzUxOTQ1MTQ5NzE5N2Q0YyJ9fX0";

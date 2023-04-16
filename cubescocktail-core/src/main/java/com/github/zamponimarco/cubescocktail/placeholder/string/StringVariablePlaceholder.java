@@ -6,6 +6,8 @@ import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.metadata.FixedMetadataValue;
 
@@ -14,6 +16,8 @@ import java.util.Objects;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lVariable Placeholder", description = "gui.placeholder.string.variable.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjVjNGQyNGFmZmRkNDgxMDI2MjAzNjE1MjdkMjE1NmUxOGMyMjNiYWU1MTg5YWM0Mzk4MTU2NDNmM2NmZjlkIn19fQ==")
+@Getter
+@Setter
 public class StringVariablePlaceholder extends StringPlaceholder {
 
     private static final String NAME_DEFAULT = "var";

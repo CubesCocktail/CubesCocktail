@@ -8,6 +8,8 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.Metadatable;
@@ -16,6 +18,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lSet Vector Variable", description = "gui.action.variable.vector-variable.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFjYWNiODM2YzVlNDI4YjQ5YjVkMjI0Y2FiMjI4MjhlZmUyZjZjNzA0Zjc1OTM2NGQ3MWM2NTZlMzAxNDIwIn19fQ")
+@Getter
+@Setter
 public class SetVectorVariableAction extends VariableAction {
 
     private static final VectorValue VALUE_DEFAULT = new VectorValue();

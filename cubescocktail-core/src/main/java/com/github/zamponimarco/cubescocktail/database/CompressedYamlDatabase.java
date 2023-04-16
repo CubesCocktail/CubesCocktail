@@ -76,21 +76,10 @@ public class CompressedYamlDatabase<T extends NamedModel> extends Database<T> {
                     }
             );
         } catch (IllegalArgumentException e) {
-            legacyTransition(list);
+            e.printStackTrace();
         }
 
         return list;
-    }
-
-    @Deprecated
-    private void legacyTransition(List<T> list) {
-        yamlConfiguration.getList(classObject.getSimpleName().toLowerCase()).stream().map(obj -> {
-            YamlConfiguration config = new YamlConfiguration();
-            config.set("model", obj);
-            return (T) NamedModel.fromSerializedString(config.saveToString());
-        }).forEach(list::add);
-        yamlConfiguration.set(classObject.getSimpleName().toLowerCase(), null);
-        list.forEach(this::saveObject);
     }
 
     @SneakyThrows

@@ -6,12 +6,16 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lLightning Action", description = "gui.action.location.lightning.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzNkNjlhNjBkOTcwYWQwYjhhYTE1ODk3OTE0ZjVhYWMyNjVlOTllNmY1MDE2YTdkOGFhN2JlOWFjMDNiNjE0OCJ9fX0=")
+@Getter
+@Setter
 public class LightningAction extends LocationAction {
 
     private static final String EFFECT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWVlMTE4ZWRkYWVlMGRmYjJjYmMyYzNkNTljMTNhNDFhN2Q2OGNjZTk0NWU0MjE2N2FhMWRjYjhkMDY3MDUxNyJ9fX0=";

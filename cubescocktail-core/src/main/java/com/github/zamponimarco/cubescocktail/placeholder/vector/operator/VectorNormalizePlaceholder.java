@@ -7,11 +7,15 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.math.Vector;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.VectorPlaceholder;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lNormalize Vector Placeholder", description = "gui.placeholder.vector.operator.normalize.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==")
+@Getter
+@Setter
 public class VectorNormalizePlaceholder extends VectorOperatorPlaceholder {
 
     @Serializable(headTexture = ONE_HEAD, description = "gui.placeholder.vector.operator.operand-one",

@@ -5,6 +5,8 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -12,6 +14,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lField of view placeholder", description = "gui.placeholder.boolean.fov.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg0OTI5NjgxNzFiOWZhYjk4Njg0MDU1MDNjNTc2YzQyNzIzNzQ0YTMxYmYxZTFkMGUzOWJkYTRkN2ZiMCJ9fX0=")
+@Getter
+@Setter
 public class InFieldOfViewPlaceholder extends BooleanPlaceholder {
 
     protected static final boolean TARGET_DEFAULT = false;

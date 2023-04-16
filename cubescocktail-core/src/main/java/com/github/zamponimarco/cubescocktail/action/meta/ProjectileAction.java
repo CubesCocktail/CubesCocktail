@@ -92,14 +92,13 @@ public class ProjectileAction extends AbstractProjectileAction {
             }
         }
 
-        if (source instanceof EntitySource) {
-            EntitySource entitySource = (EntitySource) source;
+        if (source instanceof EntitySource entitySource) {
             sourceLocation.add(0, entitySource.getCaster().getEyeHeight(), 0);
             if (shootFromHand) {
                 if (entitySource.getHand().equals(MainHand.RIGHT)) {
-                    sourceLocation = getRightSide(sourceLocation, 0.5);
+                    sourceLocation = getRightSide(sourceLocation);
                 } else {
-                    sourceLocation = getLeftSide(sourceLocation, 0.5);
+                    sourceLocation = getLeftSide(sourceLocation);
                 }
             }
         }

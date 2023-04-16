@@ -97,9 +97,11 @@ public class FunctionAction extends MetaAction {
         ItemStack item = super.getGUIItem();
         ItemMeta meta = item.getItemMeta();
         List<Component> lore = meta.lore();
-        lore.add(3 + WrapperAction.WRAPPERS_MAP.size(), MessageUtils.color("&6&l- [9] &eto open the function GUI"));
-        meta.lore(lore);
-        item.setItemMeta(meta);
+        if (lore != null) {
+            lore.add(3 + WrapperAction.WRAPPERS_MAP.size(), MessageUtils.color("&6&l- [9] &eto open the function GUI"));
+            meta.lore(lore);
+            item.setItemMeta(meta);
+        }
         return item;
     }
 

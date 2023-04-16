@@ -10,6 +10,7 @@ import com.github.zamponimarco.cubescocktail.math.Vector;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.DirectionPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.VectorPlaceholder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -21,8 +22,9 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @GUINameable(GUIName = "getName")
-@Getter
 @CustomClickable(customFieldClickConsumer = "getCustomClickConsumer")
+@Getter
+@Setter
 public class VectorValue extends Value<Vector, VectorPlaceholder> {
 
     public VectorValue() {
@@ -61,11 +63,10 @@ public class VectorValue extends Value<Vector, VectorPlaceholder> {
         map.putIfAbsent(ClickType.LEFT, () -> {
             if (objectValue) {
                 path.addModel(value);
-                return new ModelObjectInventoryHolder(plugin, parent, path);
             } else {
                 path.addModel(placeholderValue);
-                return new ModelObjectInventoryHolder(plugin, parent, path);
             }
+            return new ModelObjectInventoryHolder(plugin, parent, path);
         });
         return super.getCustomClickConsumer(plugin, parent, path, field, e, map);
     }

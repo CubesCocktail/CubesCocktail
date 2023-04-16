@@ -80,11 +80,6 @@ public class Function extends AbstractFunction implements Cloneable {
     }
 
     @Override
-    protected boolean isAlreadyPresent(String name) {
-        return CubesCocktail.getInstance().getFunctionManager().getFunctionByName(name) != null;
-    }
-
-    @Override
     public Function getByName(String name) {
         return this.name.equals(name) ? this : null;
     }

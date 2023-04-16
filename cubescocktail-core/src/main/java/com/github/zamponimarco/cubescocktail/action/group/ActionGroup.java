@@ -12,12 +12,16 @@ import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.CasterTarget;
 import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Getter
+@Setter
 public class ActionGroup implements Model, Cloneable {
 
     private static final String SOURCE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY3OWRmMzlkNzVmYzBjZDFhNTMxMGViOGE1ODYxZDI1NDg4OGVkM2Y2ZDllMjVjMTNkNTFkZmUzYzFjODc5OSJ9fX0=";

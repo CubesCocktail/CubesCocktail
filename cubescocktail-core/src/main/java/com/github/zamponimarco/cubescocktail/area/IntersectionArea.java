@@ -6,6 +6,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
@@ -17,6 +19,8 @@ import java.util.stream.Collectors;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lIntersection Area", description = "gui.area.intersection.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTJiOGIzMTVmODcxNmEzMWYzMmQ1NDM4NzRhMzdmOTRjZmY1ZGFmZDJhNTg2NTZmZjNhOWU4MjgwZWM0OWM3In19fQ==")
+@Getter
+@Setter
 public class IntersectionArea extends Area {
 
     @Serializable(headTexture = SHAPE_HEAD, description = "gui.area.areas", additionalDescription = {"gui.additional-tooltips.value"})

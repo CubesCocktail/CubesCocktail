@@ -113,7 +113,7 @@ public class ActionCollectionInventoryHolder extends SelectableCollectionInvento
 
     private void cloneActions(Action model, InventoryClickEvent e, Collection<Action> actions) {
         if (selected.contains(model)) {
-            actions.addAll(selected.stream().map(Action::clone).collect(Collectors.toList()));
+            actions.addAll(selected.stream().map(Action::clone).toList());
         } else {
             actions.add(model.clone());
         }

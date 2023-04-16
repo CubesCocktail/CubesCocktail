@@ -4,6 +4,8 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.LivingEntity;
 
@@ -11,6 +13,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lMax Health Placeholder", description = "gui.placeholder.double.entity.max-health.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzc3OTFjY2VjMTZmYjY4ZjNjOTJlMGIwMjY0Zjk2ODBlMTI0YzM4NTlkNjY0MDM1MjRiYTViOTU3NmM5ODE4In19fQ==")
+@Getter
+@Setter
 public class MaxHealthPlaceholder extends AttributeNumericPlaceholder {
 
     public MaxHealthPlaceholder() {

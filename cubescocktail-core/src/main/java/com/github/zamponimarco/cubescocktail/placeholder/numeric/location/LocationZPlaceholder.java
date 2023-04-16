@@ -4,12 +4,16 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lLocation Z Placeholder", description = "gui.placeholder.double.location.z.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzA1ZjE4ZDQxNmY2OGU5YmQxOWQ1NWRmOWZhNzQyZWRmYmYxYTUyNWM4ZTI5ZjY1OWFlODMzYWYyMTdkNTM1In19fQ")
+@Getter
+@Setter
 public class LocationZPlaceholder extends LocationPlaceholder {
 
     public LocationZPlaceholder(boolean target) {

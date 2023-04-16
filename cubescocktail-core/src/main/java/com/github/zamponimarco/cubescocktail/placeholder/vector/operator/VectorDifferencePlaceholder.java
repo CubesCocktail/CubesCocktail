@@ -7,11 +7,15 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.math.Vector;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.VectorPlaceholder;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lVector Difference Placeholder", description = "gui.placeholder.vector.operator.difference.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWQ2YjEyOTNkYjcyOWQwMTBmNTM0Y2UxMzYxYmJjNTVhZTVhOGM4ZjgzYTE5NDdhZmU3YTg2NzMyZWZjMiJ9fX0")
+@Getter
+@Setter
 public class VectorDifferencePlaceholder extends VectorOperatorPlaceholder {
     @Serializable(headTexture = ONE_HEAD, description = "gui.placeholder.vector.operator.operand-one",
             additionalDescription = {"gui.additional-tooltips.value"})

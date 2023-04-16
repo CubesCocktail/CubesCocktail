@@ -9,6 +9,8 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.cooldown.Cooldownable;
 import com.github.zamponimarco.cubescocktail.key.Key;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
@@ -18,6 +20,8 @@ import java.util.function.Function;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lCooldown Placeholder", description = "gui.placeholder.double.entity.cooldown.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=")
+@Getter
+@Setter
 public class CooldownPlaceholder extends EntityNumericPlaceholder {
 
     private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGViNDYxMzU0NDBjMmUwNDJhZWY4NzUyNGMzMTkyMDRhZjcwMWQzNWFiY2U3NDc4YWY2NGU4ZWY4ZTU5MGQzNSJ9fX0=";

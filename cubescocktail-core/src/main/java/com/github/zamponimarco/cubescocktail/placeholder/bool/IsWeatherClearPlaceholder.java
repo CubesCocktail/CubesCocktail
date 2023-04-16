@@ -3,12 +3,16 @@ package com.github.zamponimarco.cubescocktail.placeholder.bool;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lIs Weather Clear", description = "gui.placeholder.boolean.clear.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTI5MmQxNzI2MTcxYWJhYmY3M2Y4NDQxMTU0Y2Y3YjcyZWUyZTBlNDY0NGQ2ZWUwODM4ZDc2MGRjMzQ4OWM5MiJ9fX0=")
+@Getter
+@Setter
 public class IsWeatherClearPlaceholder extends BooleanPlaceholder {
 
     public IsWeatherClearPlaceholder() {

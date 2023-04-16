@@ -25,7 +25,6 @@ public class NearestAttackableTargetGoal implements Goal<Mob> {
     private final int randomInterval;
     private final Condition condition;
     private final boolean mustSee;
-    private final int MAX_UNSEEN_TICKS = 60;
     private LivingEntity target;
     private int unseenTicks;
 
@@ -79,9 +78,10 @@ public class NearestAttackableTargetGoal implements Goal<Mob> {
         }
 
         if (this.mustSee) {
+            int MAX_UNSEEN_TICKS = 60;
             if (this.mob.hasLineOfSight(target)) {
                 this.unseenTicks = 0;
-            } else return ++this.unseenTicks <= this.MAX_UNSEEN_TICKS;
+            } else return ++this.unseenTicks <= MAX_UNSEEN_TICKS;
         }
 
         return true;

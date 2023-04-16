@@ -14,6 +14,7 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.HealthPlaceholder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -25,8 +26,9 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @GUINameable(GUIName = "getName")
-@Getter
 @CustomClickable(customFieldClickConsumer = "getCustomClickConsumer")
+@Getter
+@Setter
 public class NumericValue extends Value<Double, NumericPlaceholder> {
 
     public NumericValue() {
@@ -67,10 +69,6 @@ public class NumericValue extends Value<Double, NumericPlaceholder> {
             placeholderValue = (NumericPlaceholder) map.get("placeholderValue");
         }
         return new NumericValue(objectValue, value, placeholderValue);
-    }
-
-    public Double getRealValue(ActionTarget target, ActionSource source) {
-        return objectValue ? value : placeholderValue.computePlaceholder(target, source);
     }
 
     @Override

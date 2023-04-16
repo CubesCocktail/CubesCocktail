@@ -5,11 +5,15 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(condition = "targetEnabled", name = "&c&lProjectile Target", description = "gui.target.projectile.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjE1ZmVjNjUxOGE0MWYxNjYxMzFlNjViMTBmNDZmYjg3ZTk3YzQ5MmI0NmRiYzI1ZGUyNjM3NjcyMWZhNjRlMCJ9fX0=")
+@Getter
+@Setter
 public class ProjectileTarget extends Target {
 
     public ProjectileTarget() {

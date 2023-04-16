@@ -4,6 +4,8 @@ import com.destroystokyo.paper.entity.Pathfinder;
 import com.destroystokyo.paper.entity.ai.Goal;
 import com.destroystokyo.paper.entity.ai.GoalKey;
 import com.destroystokyo.paper.entity.ai.GoalType;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Mob;
@@ -12,13 +14,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumSet;
 
+
 public class CustomAvoidTargetGoal implements Goal<Mob> {
 
     private final Mob mob;
-    private Pathfinder pathfinder;
+    private final Pathfinder pathfinder;
     private Location targetLocation;
-    private double walkSpeedModifier;
-    private double sprintSpeedModifier;
+    private final double walkSpeedModifier;
+    private final double sprintSpeedModifier;
 
     public CustomAvoidTargetGoal(Mob mob, double walkSpeedModifier,
                                  double sprintSpeedModifier) {

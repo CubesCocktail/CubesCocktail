@@ -11,6 +11,8 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.cooldown.Cooldownable;
 import com.github.zamponimarco.cubescocktail.key.Key;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
@@ -20,6 +22,8 @@ import java.util.function.Function;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lSet Cooldown", description = "gui.action.entity.set-cooldown.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTU5MzM1ZDkxYmIzOWJhNjg1YmE1NjEyY2NmY2FlOGFhZGEzNDYxYTlkMDc4NjZjZDRlMGIyNjZjODY0ZTEwNyJ9fX0=")
+@Getter
+@Setter
 public class SetCooldownAction extends EntityAction {
 
     private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGViNDYxMzU0NDBjMmUwNDJhZWY4NzUyNGMzMTkyMDRhZjcwMWQzNWFiY2U3NDc4YWY2NGU4ZWY4ZTU5MGQzNSJ9fX0=";

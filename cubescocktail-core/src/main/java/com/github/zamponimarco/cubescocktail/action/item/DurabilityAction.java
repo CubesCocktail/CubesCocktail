@@ -7,6 +7,8 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -15,6 +17,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lDurability", description = "gui.action.item.durability.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzI4MzI5ZDdkMWZkZTYyMGViYTY2MTcwZjc4NGFjZmNjNTJjNjQyZmZmZjg0YzY4YWFjMzc1MmU3OGYxNTBiOSJ9fX0=")
+@Getter
+@Setter
 public class DurabilityAction extends ItemAction {
 
     private static final NumericValue DURABILITY_DEFAULT = new NumericValue(10);
@@ -44,8 +48,7 @@ public class DurabilityAction extends ItemAction {
         ItemStack item = getItemStack(target, source);
         if (item != null) {
             ItemMeta meta = item.getItemMeta();
-            if (meta instanceof Damageable) {
-                Damageable damageable = (Damageable) meta;
+            if (meta instanceof Damageable damageable) {
                 damageable.setDamage(durability.getRealValue(target, source).intValue());
                 item.setItemMeta(meta);
                 if (damageable.getDamage() > item.getType().getMaxDurability()) {

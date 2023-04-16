@@ -12,6 +12,8 @@ import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.loot.LootContext;
 
@@ -20,6 +22,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&6&lItem &cdrop", description = "gui.loot.drop.item.description")
+@Getter
+@Setter
 public class ItemDrop extends Drop {
 
     private static final String COUNT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";

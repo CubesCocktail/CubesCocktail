@@ -15,6 +15,8 @@ import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -27,6 +29,8 @@ import java.util.stream.Collectors;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lHighlight Block", description = "gui.action.location.highlight.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZjNmVjM2I3NTM1NGI0OTIyMmE4OWM2NjNjNGFjYWQ1MjY0ZmI5NzdjYWUyNmYwYjU0ODNhNTk5YzQ2NCJ9fX0=")
+@Getter
+@Setter
 public class HighlightBlockAction extends PacketAction {
 
     private static final String COLOR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmVjNTk2M2UxZjc4ZjJmMDU5NDNmNGRkMzIyMjQ2NjEzNzRjMjIwZWNmZGUxZTU0NzU0ZjVlZTFlNTU1ZGQifX19";
@@ -82,8 +86,8 @@ public class HighlightBlockAction extends PacketAction {
         }
 
         if (source.getCaster() instanceof Player &&
-                !CubesCocktail.getInstance().getWorldGuardHook().
-                        canBuild((Player) source.getCaster(), location)) {
+                CubesCocktail.getInstance().getWorldGuardHook().
+                        protectedLocation((Player) source.getCaster(), location)) {
             return ActionResult.FAILURE;
         }
 

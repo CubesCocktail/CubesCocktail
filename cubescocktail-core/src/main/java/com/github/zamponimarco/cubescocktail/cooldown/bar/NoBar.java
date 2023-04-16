@@ -2,12 +2,16 @@ package com.github.zamponimarco.cubescocktail.cooldown.bar;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.Player;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lNo Cooldown Bar", description = "gui.cooldown.bar.no-bar.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ")
+@Getter
+@Setter
 public class NoBar extends CooldownBar {
 
     public NoBar() {

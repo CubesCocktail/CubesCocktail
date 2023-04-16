@@ -2,12 +2,16 @@ package com.github.zamponimarco.cubescocktail.placeholder.bool;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.Player;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lHas Permission Placeholder", description = "gui.placeholder.boolean.has-permission.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ")
+@Getter
+@Setter
 public class HasPermissionPlaceholder extends PlayerPropertyBooleanPlaceholder {
 
     private static final String PERMISSION_DEFAULT = "permission.example";

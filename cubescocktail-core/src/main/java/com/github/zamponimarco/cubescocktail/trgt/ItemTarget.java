@@ -5,6 +5,8 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
@@ -12,6 +14,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(condition = "targetEnabled", name = "&c&lItem Target", description = "gui.target.item.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTJiMzViZGE1ZWJkZjEzNWY0ZTcxY2U0OTcyNmZiZWM1NzM5ZjBhZGVkZjAxYzUxOWUyYWVhN2Y1MTk1MWVhMiJ9fX0=")
+@Getter
+@Setter
 public class ItemTarget extends Target {
 
     public ItemTarget() {

@@ -5,6 +5,7 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.util.MapperUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.EntityEquipment;
@@ -18,8 +19,9 @@ import java.util.Map;
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lEquipment Slot", description = "gui.slot.armor.description",
         headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGQ5YjY4OTE1YjE0NzJkODllNWUzYTliYTZjOTM1YWFlNjAzZDEyYzE0NTRmMzgyMjgyNWY0M2RmZThhMmNhYyJ9fX0")
-@Getter
 @ToString
+@Getter
+@Setter
 public class EquipmentSlot extends Slot {
 
     @Serializable(headTexture = SLOTS_HEAD, description = "gui.slot.slot", stringValue = true)
@@ -51,20 +53,14 @@ public class EquipmentSlot extends Slot {
     @Override
     public boolean isSlot(Inventory inventory, int slot) {
         if (inventory instanceof PlayerInventory) {
-            switch (this.slot) {
-                case HAND:
-                    return slot == ((PlayerInventory) inventory).getHeldItemSlot();
-                case FEET:
-                    return slot == inventory.getSize() - 5;
-                case LEGS:
-                    return slot == inventory.getSize() - 4;
-                case CHEST:
-                    return slot == inventory.getSize() - 3;
-                case HEAD:
-                    return slot == inventory.getSize() - 2;
-                case OFF_HAND:
-                    return slot == inventory.getSize() - 1;
-            }
+            return switch (this.slot) {
+                case HAND -> slot == ((PlayerInventory) inventory).getHeldItemSlot();
+                case FEET -> slot == inventory.getSize() - 5;
+                case LEGS -> slot == inventory.getSize() - 4;
+                case CHEST -> slot == inventory.getSize() - 3;
+                case HEAD -> slot == inventory.getSize() - 2;
+                case OFF_HAND -> slot == inventory.getSize() - 1;
+            };
         }
         return false;
     }

@@ -5,6 +5,8 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -14,6 +16,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lAction Cooldown Bar", description = "gui.cooldown.bar.action.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjAyYWYzY2EyZDVhMTYwY2ExMTE0MDQ4Yjc5NDc1OTQyNjlhZmUyYjFiNWVjMjU1ZWU3MmI2ODNiNjBiOTliOSJ9fX0")
+@Getter
+@Setter
 public class ActionBar extends CooldownBar {
 
     protected static final String COOLDOWN_MESSAGE_FORMAT_DEFAULT = "&2Cooldown &6[%bar&6]";
@@ -28,15 +32,15 @@ public class ActionBar extends CooldownBar {
 
     @Serializable(headTexture = FORMAT_HEAD, description = "gui.skill.cooldown.bar.action.format")
     @Serializable.Optional(defaultValue = "COOLDOWN_MESSAGE_FORMAT_DEFAULT")
-    protected String cooldownMessageFormat;
+    private String cooldownMessageFormat;
 
     @Serializable(headTexture = BAR_HEAD, description = "gui.skill.cooldown.bar.action.bar")
     @Serializable.Optional(defaultValue = "COOLDOWN_MESSAGE_BAR_DEFAULT")
-    protected String cooldownMessageBar;
+    private String cooldownMessageBar;
 
     @Serializable(headTexture = BAR_COUNT_HEAD, description = "gui.skill.cooldown.bar.action.bar-count")
     @Serializable.Optional(defaultValue = "COOLDOWN_MESSAGE_BAR_COUNT_DEFAULT")
-    protected int cooldownMessageBarCount;
+    private int cooldownMessageBarCount;
 
     public ActionBar() {
         this(COOLDOWN_MESSAGE_FORMAT_DEFAULT, COOLDOWN_MESSAGE_BAR_DEFAULT, COOLDOWN_MESSAGE_BAR_COUNT_DEFAULT);

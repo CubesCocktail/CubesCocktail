@@ -9,6 +9,7 @@ import com.github.jummes.libs.util.MessageUtils;
 import com.google.common.collect.Lists;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -25,8 +26,9 @@ import java.util.function.Function;
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lNumbered Slot", description = "gui.slot.numbered.description",
         condition = "additionalSlotsEnabled", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGQ5YjY4OTE1YjE0NzJkODllNWUzYTliYTZjOTM1YWFlNjAzZDEyYzE0NTRmMzgyMjgyNWY0M2RmZThhMmNhYyJ9fX0")
-@Getter
 @ToString
+@Getter
+@Setter
 public class NumberedSlot extends Slot {
 
     @Serializable(headTexture = SLOTS_HEAD, description = "gui.slot.slot", fromList = "getSlots",
@@ -73,7 +75,7 @@ public class NumberedSlot extends Slot {
         return item;
     }
 
-    public static boolean additionalSlotsEnabled(ModelPath path) {
+    public static boolean additionalSlotsEnabled(ModelPath<?> path) {
         return !additionalSlots.isEmpty();
     }
 

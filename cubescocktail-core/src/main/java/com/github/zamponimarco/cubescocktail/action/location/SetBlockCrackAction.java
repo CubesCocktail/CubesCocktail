@@ -11,6 +11,8 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -20,6 +22,8 @@ import java.util.Random;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lCrack Block Action", description = "gui.action.location.crack.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzlhNDZiMmFiMzJmMjE2ZTJkOTIyYzcyMzdiYTIzMTlmOTFiNzFmYTI0ZmU0NTFhZDJjYTgxNDIzZWEzYzgifX19")
+@Getter
+@Setter
 public class SetBlockCrackAction extends PacketAction {
 
     private static final String CRACK_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzlhNDZiMmFiMzJmMjE2ZTJkOTIyYzcyMzdiYTIzMTlmOTFiNzFmYTI0ZmU0NTFhZDJjYTgxNDIzZWEzYzgifX19";
@@ -59,8 +63,8 @@ public class SetBlockCrackAction extends PacketAction {
         }
 
         if (source.getCaster() instanceof Player &&
-                !CubesCocktail.getInstance().getWorldGuardHook().
-                        canBuild((Player) source.getCaster(), location)) {
+                CubesCocktail.getInstance().getWorldGuardHook().
+                        protectedLocation((Player) source.getCaster(), location)) {
             return ActionResult.FAILURE;
         }
         selectedPlayers(location, source).forEach(player -> sendSetBlockCrackPacket(player, location,

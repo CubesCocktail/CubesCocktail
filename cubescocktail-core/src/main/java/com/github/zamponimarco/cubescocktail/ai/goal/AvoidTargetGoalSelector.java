@@ -7,6 +7,8 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.ai.goal.impl.CustomAvoidTargetGoal;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Mob;
 
@@ -14,6 +16,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&6&lAvoid target &cgoal selector", description = "gui.goal-selector.avoid.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjI2ZDk1YTBhY2I0MjI0YWY0ODE4ZGI2NzBiMzZlNWYyMDE5MmE4OWVmYjk2ZmE1YzJiZjBjN2U0M2YyZDdmIn19fQ==")
+@Getter
+@Setter
 public class AvoidTargetGoalSelector extends ConditionalGoalSelector {
 
     private static final NumericValue WALK_DEFAULT = new NumericValue(1);

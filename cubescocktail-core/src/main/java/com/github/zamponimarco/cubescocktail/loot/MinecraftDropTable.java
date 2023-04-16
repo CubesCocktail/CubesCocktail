@@ -4,12 +4,15 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.loot.LootContext;
 import org.bukkit.loot.LootTable;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
@@ -18,6 +21,8 @@ import java.util.Random;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&6&lMinecraft &cdrop table", description = "gui.loot.minecraft.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODQ0OWI5MzE4ZTMzMTU4ZTY0YTQ2YWIwZGUxMjFjM2Q0MDAwMGUzMzMyYzE1NzQ5MzJiM2M4NDlkOGZhMGRjMiJ9fX0=")
+@Getter
+@Setter
 public class MinecraftDropTable extends DropTable {
 
     private static final String NAMESPACE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjcxYjVjYTNhNjFiZWYyOTE2NWViMTI2NmI0MDVhYzI1OTE1NzJjMTZhNGIzOWNiMzZlZGFmNDZjODZjMDg4In19fQ==";
@@ -56,7 +61,7 @@ public class MinecraftDropTable extends DropTable {
     }
 
     @Override
-    public Collection<ItemStack> populateLoot(Random random, LootContext context) {
+    public @NotNull Collection<ItemStack> populateLoot(Random random, @NotNull LootContext context) {
         if (lootTable != null) {
             return lootTable.populateLoot(random, context);
         }
@@ -64,12 +69,12 @@ public class MinecraftDropTable extends DropTable {
     }
 
     @Override
-    public void fillInventory(Inventory inventory, Random random, LootContext context) {
+    public void fillInventory(@NotNull Inventory inventory, Random random, @NotNull LootContext context) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public NamespacedKey getKey() {
+    public @NotNull NamespacedKey getKey() {
         return new NamespacedKey(CubesCocktail.getInstance(), lootTableName);
     }
 }

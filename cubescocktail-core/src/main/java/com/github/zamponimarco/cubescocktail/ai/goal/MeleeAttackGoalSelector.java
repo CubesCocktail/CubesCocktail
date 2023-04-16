@@ -9,6 +9,8 @@ import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.util.HeadUtils;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Mob;
 
@@ -16,6 +18,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&6&lMelee attack &cgoal selector", description = "gui.goal-selector.melee.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTBkZmM4YTM1NjNiZjk5NmY1YzFiNzRiMGIwMTViMmNjZWIyZDA0Zjk0YmJjZGFmYjIyOTlkOGE1OTc5ZmFjMSJ9fX0=")
+@Getter
+@Setter
 public class MeleeAttackGoalSelector extends ConditionalGoalSelector {
 
     private static final boolean FOLLOWING_DEFAULT = false;

@@ -3,13 +3,11 @@ package com.github.zamponimarco.cubescocktail.database;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.util.MessageUtils;
-import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -41,18 +39,8 @@ public abstract class NamedModel implements Model {
             config.loadFromString(string);
             toReturn = (NamedModel) config.get("model");
         } catch (ClassCastException | InvalidConfigurationException e) {
-            CubesCocktail.getInstance().getLogger().warning("Is this model legacy? Trying to convert files.");
-            string = convertOldYamlString(string);
-            try {
-                config.loadFromString(string);
-                toReturn = (NamedModel) config.get("model");
-            } catch (InvalidConfigurationException invalidConfigurationException) {
-                CubesCocktail.getInstance().getLogger().
-                        warning("Conversion did not succeed. Please contact the plugin developer");
-                CubesCocktail.getInstance().getLogger().warning(invalidConfigurationException.getMessage());
-                invalidConfigurationException.printStackTrace();
-                return null;
-            }
+            e.printStackTrace();
+            return null;
         }
         return toReturn;
     }
@@ -74,37 +62,5 @@ public abstract class NamedModel implements Model {
             }
         }
         return null;
-    }
-
-    @NotNull
-    private static String convertOldYamlString(String string) {
-        string = string.replaceAll("com.github.jummes.supremeitem",
-                "com.github.zamponimarco.cubescocktail");
-        string = string.replaceAll("com.github.jummes.suprememob",
-                "com.github.zamponimarco.cubescocktail");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.skill",
-                "com.github.zamponimarco.itemdrink.skill");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.item",
-                "com.github.zamponimarco.itemdrink.item");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.goal",
-                "com.github.zamponimarco.cubescocktail.ai.goal");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.targetted",
-                "com.github.zamponimarco.cubescocktail.ai.trgt");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.mob",
-                "com.github.zamponimarco.mobdrink.mob");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.spawner",
-                "com.github.zamponimarco.mobdrink.spawner");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.savedskill",
-                "com.github.zamponimarco.cubescocktail.function");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.action.meta.SkillAction",
-                "com.github.zamponimarco.cubescocktail.action.meta.FunctionAction");
-        string = string.replaceAll("com.github.zamponimarco.cubescocktail.function.SavedSkill",
-                "com.github.zamponimarco.cubescocktail.function.Function");
-        string = string.replaceAll("actuator.DamageActuator", "trigger.DamageEntityTrigger");
-        string = string.replaceAll("actuator.HitActuator", "trigger.HitEntityTrigger");
-        string = string.replaceAll("actuator.DeathActuator", "trigger.EntityDeathTrigger");
-        string = string.replaceAll("actuator.InteractActuator", "trigger.EntityInteractedTrigger");
-        string = string.replaceAll("actuator.SpawnActuator", "trigger.EntitySpawnTrigger");
-        return string;
     }
 }

@@ -6,11 +6,15 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(condition = "sourceEnabled", name = "&c&lSelected Block Source", description = "gui.source.selected-block.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGMxNzU0ODUxZTM2N2U4YmViYTJhNmQ4ZjdjMmZlZGU4N2FlNzkzYWM1NDZiMGYyOTlkNjczMjE1YjI5MyJ9fX0")
+@Getter
+@Setter
 public class SelectedBlockSource extends Source {
 
     public SelectedBlockSource() {

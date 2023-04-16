@@ -99,14 +99,13 @@ public class HomingProjectileAction extends AbstractProjectileAction {
             return ActionResult.FAILURE;
         }
 
-        if (source instanceof EntitySource) {
-            EntitySource entitySource = (EntitySource) source;
+        if (source instanceof EntitySource entitySource) {
             l = entitySource.getCaster().getEyeLocation().clone();
             if (shootFromHand) {
                 if (entitySource.getHand().equals(MainHand.RIGHT)) {
-                    l = getRightSide(l, 0.5);
+                    l = getRightSide(l);
                 } else {
-                    l = getLeftSide(l, 0.5);
+                    l = getLeftSide(l);
                 }
             }
         } else if (source instanceof LocationSource) {

@@ -10,6 +10,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.savedplaceholder.SavedPlaceholder;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
@@ -19,6 +21,8 @@ import java.util.stream.Collectors;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lSaved Placeholder", description = "gui.placeholder.double.saved-placeholder.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjhiODUxODMwY2YwM2ZhMzBkZDNjMmIwYWVjNzg1Y2JmNmUyNzhlMzllYmExZTkyODllNzg4MDlmMzljM2VhIn19fQ==")
+@Getter
+@Setter
 public class SavedNumericPlaceholder extends NumericPlaceholder {
 
     private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTdlZDY2ZjVhNzAyMDlkODIxMTY3ZDE1NmZkYmMwY2EzYmYxMWFkNTRlZDVkODZlNzVjMjY1ZjdlNTAyOWVjMSJ9fX0=";

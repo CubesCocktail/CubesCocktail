@@ -8,6 +8,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -16,6 +18,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lPossess Item Placeholder", description = "gui.placeholder.boolean.possess-item.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzVlMmUwOTU5NzEyZGNkMzM1N2NjM2NlYTg1Zjk5YjNmZDgwOTc4NTVjNzU0YjliMTcxZjk2MzUxNDIyNWQifX19")
+@Getter
+@Setter
 public class PossessItemPlaceholder extends BooleanPlaceholder {
 
     private static final NumericValue AMOUNT_DEFAULT = new NumericValue(1);
@@ -71,11 +75,10 @@ public class PossessItemPlaceholder extends BooleanPlaceholder {
             entity = source.getCaster();
         }
 
-        if (!(entity instanceof InventoryHolder)) {
+        if (!(entity instanceof InventoryHolder holder)) {
             return false;
         }
 
-        InventoryHolder holder = (InventoryHolder) entity;
         int slot = this.slot.getRealValue(target, source).intValue();
         int amount = this.amount.getRealValue(target, source).intValue();
         if (slot == -1) {

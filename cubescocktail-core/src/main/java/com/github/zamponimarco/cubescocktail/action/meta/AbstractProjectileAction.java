@@ -118,14 +118,14 @@ public abstract class AbstractProjectileAction extends MetaAction {
         return null;
     }
 
-    protected Location getRightSide(Location location, double distance) {
+    protected Location getRightSide(Location location) {
         float angle = location.getYaw() / 60;
-        return location.clone().subtract(new Vector(Math.cos(angle), 0, Math.sin(angle)).normalize().multiply(distance));
+        return location.clone().subtract(new Vector(Math.cos(angle), 0, Math.sin(angle)).normalize().multiply(0.5));
     }
 
-    protected Location getLeftSide(Location location, double distance) {
+    protected Location getLeftSide(Location location) {
         float angle = location.getYaw() / 60;
-        return location.clone().add(new Vector(Math.cos(angle), 0, Math.sin(angle)).normalize().multiply(distance));
+        return location.clone().add(new Vector(Math.cos(angle), 0, Math.sin(angle)).normalize().multiply(0.5));
     }
 
     @Override

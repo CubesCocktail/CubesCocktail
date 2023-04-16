@@ -11,10 +11,10 @@ import lombok.Setter;
 
 import java.util.Map;
 
-@Setter
-@Getter
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lNumber Difference Placeholder", description = "gui.placeholder.double.operator.difference.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWQ2YjEyOTNkYjcyOWQwMTBmNTM0Y2UxMzYxYmJjNTVhZTVhOGM4ZjgzYTE5NDdhZmU3YTg2NzMyZWZjMiJ9fX0===")
+@Setter
+@Getter
 public class DifferencePlaceholder extends NumberOperatorPlaceholder {
 
     @Serializable(headTexture = ONE_HEAD, description = "gui.placeholder.double.operator.operand-one")

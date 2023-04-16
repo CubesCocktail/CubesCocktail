@@ -19,7 +19,7 @@ public class AddonManager {
 
     private final File addonsFolder = new File(CubesCocktail.getInstance().getDataFolder(), "addons");
 
-    private List<AddonClassLoader> addonClassLoaders;
+    private final List<AddonClassLoader> addonClassLoaders;
 
     public AddonManager() {
         this.addonClassLoaders = Lists.newArrayList();

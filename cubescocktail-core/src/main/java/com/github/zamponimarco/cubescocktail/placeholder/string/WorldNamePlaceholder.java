@@ -3,12 +3,16 @@ package com.github.zamponimarco.cubescocktail.placeholder.string;
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lWorld Name Placeholder", description = "gui.placeholder.string.world-name.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmUyY2M0MjAxNWU2Njc4ZjhmZDQ5Y2NjMDFmYmY3ODdmMWJhMmMzMmJjZjU1OWEwMTUzMzJmYzVkYjUwIn19fQ==")
+@Getter
+@Setter
 public class WorldNamePlaceholder extends StringPlaceholder {
     public WorldNamePlaceholder(boolean target) {
         super(target);

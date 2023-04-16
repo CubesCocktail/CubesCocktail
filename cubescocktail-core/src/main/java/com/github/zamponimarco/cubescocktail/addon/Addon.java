@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -40,24 +41,21 @@ public abstract class Addon {
 
     public abstract void renameFunction(String oldName, String newName);
 
+    @SneakyThrows
     public void saveResource(String fileName) {
-        try {
-            fileName = fileName.replace('\\', '/');
-            InputStream in = this.getResource(fileName);
-            File outputFile = new File(this.dataFolder, fileName);
-            OutputStream os = new FileOutputStream(outputFile);
-            byte[] buf = new byte[1024];
+        fileName = fileName.replace('\\', '/');
+        InputStream in = this.getResource(fileName);
+        File outputFile = new File(this.dataFolder, fileName);
+        OutputStream os = new FileOutputStream(outputFile);
+        byte[] buf = new byte[1024];
 
-            int len;
-            while ((len = in.read(buf)) > 0) {
-                os.write(buf, 0, len);
-            }
-
-            os.close();
-            in.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        int len;
+        while ((len = Objects.requireNonNull(in).read(buf)) > 0) {
+            os.write(buf, 0, len);
         }
+
+        os.close();
+        in.close();
     }
 
     @SneakyThrows

@@ -8,12 +8,15 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.loot.drop.Drop;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.loot.LootContext;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.List;
@@ -22,6 +25,8 @@ import java.util.Random;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&6&lSimple &cdrop table", description = "gui.loot.simple.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTliOTA2YjIxNTVmMTkzNzg3MDQyMzM4ZDA1Zjg0MDM5MWMwNWE2ZDNlODE2MjM5MDFiMjk2YmVlM2ZmZGQyIn19fQ")
+@Getter
+@Setter
 public class SimpleDropTable extends DropTable {
 
     private static final String DROPS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTliOTA2YjIxNTVmMTkzNzg3MDQyMzM4ZDA1Zjg0MDM5MWMwNWE2ZDNlODE2MjM5MDFiMjk2YmVlM2ZmZGQyIn19fQ";
@@ -50,7 +55,7 @@ public class SimpleDropTable extends DropTable {
     }
 
     @Override
-    public Collection<ItemStack> populateLoot(Random random, LootContext context) {
+    public @NotNull Collection<ItemStack> populateLoot(Random random, LootContext context) {
 
         if (context.getLootedEntity() == null || (onlyPlayerKill && context.getKiller() == null)) {
             return Lists.newArrayList();
@@ -70,12 +75,12 @@ public class SimpleDropTable extends DropTable {
     }
 
     @Override
-    public void fillInventory(Inventory inventory, Random random, LootContext context) {
+    public void fillInventory(@NotNull Inventory inventory, Random random, @NotNull LootContext context) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public NamespacedKey getKey() {
+    public @NotNull NamespacedKey getKey() {
         return NamespacedKey.randomKey();
     }
 }

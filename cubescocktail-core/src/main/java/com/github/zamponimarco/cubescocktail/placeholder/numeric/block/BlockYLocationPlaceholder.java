@@ -4,12 +4,16 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.placeholder.block.BlockPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.block.LocationBlockPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.block.Block;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lBlock Y Placeholder", description = "gui.placeholder.double.block.y.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODlmZjhjNzQ0OTUwNzI5ZjU4Y2I0ZTY2ZGM2OGVhZjYyZDAxMDZmOGE1MzE1MjkxMzNiZWQxZDU1ZTMifX19")
+@Getter
+@Setter
 public class BlockYLocationPlaceholder extends NumericBlockPlaceholder {
 
     public BlockYLocationPlaceholder() {

@@ -13,11 +13,13 @@ import com.github.zamponimarco.cubescocktail.placeholder.material.BlockMaterialP
 import com.github.zamponimarco.cubescocktail.placeholder.material.MaterialPlaceholder;
 import com.google.common.collect.Lists;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.bukkit.Material;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -26,8 +28,9 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @GUINameable(GUIName = "getName")
-@Getter
 @CustomClickable(customFieldClickConsumer = "getCustomClickConsumer")
+@Getter
+@Setter
 public class MaterialValue extends Value<Material, MaterialPlaceholder> {
     public MaterialValue() {
         this(OBJECT_VALUE_DEFAULT, Material.STONE, new BlockMaterialPlaceholder());
@@ -57,7 +60,7 @@ public class MaterialValue extends Value<Material, MaterialPlaceholder> {
     }
 
     @Override
-    public Map<String, Object> serialize() {
+    public @NotNull Map<String, Object> serialize() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("==", this.getClass().getName());
         if (objectValue != OBJECT_VALUE_DEFAULT) {

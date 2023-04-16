@@ -10,6 +10,7 @@ import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
 import com.google.common.collect.Lists;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
@@ -22,9 +23,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-@Getter
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lBoss Cooldown Bar", description = "gui.cooldown.bar.boss.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWUyODBjZWZlOTQ2OTExZWE5MGU4N2RlZDFiM2UxODMzMGM2M2EyM2FmNTEyOWRmY2ZlOWE4ZTE2NjU4ODA0MSJ9fX0=")
+@Getter
+@Setter
 public class BossBar extends CooldownBar {
 
     protected static final String BAR_MESSAGE_DEFAULT = "&2Cooldown";

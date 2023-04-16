@@ -14,10 +14,10 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Map;
 
-@Getter
-@Setter
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lFormat Number Placeholder", description = "gui.placeholder.string.operator.number-format.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==")
+@Getter
+@Setter
 public class FormatNumerPlaceholder extends StringOperatorPlaceholder {
 
     private static final String PLACEHOLDER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";

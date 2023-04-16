@@ -6,6 +6,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lUnion Area", description = "gui.area.union.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjNhYzM0MTg1YmNlZTYyNmRkOWJjOTY2YmU2NDk4NDM4ZmJmYTc1NDFjODYyYWM3MTZmZmVmOWZkMTg1In19fQ==")
+@Getter
+@Setter
 public class UnionArea extends Area {
 
     @Serializable(headTexture = SHAPE_HEAD, description = "gui.area.areas", additionalDescription = {"gui.additional-tooltips.value"})
@@ -36,14 +40,14 @@ public class UnionArea extends Area {
 
     @Override
     public List<Location> getBlocks(Location center, ActionTarget target, ActionSource source) {
-        Set<Location> set = new HashSet();
+        Set<Location> set = new HashSet<>();
         areas.stream().map(area -> area.getBlocks(center, target, source)).forEach(set::addAll);
         return new ArrayList<>(set);
     }
 
     @Override
     public Collection<LivingEntity> entitiesInside(Location center, ActionTarget target, ActionSource source) {
-        Set<LivingEntity> set = new HashSet();
+        Set<LivingEntity> set = new HashSet<>();
         areas.stream().map(area -> area.entitiesInside(center, target, source)).forEach(set::addAll);
         return new ArrayList<>(set);
     }

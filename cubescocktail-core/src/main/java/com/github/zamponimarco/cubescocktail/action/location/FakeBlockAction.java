@@ -15,6 +15,7 @@ import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.value.MaterialValue;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Sets;
+import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -22,6 +23,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.function.Function;
@@ -29,8 +31,9 @@ import java.util.stream.Collectors;
 
 
 @Enumerable.Child
-@Setter
 @Enumerable.Displayable(name = "&c&lFake block", description = "gui.action.location.fake-block.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYThjODU2MzY2YzY0Nzc0YWY2MjJkZjkwY2ViMTNjYzkxNjcyNzk0ZTc0OWE2MmJkMDFjYjg3MmRhNzE2ZCJ9fX0=")
+@Getter
+@Setter
 public class FakeBlockAction extends PacketAction {
 
     private static final boolean ALLOW_MATERIALS_DEFAULT = false;
@@ -86,15 +89,9 @@ public class FakeBlockAction extends PacketAction {
     }
 
     @Override
-    public Map<String, Object> serialize() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("==", getClass().getName());
-        map.put("target", target);
-        map.put("condition", condition);
-        map.put("material", material);
+    public @NotNull Map<String, Object> serialize() {
+        Map<String, Object> map = super.serialize();
         map.put("excludedMaterials", excludedMaterials.stream().map(Material::name).collect(Collectors.toList()));
-        map.put("allowMaterials", allowMaterials);
-        map.put("ticks", ticks);
         return map;
     }
 
@@ -108,8 +105,8 @@ public class FakeBlockAction extends PacketAction {
         }
 
         if (source.getCaster() instanceof Player &&
-                !CubesCocktail.getInstance().getWorldGuardHook().
-                        canBuild((Player) source.getCaster(), location)) {
+                CubesCocktail.getInstance().getWorldGuardHook().
+                        protectedLocation((Player) source.getCaster(), location)) {
             return Action.ActionResult.FAILURE;
         }
 

@@ -16,6 +16,7 @@ import com.github.zamponimarco.cubescocktail.database.NamedModel;
 import com.github.zamponimarco.cubescocktail.placeholder.Placeholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.MaxHealthPlaceholder;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Material;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -25,8 +26,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.lang.reflect.Field;
 import java.util.Map;
 
-@Getter
 @CustomClickable(customCollectionClickConsumer = "getCustomClickConsumer")
+@Getter
+@Setter
 public class SavedPlaceholder extends NamedModel {
 
     private static final String PLACEHOLDER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzcyMzcwNGE5ZDU5MTBiOWNkNTA1ZGM5OWM3NzliZjUwMzc5Y2I4NDc0NWNjNzE5ZTlmNzg0ZGQ4YyJ9fX0=";
@@ -34,7 +36,7 @@ public class SavedPlaceholder extends NamedModel {
     private static int counter = 1;
 
     @Serializable(headTexture = PLACEHOLDER_HEAD, description = "gui.saved-placeholder.placeholder")
-    private Placeholder placeholder;
+    private Placeholder<?> placeholder;
     @Serializable
     private ItemStackWrapper item;
 
@@ -44,7 +46,7 @@ public class SavedPlaceholder extends NamedModel {
         this.item = new ItemStackWrapper();
     }
 
-    public SavedPlaceholder(String name, Placeholder placeholder, ItemStackWrapper item) {
+    public SavedPlaceholder(String name, Placeholder<?> placeholder, ItemStackWrapper item) {
         super(name);
         this.placeholder = placeholder;
         this.item = item;
@@ -53,7 +55,7 @@ public class SavedPlaceholder extends NamedModel {
 
     public SavedPlaceholder(Map<String, Object> map) {
         super(map);
-        this.placeholder = (Placeholder) map.get("placeholder");
+        this.placeholder = (Placeholder<?>) map.get("placeholder");
         this.item = (ItemStackWrapper) map.getOrDefault("item", new ItemStackWrapper());
     }
 

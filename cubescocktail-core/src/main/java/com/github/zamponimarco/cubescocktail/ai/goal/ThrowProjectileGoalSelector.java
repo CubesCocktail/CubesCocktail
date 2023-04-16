@@ -8,6 +8,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.ai.goal.impl.CustomThrowProjectileTargetGoal;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Mob;
@@ -23,6 +25,8 @@ import java.util.stream.Collectors;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&6&lProjectile &cgoal selector", description = "gui.goal-selector.projectile.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWRmZDc3MjRjNjlhMDI0ZGNmYzYwYjE2ZTAwMzM0YWI1NzM4ZjRhOTJiYWZiOGZiYzc2Y2YxNTMyMmVhMDI5MyJ9fX0=")
+@Getter
+@Setter
 public class ThrowProjectileGoalSelector extends ConditionalGoalSelector {
 
     @Serializable(headTexture = SPEED_HEAD, description = "gui.goal-selector.projectile.projectile", stringValue = true,

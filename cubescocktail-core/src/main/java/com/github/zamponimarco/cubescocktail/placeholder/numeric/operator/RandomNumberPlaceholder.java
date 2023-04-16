@@ -11,10 +11,10 @@ import lombok.Setter;
 
 import java.util.Map;
 
-@Setter
-@Getter
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lRandom Number Placeholder", description = "gui.placeholder.double.operator.random.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTBkMmEzY2U0OTk5ZmVkMzMwZDNhNWQwYTllMjE4ZTM3ZjRmNTc3MTk4MDg2NTczOTZkODMyMjM5ZTEyIn19fQ==")
+@Setter
+@Getter
 public class RandomNumberPlaceholder extends NumberOperatorPlaceholder {
 
     private static final NumericValue MIN_DEFAULT = new NumericValue(0);

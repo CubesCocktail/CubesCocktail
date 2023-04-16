@@ -69,15 +69,13 @@ public class PlayerItemListener implements Listener {
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerDamage(EntityDamageByEntityEvent e) {
-        if (e.getEntity() instanceof LivingEntity) {
-            LivingEntity damaged = (LivingEntity) e.getEntity();
+        if (e.getEntity() instanceof LivingEntity damaged) {
             LivingEntity damager;
 
             if (e.getDamager() instanceof LivingEntity && e.getEntity() instanceof LivingEntity) {
                 damager = (LivingEntity) e.getDamager();
-            } else if (e.getDamager() instanceof Projectile && ((Projectile) e.getDamager()).getShooter() instanceof
-                    LivingEntity) {
-                Projectile projectile = (Projectile) e.getDamager();
+            } else if (e.getDamager() instanceof Projectile projectile &&
+                    ((Projectile) e.getDamager()).getShooter() instanceof LivingEntity) {
                 damager = (LivingEntity) projectile.getShooter();
             } else {
                 return;
@@ -128,8 +126,7 @@ public class PlayerItemListener implements Listener {
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerShoot(ProjectileLaunchEvent e) {
-        if (e.getEntity().getShooter() instanceof LivingEntity) {
-            LivingEntity entity = (LivingEntity) e.getEntity().getShooter();
+        if (e.getEntity().getShooter() instanceof LivingEntity entity) {
             ActionArgument args = new ActionArgument();
             args.setArgument(ActionArgumentKey.CASTER, entity);
             getListeners(EntityShootProjectileTrigger.class, trigger -> true).
@@ -274,9 +271,7 @@ public class PlayerItemListener implements Listener {
                 builder.luck(luck.getAmplifier());
             }
             EntityEquipment equipment = killer.getEquipment();
-            if (equipment != null) {
-                builder.lootingModifier(equipment.getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS));
-            }
+            builder.lootingModifier(equipment.getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS));
         }
 
         if (!dropTable.isDefaultDropsEnabled()) {

@@ -7,6 +7,7 @@ import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.google.common.collect.Lists;
 import lombok.Getter;
+import lombok.Setter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.ItemStack;
 
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Getter
+@Setter
 public class FunctionFolder extends AbstractFunction {
 
     private static final String SKILL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmJiMTI1NmViOWY2NjdjMDVmYjIxZTAyN2FhMWQ1MzU1OGJkYTc0ZTI0MGU0ZmE5ZTEzN2Q4NTFjNDE2ZmU5OCJ9fX0=";

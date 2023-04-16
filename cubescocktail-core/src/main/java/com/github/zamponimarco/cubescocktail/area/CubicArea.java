@@ -6,6 +6,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.util.BoundingBox;
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lCubic area", description = "gui.area.cubic.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU0ZDljNDg4YzNmYmRlNTQ1NGUzODYxOWY5Y2M1YjViYThjNmMwMTg2ZjhhYTFkYTYwOTAwZmNiYzNlYTYifX19")
+@Getter
+@Setter
 public class CubicArea extends Area {
 
     private static final String RANGE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWQ2YjEyOTNkYjcyOWQwMTBmNTM0Y2UxMzYxYmJjNTVhZTVhOGM4ZjgzYTE5NDdhZmU3YTg2NzMyZWZjMiJ9fX0=";
@@ -25,9 +29,9 @@ public class CubicArea extends Area {
 
     @Serializable(headTexture = RANGE_HEAD, description = "gui.area.cubic.range",
             additionalDescription = {"gui.additional-tooltips.value"})
-    private final NumericValue range;
+    private NumericValue range;
     @Serializable(headTexture = BORDERS_HEAD, description = "gui.area.borders")
-    private final boolean onlyBorders;
+    private boolean onlyBorders;
 
     public CubicArea() {
         this(DEFAULT_TRANSLATION.clone(), new NumericValue(3), false);

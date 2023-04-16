@@ -13,10 +13,10 @@ import lombok.Setter;
 import java.util.List;
 import java.util.Map;
 
-@Getter
-@Setter
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lFormat String Placeholder", description = "gui.placeholder.string.operator.format.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZlMTk3MmYyY2ZhNGQzMGRjMmYzNGU4ZDIxNTM1OGMwYzU3NDMyYTU1ZjZjMzdhZDkxZTBkZDQ0MTkxYSJ9fX0")
+@Getter
+@Setter
 public class FormatStringPlaceholder extends StringOperatorPlaceholder {
 
     private static final String TO_FORMAT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDU4NGNmN2Q3OWYxYWViMjU1NGMxYmZkNDZlNmI3OGNhNmFlM2FhMmEyMTMyMzQ2YTQxMGYxNWU0MjZmMzEifX19";

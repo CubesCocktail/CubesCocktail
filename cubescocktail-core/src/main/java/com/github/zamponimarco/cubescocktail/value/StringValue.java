@@ -11,6 +11,7 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.placeholder.string.StringPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.string.WorldNamePlaceholder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -22,8 +23,9 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @GUINameable(GUIName = "getName")
-@Getter
 @CustomClickable(customFieldClickConsumer = "getCustomClickConsumer")
+@Getter
+@Setter
 public class StringValue extends Value<String, StringPlaceholder> {
     public StringValue() {
         this(OBJECT_VALUE_DEFAULT, "example", new WorldNamePlaceholder());

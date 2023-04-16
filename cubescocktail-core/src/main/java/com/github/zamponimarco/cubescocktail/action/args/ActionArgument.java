@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ActionArgument implements Cloneable {
 
-    private Map<ActionArgumentKey<?>, Object> map;
+    private final Map<ActionArgumentKey<?>, Object> map;
 
     public ActionArgument() {
         this.map = new HashMap<>();

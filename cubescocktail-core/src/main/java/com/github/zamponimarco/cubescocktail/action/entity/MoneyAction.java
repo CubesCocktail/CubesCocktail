@@ -10,6 +10,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.hook.VaultHook;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
@@ -17,6 +19,8 @@ import java.util.Map;
 
 @Enumerable.Child()
 @Enumerable.Displayable(name = "&c&lMoney", description = "gui.action.entity.money.description", condition = "vaultEnabled", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWUyNWRiZTQ3NjY3ZDBjZTIzMWJhYTIyM2RlZTk1M2JiZmM5Njk2MDk3Mjc5ZDcyMzcwM2QyY2MzMzk3NjQ5ZSJ9fX0=")
+@Getter
+@Setter
 public class MoneyAction extends EntityAction {
 
     private static final NumericValue MONEY_DEFAULT = new NumericValue(10);
@@ -48,7 +52,7 @@ public class MoneyAction extends EntityAction {
         this.give = (boolean) map.getOrDefault("give", GIVE_DEFAULT);
     }
 
-    public static boolean vaultEnabled(ModelPath path) {
+    public static boolean vaultEnabled(ModelPath<?> path) {
         return CubesCocktail.getInstance().getVaultHook().isEnabled();
     }
 

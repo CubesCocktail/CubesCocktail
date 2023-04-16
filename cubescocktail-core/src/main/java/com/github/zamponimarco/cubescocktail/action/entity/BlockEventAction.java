@@ -63,7 +63,7 @@ public class BlockEventAction extends EntityAction {
         this(TARGET_DEFAULT, BLOCKED_EVENT_DEFAULT, TICKS_DEFAULT.clone());
     }
 
-    public static List<String> getEventsList(ModelPath path) {
+    public static List<String> getEventsList(ModelPath<?> path) {
         return EVENTS_LIST;
     }
 

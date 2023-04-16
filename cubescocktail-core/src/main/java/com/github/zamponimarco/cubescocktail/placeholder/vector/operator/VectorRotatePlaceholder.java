@@ -8,11 +8,15 @@ import com.github.zamponimarco.cubescocktail.math.Vector;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.VectorPlaceholder;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lVector Rotate Placeholder", description = "gui.placeholder.vector.operator.rotate.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTFkNzIwY2QzOWRmM2JlNzRiMGNhYzc1ZTM5MzdmMDA4NWEzNzgyNDc0M2NhZDYzMzBkYzlmNDY2NmE0NTEwZCJ9fX0=")
+@Getter
+@Setter
 public class VectorRotatePlaceholder extends VectorOperatorPlaceholder {
 
     private static final String ROTATE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFjYWNiODM2YzVlNDI4YjQ5YjVkMjI0Y2FiMjI4MjhlZmUyZjZjNzA0Zjc1OTM2NGQ3MWM2NTZlMzAxNDIwIn19fQ==";

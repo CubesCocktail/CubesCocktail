@@ -13,6 +13,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.ItemStack;
 
@@ -26,6 +28,8 @@ import java.util.stream.IntStream;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lRandom Action", description = "gui.action.meta.random.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDFhMmMwODg2MzdmZWU5YWUzYTM2ZGQ0OTZlODc2ZTY1N2Y1MDlkZTU1OTcyZGQxN2MxODc2N2VhZTFmM2U5In19fQ==")
+@Getter
+@Setter
 public class RandomAction extends MetaAction {
 
     private static final NumericValue VALUE_DEFAULT = new NumericValue(1);
@@ -86,6 +90,8 @@ public class RandomAction extends MetaAction {
         return new RandomAction(target, actions.stream().map(RandomActionEntry::clone).collect(Collectors.toList()), rolls.clone());
     }
 
+    @Getter
+    @Setter
     public static class RandomActionEntry implements Model, Cloneable {
 
         private static final String WEIGHT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ4NjEyMjExYmFhNzUyNjY3NGVmODEwYWYzNDFjNDhmZTFhOTAzM2FiYjg1NzI2MzlkYTIxNTc4NDJlM2U0MiJ9fX0=";

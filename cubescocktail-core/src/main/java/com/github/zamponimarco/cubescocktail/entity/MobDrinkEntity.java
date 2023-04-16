@@ -9,6 +9,8 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -20,7 +22,8 @@ import java.util.function.Function;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lMobDrink", description = "gui.entity.supreme.description", condition = "mobDrinkEnabled", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZmYzg1NGJiODRjZjRiNzY5NzI5Nzk3M2UwMmI3OWJjMTA2OTg0NjBiNTFhNjM5YzYwZTVlNDE3NzM0ZTExIn19fQ==")
-// TODO Everything
+@Getter
+@Setter
 public class MobDrinkEntity extends Entity {
 
     private static final String MOB_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZmYzg1NGJiODRjZjRiNzY5NzI5Nzk3M2UwMmI3OWJjMTA2OTg0NjBiNTFhNjM5YzYwZTVlNDE3NzM0ZTExIn19fQ";
@@ -46,11 +49,11 @@ public class MobDrinkEntity extends Entity {
         this.level = (NumericValue) map.getOrDefault("level", new NumericValue(1));
     }
 
-    public static boolean mobDrinkEnabled(ModelPath path) {
+    public static boolean mobDrinkEnabled(ModelPath<?> path) {
         return CubesCocktail.getInstance().getMobDrinkHook().isEnabled();
     }
 
-    public static List<String> getMobs(ModelPath path) {
+    public static List<String> getMobs(ModelPath<?> path) {
         return CubesCocktail.getInstance().getMobDrinkHook().getMobs();
     }
 

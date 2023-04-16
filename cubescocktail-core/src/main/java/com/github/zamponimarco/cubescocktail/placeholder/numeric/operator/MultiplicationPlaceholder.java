@@ -11,10 +11,10 @@ import lombok.Setter;
 
 import java.util.Map;
 
-@Setter
-@Getter
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lNumber Multiplication Placeholder", description = "gui.placeholder.double.operator.multiplication.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzkxZDZlZGE4M2VkMmMyNGRjZGNjYjFlMzNkZjM2OTRlZWUzOTdhNTcwMTIyNTViZmM1NmEzYzI0NGJjYzQ3NCJ9fX0=")
+@Setter
+@Getter
 public class MultiplicationPlaceholder extends NumberOperatorPlaceholder {
 
     @Serializable(headTexture = ONE_HEAD, description = "gui.placeholder.double.operator.operand-one", additionalDescription = {"gui.additional-tooltips.value"})

@@ -7,6 +7,9 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.StringValue;
+import lombok.Getter;
+import lombok.Setter;
+import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -16,6 +19,8 @@ import java.util.Map;
 
 @Enumerable.Child
 @Enumerable.Displayable(name = "&c&lSet Item Lore", description = "gui.action.item.lore.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDg4M2Q2NTZlNDljMzhjNmI1Mzc4NTcyZjMxYzYzYzRjN2E1ZGQ0Mzc1YjZlY2JjYTQzZjU5NzFjMmNjNGZmIn19fQ==")
+@Getter
+@Setter
 public class ItemLoreAction extends ItemAction {
 
     private static final int LINE_DEFAULT = 0;
@@ -51,18 +56,18 @@ public class ItemLoreAction extends ItemAction {
         ItemStack item = getItemStack(target, source);
         if (item != null) {
             ItemMeta meta = item.getItemMeta();
-            List<String> itemLore = meta.getLore();
+            List<Component> itemLore = meta.lore();
             String realValue = lore.getRealValue(target, source);
             if (itemLore == null) {
                 itemLore = new ArrayList<>(line + 1);
             }
             if (itemLore.size() < line + 1) {
                 while (itemLore.size() < line + 1) {
-                    itemLore.add("");
+                    itemLore.add(Component.empty());
                 }
             }
-            itemLore.set(line, realValue);
-            meta.setLore(itemLore);
+            itemLore.set(line, Component.text(realValue));
+            meta.lore(itemLore);
             item.setItemMeta(meta);
         }
         return ActionResult.FAILURE;

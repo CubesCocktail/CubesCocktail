@@ -10,10 +10,12 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.placeholder.Placeholder;
 import com.google.common.reflect.TypeToken;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
@@ -22,6 +24,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 @Getter
+@Setter
 public abstract class Value<S, T extends Placeholder<S>> implements Model, Cloneable {
 
     protected static final boolean OBJECT_VALUE_DEFAULT = true;
@@ -44,7 +47,7 @@ public abstract class Value<S, T extends Placeholder<S>> implements Model, Clone
         this.objectValue = (boolean) map.getOrDefault("objectValue", OBJECT_VALUE_DEFAULT);
     }
 
-    public Map<String, Object> serialize() {
+    public @NotNull Map<String, Object> serialize() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("==", this.getClass().getName());
         if (objectValue != OBJECT_VALUE_DEFAULT) {
@@ -94,7 +97,9 @@ public abstract class Value<S, T extends Placeholder<S>> implements Model, Clone
                                                         ModelPath<? extends Model> path, Field field, InventoryClickEvent e,
                                                         Map<ClickType, Supplier<PluginInventoryHolder>> clickMap) {
         Class<? extends Value> clazz = getClass();
-        Class<Placeholder> placeholderClass = (Class<Placeholder>) TypeToken.of(clazz).resolveType(Value.class.getTypeParameters()[1]).getRawType();
+        Class<Placeholder<?>> placeholderClass =
+                (Class<Placeholder<?>>) TypeToken.of(clazz).resolveType(Value.class.getTypeParameters()[1]).
+                        getRawType();
         Field placeholderValueField = Value.class.getDeclaredField("placeholderValue");
         clickMap.putIfAbsent(ClickType.RIGHT, () -> {
             if (!objectValue) {

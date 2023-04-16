@@ -6,10 +6,7 @@ import com.github.jummes.libs.model.Model;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
-import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.annotation.CasterOnlyPlayer;
-import com.github.zamponimarco.cubescocktail.cooldown.CooldownOptions;
-import com.github.zamponimarco.cubescocktail.slot.Slot;
 import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
@@ -31,42 +28,15 @@ public abstract class Trigger implements Model, Cloneable {
 
     private static final String BLOCK_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU0ZDljNDg4YzNmYmRlNTQ1NGUzODYxOWY5Y2M1YjViYThjNmMwMTg2ZjhhYTFkYTYwOTAwZmNiYzNlYTYifX19";
 
-    @Deprecated
-    protected List<ActionGroup> groups;
-
-    @Deprecated
-    protected CooldownOptions cooldownOptions;
-
-    @Deprecated
-    protected List<Slot> allowedSlots;
-
-    @Deprecated
-    protected boolean consumable;
-
-    @Deprecated
-    protected int cooldown;
 
     public Trigger() {
     }
 
     public Trigger(Map<String, Object> map) {
-        generalLegacyTransition(map);
     }
 
     public static boolean isCasterOnlyPlayer(ModelPath<?> path) {
         return path.getModelPath().stream().anyMatch(model -> model.getClass().isAnnotationPresent(CasterOnlyPlayer.class));
-    }
-
-    @Deprecated
-    private void generalLegacyTransition(Map<String, Object> map) {
-        try {
-            this.allowedSlots = (List<Slot>) map.getOrDefault("allowedSlots", Lists.newArrayList());
-            this.consumable = (boolean) map.getOrDefault("consumable", false);
-            this.cooldownOptions = (CooldownOptions) map.getOrDefault("cooldownOptions", new CooldownOptions());
-            this.groups = (List<ActionGroup>) map.getOrDefault("groups", Lists.newArrayList());
-            this.cooldown = (int) map.getOrDefault("cooldown", 0);
-        } catch (Exception ignored) {
-        }
     }
 
     public void registerListener(TriggerListener listener) {

@@ -4,12 +4,14 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.Model;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.loot.LootTable;
 
 import java.util.Map;
 
-@Getter
 @Enumerable.Parent(classArray = {SimpleDropTable.class, MinecraftDropTable.class})
+@Getter
+@Setter
 public abstract class DropTable implements Model, LootTable {
 
     private static final String DEFAULT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODllNzAxNjIxNDNjN2NhYTIwZTMwM2VlYTMxNGE5YWVkNWRiOWNjNjg0MzVlNzgzYjNjNTlhZjQzYmY0MzYzNSJ9fX0=";
