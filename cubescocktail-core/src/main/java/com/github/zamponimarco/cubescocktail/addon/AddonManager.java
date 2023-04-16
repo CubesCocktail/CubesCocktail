@@ -4,12 +4,12 @@ import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.SneakyThrows;
-import org.apache.commons.lang.Validate;
 import org.bukkit.plugin.InvalidDescriptionException;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
@@ -41,7 +41,7 @@ public class AddonManager {
 
     @SneakyThrows
     public AddonClassLoader loadAddon(File file) {
-        Validate.notNull(file, "File cannot be null");
+        Objects.requireNonNull(file);
         JarFile jar = new JarFile(file);
         JarEntry entry = jar.getJarEntry("addon.yml");
         if (entry == null) {

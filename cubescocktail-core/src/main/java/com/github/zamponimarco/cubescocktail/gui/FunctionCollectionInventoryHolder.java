@@ -9,13 +9,13 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.model.wrapper.ItemStackWrapper;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
+import com.github.jummes.libs.util.ReflectUtils;
 import com.github.zamponimarco.cubescocktail.function.AbstractFunction;
 import com.github.zamponimarco.cubescocktail.function.Function;
 import com.github.zamponimarco.cubescocktail.function.FunctionFolder;
 import com.google.common.collect.Lists;
 import lombok.SneakyThrows;
 import net.kyori.adventure.text.Component;
-import org.apache.commons.lang.reflect.FieldUtils;
 import org.bukkit.Material;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -53,8 +53,8 @@ public class FunctionCollectionInventoryHolder extends SelectableCollectionInven
     @SneakyThrows
     @Override
     protected void defaultClickConsumer(AbstractFunction model, InventoryClickEvent e) {
-        Collection<AbstractFunction> skills = ((Collection<AbstractFunction>) FieldUtils.readField(field,
-                path.getLast() != null ? path.getLast() : path.getModelManager(), true));
+        Collection<AbstractFunction> skills = ((Collection<AbstractFunction>) ReflectUtils.readField(field,
+                path.getLast() != null ? path.getLast() : path.getModelManager()));
         if (e.getClick().equals(ClickType.LEFT)) {
             if (!e.getCursor().getType().equals(Material.AIR) && model instanceof Function) {
                 setSkillGUIItem(model, e);

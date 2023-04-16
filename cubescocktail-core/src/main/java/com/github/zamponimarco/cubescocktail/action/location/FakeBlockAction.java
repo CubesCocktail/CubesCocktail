@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.MapperUtils;
+import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
@@ -15,7 +16,6 @@ import com.github.zamponimarco.cubescocktail.value.MaterialValue;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Sets;
 import lombok.Setter;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -141,6 +141,6 @@ public class FakeBlockAction extends PacketAction {
 
     @Override
     public String getName() {
-        return "&6&lFake Block: &c" + WordUtils.capitalize(material.getName());
+        return "&6&lFake Block: &c" + MessageUtils.capitalize(material.getName());
     }
 }

@@ -2,11 +2,11 @@ package com.github.zamponimarco.cubescocktail.database;
 
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.Model;
+import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.lang.RandomStringUtils;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
@@ -31,7 +31,7 @@ public abstract class NamedModel implements Model {
     }
 
     public NamedModel(Map<String, Object> map) {
-        this((String) map.getOrDefault("name", RandomStringUtils.randomAlphabetic(6)));
+        this((String) map.getOrDefault("name", MessageUtils.getRandomString(6)));
     }
 
     public static NamedModel fromSerializedString(String string) {

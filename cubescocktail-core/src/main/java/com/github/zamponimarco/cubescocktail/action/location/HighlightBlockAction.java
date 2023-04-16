@@ -15,7 +15,6 @@ import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
-import org.apache.commons.lang.RandomStringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -96,7 +95,7 @@ public class HighlightBlockAction extends PacketAction {
     private void sendHighlightBlockPacket(Player player, Location location, ChatColor color, int ticks) {
         int eid = new Random().nextInt();
         UUID id = UUID.randomUUID();
-        String team = RandomStringUtils.random(16);
+        String team = MessageUtils.getRandomString(16);
 
         Libs.getProtocolWrapper().sendSpawnEntityPacket(player, location.getBlock().getLocation().
                 clone().add(.5, 0, .5), eid, id);

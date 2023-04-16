@@ -7,6 +7,7 @@ import com.github.jummes.libs.gui.model.RemoveConfirmationInventoryHolder;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
+import com.github.jummes.libs.util.ReflectUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.meta.FunctionAction;
@@ -14,7 +15,6 @@ import com.github.zamponimarco.cubescocktail.action.meta.WrapperAction;
 import com.github.zamponimarco.cubescocktail.function.Function;
 import lombok.SneakyThrows;
 import net.kyori.adventure.text.Component;
-import org.apache.commons.lang.reflect.FieldUtils;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -45,8 +45,8 @@ public class ActionCollectionInventoryHolder extends SelectableCollectionInvento
 
     @SneakyThrows
     protected void defaultClickConsumer(Action model, InventoryClickEvent e) {
-        Collection<Action> actions = ((Collection<Action>) FieldUtils.readField(field,
-                path.getLast() != null ? path.getLast() : path.getModelManager(), true));
+        Collection<Action> actions = ((Collection<Action>) ReflectUtils.readField(field,
+                path.getLast() != null ? path.getLast() : path.getModelManager()));
         if (e.getClick().equals(ClickType.LEFT)) {
             openActionGUI(model, e);
         } else if (e.getClick().equals(ClickType.RIGHT)) {

@@ -2,13 +2,13 @@ package com.github.zamponimarco.cubescocktail.action.location;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.GenericEntity;
-import org.apache.commons.lang.WordUtils;
 
 import java.util.Map;
 
@@ -47,6 +47,6 @@ public class SpawnEntityAction extends LocationAction {
 
     @Override
     public String getName() {
-        return "&6&lSpawn: &c" + WordUtils.capitalizeFully(entity.getType().name());
+        return "&6&lSpawn: &c" + MessageUtils.capitalize(entity.getType().name());
     }
 }

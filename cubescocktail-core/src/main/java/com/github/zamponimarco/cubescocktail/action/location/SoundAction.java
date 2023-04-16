@@ -17,7 +17,6 @@ import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
@@ -121,7 +120,7 @@ public class SoundAction extends PacketAction {
 
     @Override
     public String getName() {
-        return "&6&lSound: &c" + WordUtils.capitalize(type.toString());
+        return "&6&lSound: &c" + MessageUtils.capitalize(type.toString());
     }
 
 }

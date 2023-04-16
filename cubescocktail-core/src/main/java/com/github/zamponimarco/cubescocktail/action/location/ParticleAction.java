@@ -5,6 +5,7 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.model.util.particle.options.ParticleOptions;
 import com.github.jummes.libs.util.MapperUtils;
+import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
@@ -14,7 +15,6 @@ import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -123,7 +123,7 @@ public class ParticleAction extends PacketAction {
 
     @Override
     public String getName() {
-        return "&6&lParticle: &c" + WordUtils.capitalize(type.toString());
+        return "&6&lParticle: &c" + MessageUtils.capitalize(type.toString());
     }
 
     public ItemStack getDataObject() {

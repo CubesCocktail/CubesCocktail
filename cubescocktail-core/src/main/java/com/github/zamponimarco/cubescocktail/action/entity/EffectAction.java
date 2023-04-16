@@ -14,7 +14,6 @@ import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
@@ -142,7 +141,7 @@ public class EffectAction extends EntityAction {
 
     @Override
     public String getName() {
-        return "&6&lEffect: &c" + WordUtils.capitalize(type.toString());
+        return "&6&lEffect: &c" + MessageUtils.capitalize(type.toString());
     }
 
     public ItemStack getDurationItem() {

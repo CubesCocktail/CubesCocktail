@@ -5,6 +5,7 @@ import com.github.jummes.libs.core.Libs;
 import com.github.jummes.libs.database.factory.DatabaseFactory;
 import com.github.jummes.libs.gui.FieldInventoryHolderFactory;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.entity.HealAction;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.action.meta.RandomAction;
 import com.github.zamponimarco.cubescocktail.addon.AddonManager;
@@ -47,12 +48,14 @@ import com.github.zamponimarco.cubescocktail.trigger.Trigger;
 import com.github.zamponimarco.cubescocktail.value.*;
 import com.google.common.collect.Lists;
 import lombok.Getter;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.FileUtil;
 
 import java.io.File;
 import java.util.Objects;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Getter
@@ -64,44 +67,33 @@ public class CubesCocktail extends JavaPlugin {
     static {
         Libs.registerSerializables();
 
+        // Abstract Classes
         ConfigurationSerialization.registerClass(Source.class);
         ConfigurationSerialization.registerClass(Target.class);
         ConfigurationSerialization.registerClass(Trigger.class);
-        ConfigurationSerialization.registerClass(ActionGroup.class);
-
         ConfigurationSerialization.registerClass(Action.class);
-        ConfigurationSerialization.registerClass(RandomAction.RandomActionEntry.class);
-
         ConfigurationSerialization.registerClass(Entity.class);
-
-        ConfigurationSerialization.registerClass(Function.class);
-
         ConfigurationSerialization.registerClass(Condition.class);
-
         ConfigurationSerialization.registerClass(Placeholder.class);
+        ConfigurationSerialization.registerClass(Area.class);
+        ConfigurationSerialization.registerClass(EntitySorter.class);
+        ConfigurationSerialization.registerClass(CooldownBar.class);
+        ConfigurationSerialization.registerClass(DropTable.class);
+        ConfigurationSerialization.registerClass(Drop.class);
+        ConfigurationSerialization.registerClass(TargetSelector.class);
+        ConfigurationSerialization.registerClass(GoalSelector.class);
 
-        ConfigurationSerialization.registerClass(Value.class);
+        // Single Classes
+        ConfigurationSerialization.registerClass(ActionGroup.class);
+        ConfigurationSerialization.registerClass(RandomAction.RandomActionEntry.class);
+        ConfigurationSerialization.registerClass(Function.class);
         ConfigurationSerialization.registerClass(NumericValue.class);
         ConfigurationSerialization.registerClass(StringValue.class);
         ConfigurationSerialization.registerClass(MaterialValue.class);
         ConfigurationSerialization.registerClass(VectorValue.class);
-
         ConfigurationSerialization.registerClass(SavedPlaceholder.class);
-
         ConfigurationSerialization.registerClass(Vector.class);
-
-        ConfigurationSerialization.registerClass(Area.class);
-
-        ConfigurationSerialization.registerClass(EntitySorter.class);
-
-        ConfigurationSerialization.registerClass(CooldownBar.class);
         ConfigurationSerialization.registerClass(CooldownOptions.class);
-
-        ConfigurationSerialization.registerClass(DropTable.class);
-        ConfigurationSerialization.registerClass(Drop.class);
-
-        ConfigurationSerialization.registerClass(TargetSelector.class);
-        ConfigurationSerialization.registerClass(GoalSelector.class);
     }
 
     private FunctionManager functionManager;

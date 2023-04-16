@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.MapperUtils;
+import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
@@ -12,7 +13,6 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.value.MaterialValue;
 import com.google.common.collect.Sets;
 import lombok.Setter;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -109,6 +109,6 @@ public class SetBlockAction extends LocationAction {
 
     @Override
     public String getName() {
-        return "&6&lSet Block: &c" + WordUtils.capitalize(material.getName());
+        return "&6&lSet Block: &c" + MessageUtils.capitalize(material.getName());
     }
 }
