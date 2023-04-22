@@ -4,6 +4,7 @@ import com.github.jummes.libs.core.Libs;
 import com.github.jummes.libs.gui.PluginInventoryHolder;
 import com.github.jummes.libs.gui.model.ModelObjectInventoryHolder;
 import com.github.jummes.libs.gui.model.RemoveConfirmationInventoryHolder;
+import com.github.jummes.libs.gui.model.SelectableCollectionInventoryHolder;
 import com.github.jummes.libs.gui.model.create.ModelCreateInventoryHolder;
 import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.model.wrapper.ItemStackWrapper;

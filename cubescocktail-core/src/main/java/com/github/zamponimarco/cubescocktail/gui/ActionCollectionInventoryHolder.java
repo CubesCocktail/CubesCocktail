@@ -4,7 +4,9 @@ import com.github.jummes.libs.core.Libs;
 import com.github.jummes.libs.gui.PluginInventoryHolder;
 import com.github.jummes.libs.gui.model.ModelObjectInventoryHolder;
 import com.github.jummes.libs.gui.model.RemoveConfirmationInventoryHolder;
+import com.github.jummes.libs.gui.model.SelectableCollectionInventoryHolder;
 import com.github.jummes.libs.model.ModelPath;
+import com.github.jummes.libs.model.NamedModel;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.jummes.libs.util.ReflectUtils;
@@ -31,7 +33,7 @@ public class ActionCollectionInventoryHolder extends SelectableCollectionInvento
 
     private static final boolean TARGET_DEFAULT = true;
 
-    public ActionCollectionInventoryHolder(JavaPlugin plugin, PluginInventoryHolder parent, ModelPath<Action> path,
+    public ActionCollectionInventoryHolder(JavaPlugin plugin, PluginInventoryHolder parent, ModelPath<? extends NamedModel> path,
                                            Field field, int page, Predicate<Action> filter) {
         super(plugin, parent, path, field, page, filter);
     }

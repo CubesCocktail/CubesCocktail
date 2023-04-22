@@ -19,7 +19,7 @@ public class FunctionManager extends ModelManager<AbstractFunction> {
 
     public FunctionManager(Class<AbstractFunction> classObject, String databaseType, JavaPlugin plugin) {
         super(classObject, databaseType, plugin, ImmutableMap.of("name", "function"));
-        this.functions = database.loadObjects();
+        this.functions = fetchModels();
     }
 
     public List<Function> getExecutableSkills() {

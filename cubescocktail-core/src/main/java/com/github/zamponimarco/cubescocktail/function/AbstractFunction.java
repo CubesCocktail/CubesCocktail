@@ -3,7 +3,7 @@ package com.github.zamponimarco.cubescocktail.function;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
-import com.github.zamponimarco.cubescocktail.database.NamedModel;
+import com.github.jummes.libs.model.NamedModel;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

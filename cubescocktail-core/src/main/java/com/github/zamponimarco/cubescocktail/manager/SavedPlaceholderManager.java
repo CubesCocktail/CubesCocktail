@@ -17,7 +17,7 @@ public class SavedPlaceholderManager extends ModelManager<SavedPlaceholder> {
 
     public SavedPlaceholderManager(Class<SavedPlaceholder> classObject, String databaseType, JavaPlugin plugin) {
         super(classObject, databaseType, plugin, new HashMap<>());
-        this.placeholders = database.loadObjects();
+        this.placeholders = fetchModels();
     }
 
     public SavedPlaceholder getByName(String name) {

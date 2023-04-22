@@ -12,7 +12,7 @@ import com.github.jummes.libs.model.wrapper.ItemStackWrapper;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
-import com.github.zamponimarco.cubescocktail.database.NamedModel;
+import com.github.jummes.libs.model.NamedModel;
 import com.github.zamponimarco.cubescocktail.placeholder.Placeholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.MaxHealthPlaceholder;
 import lombok.Getter;

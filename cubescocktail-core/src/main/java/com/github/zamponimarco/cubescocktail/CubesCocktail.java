@@ -18,7 +18,6 @@ import com.github.zamponimarco.cubescocktail.command.PlaceholderListCommand;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownOptions;
 import com.github.zamponimarco.cubescocktail.cooldown.bar.CooldownBar;
-import com.github.zamponimarco.cubescocktail.database.CompressedYamlDatabase;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.sorter.EntitySorter;
 import com.github.zamponimarco.cubescocktail.function.AbstractFunction;
@@ -158,7 +157,6 @@ public class CubesCocktail extends JavaPlugin {
     }
 
     private void setUpLibrary() {
-        DatabaseFactory.getMap().put("comp", CompressedYamlDatabase.class);
         FieldInventoryHolderFactory.collectionGUIMap.put(Action.class, ActionCollectionInventoryHolder.class);
         FieldInventoryHolderFactory.collectionGUIMap.put(AbstractFunction.class, FunctionCollectionInventoryHolder.class);
         Libs.initializeLibrary(this);
@@ -166,8 +164,8 @@ public class CubesCocktail extends JavaPlugin {
     }
 
     private void setUpData() {
-        this.functionManager = new FunctionManager(AbstractFunction.class, "comp", this);
-        this.savedPlaceholderManager = new SavedPlaceholderManager(SavedPlaceholder.class, "comp", this);
+        this.functionManager = new FunctionManager(AbstractFunction.class, "comp_yaml", this);
+        this.savedPlaceholderManager = new SavedPlaceholderManager(SavedPlaceholder.class, "comp_yaml", this);
         this.cooldownManager = new CooldownManager();
         this.addonManager = new AddonManager();
         this.timerManager = new TimerManager();
