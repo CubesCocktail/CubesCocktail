@@ -4,8 +4,8 @@ An expandable plugin for Minecraft based on [Paper](https://papermc.io/) that ac
 
 Each aspect of the game can be customized installing the related addon, the current list of addons is:
 
-- ⚔️ [ItemDrink](https://github.com/CubesCocktail/ItemDrink), to create custom items with special abilities
-- 🧟 [MobDrink](https://github.com/CubesCocktail/MobDrink), to create custom mobs
+- ⚔️ [ItemDrink](https://hangar.papermc.io/CubesCocktail/ItemDrink), to create custom items with special abilities
+- 🧟 [MobDrink](https://hangar.papermc.io/jummes/MobDrink), to create custom mobs
 
 ### Building
 
