@@ -164,10 +164,10 @@ public class CubesCocktail extends JavaPlugin {
     }
 
     private void setUpData() {
+        this.addonManager = new AddonManager();
         this.functionManager = new FunctionManager(AbstractFunction.class, "comp_yaml", this);
         this.savedPlaceholderManager = new SavedPlaceholderManager(SavedPlaceholder.class, "comp_yaml", this);
         this.cooldownManager = new CooldownManager();
-        this.addonManager = new AddonManager();
         this.timerManager = new TimerManager();
     }
 

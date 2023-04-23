@@ -1,5 +1,6 @@
 package com.github.zamponimarco.cubescocktail.cooldown;
 
+import com.github.zamponimarco.cubescocktail.key.Key;
 import lombok.*;
 
 @AllArgsConstructor
@@ -9,6 +10,6 @@ import lombok.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class CooldownInfo {
     @EqualsAndHashCode.Include
-    private Object key;
+    private Key key;
     private int remainingCooldown;
 }
