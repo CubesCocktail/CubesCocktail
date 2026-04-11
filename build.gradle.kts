@@ -2,7 +2,7 @@ plugins {
     java
     id ("io.freefair.lombok") version "9.2.0"
     id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
-    id("com.gradleup.shadow") version "8.3.6"
+    id("com.gradleup.shadow") version "9.4.1"
     id("xyz.jpenilla.run-paper") version "3.0.2" 
 }
 
@@ -46,6 +46,10 @@ tasks.processResources {
 
 tasks.shadowJar {
     archiveClassifier.set("")
+
+    exclude("META-INF/**")
+
+    relocate("com.github.jummes.libs", "com.github.zamponimarco.cubescocktail.libs")
 }
 
 tasks.assemble {
