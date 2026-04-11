@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ProjectileTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.projectile.AbstractProjectile;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
@@ -20,9 +21,8 @@ import java.util.Map;
 @Setter
 public class SetProjectileHitBoxSizeAction extends ProjectileAction {
 
-    private static final String HIT_BOX_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjMzYzBiYjM3ZWJlMTE5M2VlNDYxODEwMzQ2MGE3ZjEyOTI3N2E4YzdmZDA4MWI2YWVkYjM0YTkyYmQ1In19fQ";
 
-    @Serializable(headTexture = HIT_BOX_HEAD, description = "gui.action.projectile.hit-box.hit-box")
+    @Serializable(headTexture = Textures.HIT_BOX_HEAD, description = "gui.action.projectile.hit-box.hit-box")
     private NumericValue hitBoxSize;
 
     public SetProjectileHitBoxSizeAction() {

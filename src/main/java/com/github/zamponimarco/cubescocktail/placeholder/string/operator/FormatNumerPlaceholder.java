@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.HealthPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.string.StringPlaceholder;
@@ -20,12 +21,10 @@ import java.util.Map;
 @Setter
 public class FormatNumerPlaceholder extends StringOperatorPlaceholder {
 
-    private static final String PLACEHOLDER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
-    private static final String FORMAT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWY4ODZkOWM0MGVmN2Y1MGMyMzg4MjQ3OTJjNDFmYmZiNTRmNjY1ZjE1OWJmMWJjYjBiMjdiM2VhZDM3M2IifX19";
 
-    @Serializable(headTexture = PLACEHOLDER_HEAD, description = "gui.placeholder.string.operator.number-format.placeholder")
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.placeholder.string.operator.number-format.placeholder")
     private NumericPlaceholder placeholder;
-    @Serializable(headTexture = FORMAT_HEAD, description = "gui.placeholder.string.operator.number-format.format")
+    @Serializable(headTexture = Textures.FORMAT_HEAD_1F886D9C, description = "gui.placeholder.string.operator.number-format.format")
     private String numberFormat;
 
     public FormatNumerPlaceholder() {

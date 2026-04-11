@@ -10,6 +10,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -38,15 +39,8 @@ public class EffectAction extends EntityAction {
     private static final boolean ICON_DEFAULT = true;
     private static final boolean REMOVE_DEFAULT = false;
 
-    private static final String TYPE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzJhN2RjYmY3ZWNhNmI2ZjYzODY1OTFkMjM3OTkxY2ExYjg4OGE0ZjBjNzUzZmY5YTMyMDJjZjBlOTIyMjllMyJ9fX0=";
-    private static final String DURATION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE2YWU1YjM0YzRmNzlhNWY5ZWQ2Y2NjMzNiYzk4MWZjNDBhY2YyYmZjZDk1MjI2NjRmZTFjNTI0ZDJlYjAifX19";
-    private static final String LEVEL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
-    private static final String PARTICLE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWY4NDczNWZjOWM3NjBlOTVlYWYxMGNlYzRmMTBlZGI1ZjM4MjJhNWZmOTU1MWVlYjUwOTUxMzVkMWZmYTMwMiJ9fX0=";
-    private static final String AMBIENT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWY1NzE5MmIxOTRjNjU4YWFhODg4MTY4NDhjYmNlN2M3NDk0NjZhNzkyYjhhN2UxZDNmYWZhNDFjNDRmMzQxMiJ9fX0=";
-    private static final String ICON_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDU5MWYwNGJiNmQ1MjQ5MTFhZGRhNzc1YWYyNDRmODZhOTVkYjE4N2UzMWI4YTNiMTAzYWQ4MGZjNWIyMjU2MCJ9fX0=";
-    private static final String REMOVE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNThkMTVmZWNiNWY2ZGVmOTMxN2M5MzNiMzQ0ZTZiMTExZjU0NjE5ZGNlYmRmODJhNDY4YWVkNTU0ZTE3ZSJ9fX0=";
 
-    @Serializable(headTexture = TYPE_HEAD, stringValue = true, description = "gui.action.entity.effect.type", fromList = "getPotionEffects", fromListMapper = "potionEffectsMapper")
+    @Serializable(headTexture = Textures.TYPE_HEAD_72A7DCBF, stringValue = true, description = "gui.action.entity.effect.type", fromList = "getPotionEffects", fromListMapper = "potionEffectsMapper")
     private PotionEffectType type;
 
     @Serializable(displayItem = "getDurationItem", description = "gui.action.entity.effect.duration", additionalDescription = {"gui.additional-tooltips.value"})
@@ -71,7 +65,7 @@ public class EffectAction extends EntityAction {
     @Serializable.Optional(defaultValue = "ICON_DEFAULT")
     private boolean icon;
 
-    @Serializable(headTexture = REMOVE_HEAD, description = "gui.action.entity.effect.remove")
+    @Serializable(headTexture = Textures.REMOVE_HEAD, description = "gui.action.entity.effect.remove")
     @Serializable.Optional(defaultValue = "REMOVE_DEFAULT")
     private boolean remove;
 
@@ -146,35 +140,35 @@ public class EffectAction extends EntityAction {
 
     public ItemStack getDurationItem() {
         if (!remove) {
-            return ItemUtils.skullFromValue(DURATION_HEAD);
+            return ItemUtils.skullFromValue(Textures.DURATION_HEAD);
         }
         return null;
     }
 
     public ItemStack getParticlesItem() {
         if (!remove) {
-            return ItemUtils.skullFromValue(PARTICLE_HEAD);
+            return ItemUtils.skullFromValue(Textures.TYPE_HEAD);
         }
         return null;
     }
 
     public ItemStack getLevelItem() {
         if (!remove) {
-            return ItemUtils.skullFromValue(LEVEL_HEAD);
+            return ItemUtils.skullFromValue(Textures.ACTIONS_HEAD);
         }
         return null;
     }
 
     public ItemStack getIconItem() {
         if (!remove) {
-            return ItemUtils.skullFromValue(ICON_HEAD);
+            return ItemUtils.skullFromValue(Textures.ICON_HEAD);
         }
         return null;
     }
 
     public ItemStack getAmbientItem() {
         if (!remove) {
-            return ItemUtils.skullFromValue(AMBIENT_HEAD);
+            return ItemUtils.skullFromValue(Textures.AMBIENT_HEAD);
         }
         return null;
     }

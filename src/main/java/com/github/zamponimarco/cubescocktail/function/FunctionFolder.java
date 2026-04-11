@@ -5,6 +5,7 @@ import com.github.jummes.libs.core.Libs;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,14 +20,11 @@ import java.util.Objects;
 @Setter
 public class FunctionFolder extends AbstractFunction {
 
-    private static final String SKILL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmJiMTI1NmViOWY2NjdjMDVmYjIxZTAyN2FhMWQ1MzU1OGJkYTc0ZTI0MGU0ZmE5ZTEzN2Q4NTFjNDE2ZmU5OCJ9fX0=";
-    private static final String NAME_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmEzZmNlNTAzNmY3YWQ0ZjExMTExY2UzMThmOGYxYWVlODU5ZWY0OWRlMTI5M2YxMTYyY2EyZTJkZWEyODFkYiJ9fX0=";
-    private static final String FOLDER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTYzMzBhNGEyMmZmNTU4NzFmYzhjNjE4ZTQyMWEzNzczM2FjMWRjYWI5YzhlMWE0YmI3M2FlNjQ1YTRhNGUifX19";
     protected static int folderCounter = 1;
-    @Serializable(headTexture = SKILL_HEAD)
+    @Serializable(headTexture = Textures.SKILL_HEAD)
     private List<AbstractFunction> skills;
 
-    @Serializable(headTexture = NAME_HEAD)
+    @Serializable(headTexture = Textures.NAME_HEAD_FA3FCE50)
     private String displayName;
 
     public FunctionFolder() {
@@ -82,6 +80,6 @@ public class FunctionFolder extends AbstractFunction {
                 MessageUtils.color("&6&lid: &c" + name)
         );
         lore.addAll(Libs.getLocale().getList("gui.function.folder-description"));
-        return ItemUtils.getNamedItem(ItemUtils.skullFromValue(FOLDER_HEAD), MessageUtils.color(displayName), lore);
+        return ItemUtils.getNamedItem(ItemUtils.skullFromValue(Textures.FOLDER_HEAD), MessageUtils.color(displayName), lore);
     }
 }

@@ -6,6 +6,7 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.cooldown.Cooldownable;
 import com.github.zamponimarco.cubescocktail.key.Key;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
@@ -24,9 +25,8 @@ import java.util.function.Function;
 @Setter
 public class CooldownPlaceholder extends EntityNumericPlaceholder {
 
-    private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGViNDYxMzU0NDBjMmUwNDJhZWY4NzUyNGMzMTkyMDRhZjcwMWQzNWFiY2U3NDc4YWY2NGU4ZWY4ZTU5MGQzNSJ9fX0=";
 
-    @Serializable(headTexture = HEAD, fromList = "getColdownables", fromListMapper = "cooldownablesMapper", description = "gui.placeholder.double.entity.cooldown.key")
+    @Serializable(headTexture = Textures.HEAD, fromList = "getColdownables", fromListMapper = "cooldownablesMapper", description = "gui.placeholder.double.entity.cooldown.key")
     private Key key;
 
     public CooldownPlaceholder() {

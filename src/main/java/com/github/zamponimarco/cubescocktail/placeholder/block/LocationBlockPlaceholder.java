@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.math.Vector;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
 import lombok.Getter;
@@ -18,9 +19,8 @@ import java.util.Map;
 @Setter
 public class LocationBlockPlaceholder extends BlockPlaceholder {
 
-    private static final String PLACEHOLDER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzcyMzcwNGE5ZDU5MTBiOWNkNTA1ZGM5OWM3NzliZjUwMzc5Y2I4NDc0NWNjNzE5ZTlmNzg0ZGQ4YyJ9fX0=";
 
-    @Serializable(headTexture = PLACEHOLDER_HEAD, description = "gui.placeholder.string.to-string.placeholder",
+    @Serializable(headTexture = Textures.PLACEHOLDER_HEAD, description = "gui.placeholder.string.to-string.placeholder",
             additionalDescription = {"gui.additional-tooltips.value"})
     private VectorValue vector;
 

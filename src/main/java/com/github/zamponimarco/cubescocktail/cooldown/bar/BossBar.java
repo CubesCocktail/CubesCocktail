@@ -7,6 +7,7 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -33,21 +34,18 @@ public class BossBar extends CooldownBar {
     protected static final BarColor BAR_COLOR_DEFAULT = BarColor.BLUE;
     protected static final BarStyle BAR_STYLE_DEFAULT = BarStyle.SOLID;
 
-    private static final String FORMAT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZlMTk3MmYyY2ZhNGQzMGRjMmYzNGU4ZDIxNTM1OGMwYzU3NDMyYTU1ZjZjMzdhZDkxZTBkZDQ0MTkxYSJ9fX0=";
-    private static final String COLOR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmVjNTk2M2UxZjc4ZjJmMDU5NDNmNGRkMzIyMjQ2NjEzNzRjMjIwZWNmZGUxZTU0NzU0ZjVlZTFlNTU1ZGQifX19";
-    private static final String STYLE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTRiZGE5ZWEyZmNlYWFhOTQ1YzM4ZWQ0N2IxNDMxZDM5OTY3M2I4M2IyNzY5Njc0YWU5ZDllODNjM2ZmZDQzIn19fQ==";
 
     private static final Map<Player, List<CooldownInfo>> cooldownsMap = new HashMap<>();
 
-    @Serializable(headTexture = FORMAT_HEAD, description = "gui.skill.cooldown.bar.boss.message")
+    @Serializable(headTexture = Textures.FORMAT_HEAD, description = "gui.skill.cooldown.bar.boss.message")
     @Serializable.Optional(defaultValue = "BAR_MESSAGE_DEFAULT")
     private String barMessage;
 
-    @Serializable(headTexture = COLOR_HEAD, description = "gui.skill.cooldown.bar.boss.color", fromList = "getColors",
+    @Serializable(headTexture = Textures.COLOR_HEAD, description = "gui.skill.cooldown.bar.boss.color", fromList = "getColors",
             fromListMapper = "colorsMapper", stringValue = true)
     private BarColor color;
 
-    @Serializable(headTexture = STYLE_HEAD, description = "gui.skill.cooldown.bar.boss.style", fromList = "getStyles",
+    @Serializable(headTexture = Textures.STYLE_HEAD, description = "gui.skill.cooldown.bar.boss.style", fromList = "getStyles",
             fromListMapper = "stylesMapper", stringValue = true)
     private BarStyle style;
 
@@ -72,7 +70,7 @@ public class BossBar extends CooldownBar {
     }
 
     public static Function<Object, ItemStack> colorsMapper() {
-        return obj -> ItemUtils.getNamedItem(ItemUtils.skullFromValue(COLOR_HEAD),
+        return obj -> ItemUtils.getNamedItem(ItemUtils.skullFromValue(Textures.COLOR_HEAD),
                 MessageUtils.color(((BarColor) obj).name()), Lists.newArrayList());
     }
 
@@ -81,7 +79,7 @@ public class BossBar extends CooldownBar {
     }
 
     public static Function<Object, ItemStack> stylesMapper() {
-        return obj -> ItemUtils.getNamedItem(ItemUtils.skullFromValue(STYLE_HEAD),
+        return obj -> ItemUtils.getNamedItem(ItemUtils.skullFromValue(Textures.STYLE_HEAD),
                 MessageUtils.color(((BarStyle) obj).name()), Lists.newArrayList());
     }
 

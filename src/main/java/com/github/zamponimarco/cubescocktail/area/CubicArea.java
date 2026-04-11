@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
 import lombok.Getter;
@@ -24,13 +25,11 @@ import java.util.stream.Collectors;
 @Setter
 public class CubicArea extends Area {
 
-    private static final String RANGE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWQ2YjEyOTNkYjcyOWQwMTBmNTM0Y2UxMzYxYmJjNTVhZTVhOGM4ZjgzYTE5NDdhZmU3YTg2NzMyZWZjMiJ9fX0=";
-    private static final String BORDERS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjA5NWE3ZmQ5MGRhYTFiYmU3MDY5MDg5NzQwZTA1ZDBiZmM2NjI5NmVlM2M0MGVlNzFhNGUwYTY2MTZiMmJiYyJ9fX0=";
 
-    @Serializable(headTexture = RANGE_HEAD, description = "gui.area.cubic.range",
+    @Serializable(headTexture = Textures.RANGE_HEAD, description = "gui.area.cubic.range",
             additionalDescription = {"gui.additional-tooltips.value"})
     private NumericValue range;
-    @Serializable(headTexture = BORDERS_HEAD, description = "gui.area.borders")
+    @Serializable(headTexture = Textures.BORDERS_HEAD, description = "gui.area.borders")
     private boolean onlyBorders;
 
     public CubicArea() {

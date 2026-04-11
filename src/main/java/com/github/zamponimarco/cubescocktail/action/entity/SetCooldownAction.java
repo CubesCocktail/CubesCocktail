@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.cooldown.Cooldownable;
 import com.github.zamponimarco.cubescocktail.key.Key;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
@@ -26,12 +27,11 @@ import java.util.function.Function;
 @Setter
 public class SetCooldownAction extends EntityAction {
 
-    private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGViNDYxMzU0NDBjMmUwNDJhZWY4NzUyNGMzMTkyMDRhZjcwMWQzNWFiY2U3NDc4YWY2NGU4ZWY4ZTU5MGQzNSJ9fX0=";
 
-    @Serializable(headTexture = HEAD, fromList = "getColdownables", fromListMapper = "cooldownablesMapper",
+    @Serializable(headTexture = Textures.HEAD, fromList = "getColdownables", fromListMapper = "cooldownablesMapper",
             description = "gui.action.entity.set-cooldown.key")
     private Key key;
-    @Serializable(headTexture = HEAD, description = "gui.action.entity.set-cooldown.cooldown")
+    @Serializable(headTexture = Textures.HEAD, description = "gui.action.entity.set-cooldown.cooldown")
     private NumericValue cooldown;
 
     public SetCooldownAction() {

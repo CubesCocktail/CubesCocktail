@@ -14,6 +14,7 @@ import com.github.zamponimarco.cubescocktail.area.Area;
 import com.github.zamponimarco.cubescocktail.area.SphericArea;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.condition.bool.BooleanCondition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.entity.sorter.EntitySorter;
 import com.github.zamponimarco.cubescocktail.entity.sorter.ProximitySorter;
 import com.github.zamponimarco.cubescocktail.placeholder.bool.IsSourcePlaceholder;
@@ -51,32 +52,26 @@ public class AreaEntitiesAction extends WrapperAction {
     private static final EntitySorter SORTER_DEFAULT = new ProximitySorter();
     private static final Condition CONDITION_DEFAULT = new BooleanCondition(true, new IsSourcePlaceholder());
 
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
-    private static final String SHAPE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2IyYjVkNDhlNTc1Nzc1NjNhY2EzMTczNTUxOWNiNjIyMjE5YmMwNThiMWYzNDY0OGI2N2I4ZTcxYmMwZmEifX19";
-    private static final String CONDITION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmMyNzEwNTI3MTllZjY0MDc5ZWU4YzE0OTg5NTEyMzhhNzRkYWM0YzI3Yjk1NjQwZGI2ZmJkZGMyZDZiNWI2ZSJ9fX0=";
-    private static final String CAST_LOCATION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmQzYjJlM2U5OTU0ZjgyMmI0M2ZlNWY5MTUwOTllMGE2Y2FhYTgxZjc5MTIyMmI1ODAzZDQxNDVhODUxNzAifX19";
-    private static final String SORTER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE2ZDUxYzIyYzg5NTgyODVjMDBhYWFmOTNiNjIxYzE1YmUxMGFhMDQ4MzhhZmUxZDg5Y2Q5YzM2MDMxNDRkZiJ9fX0=";
-    private static final String COUNT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.action.meta.wrapper.area-entities.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.action.meta.wrapper.area-entities.actions")
     @Serializable.Optional(defaultValue = "ACTIONS_DEFAULT")
     private List<Action> actions;
 
-    @Serializable(headTexture = SHAPE_HEAD, description = "gui.action.meta.wrapper.area-blocks.area", additionalDescription = {"gui.additional-tooltips.recreate"})
+    @Serializable(headTexture = Textures.SHAPE_HEAD, description = "gui.action.meta.wrapper.area-blocks.area", additionalDescription = {"gui.additional-tooltips.recreate"})
     private Area area;
 
-    @Serializable(headTexture = CONDITION_HEAD, description = "gui.action.meta.wrapper.area-entities.condition")
+    @Serializable(headTexture = Textures.CONDITION_HEAD, description = "gui.action.meta.wrapper.area-entities.condition")
     private Condition condition;
 
-    @Serializable(headTexture = COUNT_HEAD, description = "gui.action.meta.wrapper.area-entities.count")
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.action.meta.wrapper.area-entities.count")
     @Serializable.Number(minValue = 0, scale = 1)
     private NumericValue count;
 
-    @Serializable(headTexture = SORTER_HEAD, description = "gui.action.meta.wrapper.area-entities.sorter",
+    @Serializable(headTexture = Textures.SORTER_HEAD, description = "gui.action.meta.wrapper.area-entities.sorter",
             additionalDescription = {"gui.additional-tooltips.recreate"})
     private EntitySorter sorter;
 
-    @Serializable(headTexture = CAST_LOCATION_HEAD, description = "gui.action.meta.wrapper.area-entities.cast-from-location")
+    @Serializable(headTexture = Textures.CATEGORY_HEAD, description = "gui.action.meta.wrapper.area-entities.cast-from-location")
     @Serializable.Optional(defaultValue = "CAST_LOCATION_DEFAULT")
     private boolean castFromLocation;
 

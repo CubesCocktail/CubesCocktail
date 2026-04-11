@@ -7,6 +7,7 @@ import com.github.jummes.libs.util.ItemUtils;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,19 +26,17 @@ public class PossessItemPlaceholder extends BooleanPlaceholder {
     private static final NumericValue AMOUNT_DEFAULT = new NumericValue(1);
     private static final NumericValue SLOT_DEFAULT = new NumericValue(-1);
 
-    private static final String AMOUNT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
-    private static final String SLOT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNThiYzhmYTcxNmNhZGQwMDRiODI4Y2IyN2NjMGY2ZjZhZGUzYmU0MTUxMTY4OGNhOWVjZWZmZDE2NDdmYjkifX19";
 
     @Serializable(displayItem = "getFlatItem", description = "gui.placeholder.boolean.possess-item.item",
             additionalDescription = {"gui.additional-tooltips.item"})
     private ItemStackWrapper item;
 
-    @Serializable(headTexture = AMOUNT_HEAD, description = "gui.placeholder.boolean.possess-item.amount")
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.placeholder.boolean.possess-item.amount")
     @Serializable.Number(minValue = 1, scale = 1)
     @Serializable.Optional(defaultValue = "AMOUNT_DEFAULT")
     private NumericValue amount;
 
-    @Serializable(headTexture = SLOT_HEAD, description = "gui.placeholder.boolean.possess-item.slot")
+    @Serializable(headTexture = Textures.SLOT_HEAD, description = "gui.placeholder.boolean.possess-item.slot")
     @Serializable.Number(minValue = -1, maxValue = 45, scale = 1)
     @Serializable.Optional(defaultValue = "SLOT_DEFAULT")
     private NumericValue slot;

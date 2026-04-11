@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.ai.goal.impl.CustomMeleeAttackTargetGoal;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.util.HeadUtils;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
@@ -25,7 +26,6 @@ public class MeleeAttackGoalSelector extends ConditionalGoalSelector {
     private static final boolean FOLLOWING_DEFAULT = false;
     private static final NumericValue RELOAD_DEFAULT = new NumericValue(20);
 
-    private static final String CONDITION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmMyNzEwNTI3MTllZjY0MDc5ZWU4YzE0OTg5NTEyMzhhNzRkYWM0YzI3Yjk1NjQwZGI2ZmJkZGMyZDZiNWI2ZSJ9fX0=";
 
     @Serializable(headTexture = SPEED_HEAD, description = "gui.goal-selector.speed")
     @Serializable.Optional(defaultValue = "SPEED_DEFAULT")

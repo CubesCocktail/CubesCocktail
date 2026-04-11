@@ -6,6 +6,7 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +24,8 @@ public class OrCondition extends TrueFalseCondition {
 
     private static final List<Condition> CONDITIONS_DEFAULT = Lists.newArrayList();
 
-    private static final String CONDITIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjNhYzM0MTg1YmNlZTYyNmRkOWJjOTY2YmU2NDk4NDM4ZmJmYTc1NDFjODYyYWM3MTZmZmVmOWZkMTg1In19fQ==";
 
-    @Serializable(headTexture = CONDITIONS_HEAD, description = "gui.condition.or.conditions")
+    @Serializable(headTexture = Textures.CONDITIONS_HEAD_23AC3418, description = "gui.condition.or.conditions")
     @Serializable.Optional(defaultValue = "CONDITIONS_DEFAULT")
     private List<Condition> conditions;
 

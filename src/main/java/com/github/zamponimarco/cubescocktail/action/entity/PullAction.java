@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
 import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,9 +25,8 @@ public class PullAction extends EntityAction {
 
     private static final NumericValue FORCE_DEFAULT = new NumericValue(1.0);
 
-    private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzZlZjgzZTZjYWIxOWNkMjM4MDdlZjIwNmQxY2E2NmU0MWJhYTNhMGZhNWJkYzllYTQ0YmJlOTZkMTg2YiJ9fX0=";
 
-    @Serializable(headTexture = HEAD, description = "gui.action.entity.pull.force", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.HEAD_76EF83E6, description = "gui.action.entity.pull.force", additionalDescription = {"gui.additional-tooltips.value"})
     private NumericValue force;
 
     public PullAction() {

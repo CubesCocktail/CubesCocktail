@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -28,22 +29,20 @@ public class BlockEventAction extends EntityAction {
     private static final String BLOCKED_EVENT_DEFAULT = "toolbar-slot-change";
     private static final NumericValue TICKS_DEFAULT = new NumericValue(100);
 
-    private static final String BLOCK_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ";
-    private static final String TICKS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=";
 
     private static final List<String> EVENTS_LIST = Lists.newArrayList("toolbar-slot-change");
 
     /**
      * The string that represents the event to block
      */
-    @Serializable(headTexture = BLOCK_HEAD, fromList = "getEventsList", description = "gui.action.entity.block-event.blocked-event")
+    @Serializable(headTexture = Textures.FORCE_HEAD, fromList = "getEventsList", description = "gui.action.entity.block-event.blocked-event")
     private String blockedEvent;
 
     /**
      * The value that represents the number of ticks in which the
      * event for the target entity will be blocked.
      */
-    @Serializable(headTexture = TICKS_HEAD, description = "gui.action.entity.block-event.ticks", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.TICKS_HEAD, description = "gui.action.entity.block-event.ticks", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, scale = 1)
     private NumericValue ticks;
 

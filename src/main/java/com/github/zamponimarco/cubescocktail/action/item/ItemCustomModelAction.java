@@ -6,6 +6,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,9 +23,8 @@ public class ItemCustomModelAction extends ItemAction {
 
     private static final NumericValue DURABILITY_DEFAULT = new NumericValue(10);
 
-    private static final String DURABILITY_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzI4MzI5ZDdkMWZkZTYyMGViYTY2MTcwZjc4NGFjZmNjNTJjNjQyZmZmZjg0YzY4YWFjMzc1MmU3OGYxNTBiOSJ9fX0=";
 
-    @Serializable(headTexture = DURABILITY_HEAD, description = "gui.action.item.durability.durability", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.DURABILITY_HEAD, description = "gui.action.item.durability.durability", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, scale = 1)
     private NumericValue customModel;
 

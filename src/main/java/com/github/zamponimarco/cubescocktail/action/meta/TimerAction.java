@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,21 +28,18 @@ public class TimerAction extends WrapperAction {
     private static final int TIMER_DEFAULT = 5;
     private static final int REPETITIONS_DEFAULT = 10;
 
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
-    private static final String TIMER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=";
-    private static final String REPETITIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmM4ZGVmNjdhMTI2MjJlYWQxZGVjZDNkODkzNjQyNTdiNTMxODk2ZDg3ZTQ2OTgxMzEzMWNhMjM1YjVjNyJ9fX0=";
 
-    @Serializable(headTexture = TIMER_HEAD, description = "gui.action.meta.wrapper.timer.timer")
+    @Serializable(headTexture = Textures.TICKS_HEAD, description = "gui.action.meta.wrapper.timer.timer")
     @Serializable.Number(minValue = 0, scale = 1)
     @Serializable.Optional(defaultValue = "TIMER_DEFAULT")
     private int timer;
 
-    @Serializable(headTexture = REPETITIONS_HEAD, description = "gui.action.meta.wrapper.timer.repetitions")
+    @Serializable(headTexture = Textures.REPETITIONS_HEAD, description = "gui.action.meta.wrapper.timer.repetitions")
     @Serializable.Number(minValue = 0, scale = 1)
     @Serializable.Optional(defaultValue = "REPETITIONS_DEFAULT")
     private int repetitions;
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.action.meta.wrapper.timer.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.action.meta.wrapper.timer.actions")
     @Serializable.Optional(defaultValue = "ACTIONS_DEFAULT")
     private List<Action> actions;
 

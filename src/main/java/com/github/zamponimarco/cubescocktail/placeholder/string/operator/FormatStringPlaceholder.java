@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.Placeholder;
 import com.github.zamponimarco.cubescocktail.placeholder.string.StringPlaceholder;
 import com.google.common.collect.Lists;
@@ -19,12 +20,10 @@ import java.util.Map;
 @Setter
 public class FormatStringPlaceholder extends StringOperatorPlaceholder {
 
-    private static final String TO_FORMAT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDU4NGNmN2Q3OWYxYWViMjU1NGMxYmZkNDZlNmI3OGNhNmFlM2FhMmEyMTMyMzQ2YTQxMGYxNWU0MjZmMzEifX19";
-    private static final String PLACEHOLDERS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZlMTk3MmYyY2ZhNGQzMGRjMmYzNGU4ZDIxNTM1OGMwYzU3NDMyYTU1ZjZjMzdhZDkxZTBkZDQ0MTkxYSJ9fX0=";
 
-    @Serializable(headTexture = TO_FORMAT_HEAD, description = "gui.placeholder.string.operator.format.to-format")
+    @Serializable(headTexture = Textures.TO_FORMAT_HEAD, description = "gui.placeholder.string.operator.format.to-format")
     private String toFormat;
-    @Serializable(headTexture = PLACEHOLDERS_HEAD, description = "gui.placeholder.string.operator.format.placeholders")
+    @Serializable(headTexture = Textures.FORMAT_HEAD, description = "gui.placeholder.string.operator.format.placeholders")
     private List<StringPlaceholder> placeholders;
 
     public FormatStringPlaceholder(boolean target, String toFormat, List<StringPlaceholder> placeholders) {

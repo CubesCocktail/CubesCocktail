@@ -17,6 +17,7 @@ import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.variable.VariableAction;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.function.Function;
 import com.google.common.collect.Sets;
 import org.bukkit.Location;
@@ -31,7 +32,6 @@ public abstract class Action implements Model, Cloneable {
 
     protected static final boolean TARGET_DEFAULT = true;
 
-    private static final String TARGET_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzc4N2I3YWZiNWE1OTk1Mzk3NWJiYTI0NzM3NDliNjAxZDU0ZDZmOTNjZWFjN2EwMmFjNjlhYWU3ZjliOCJ9fX0==";
 
     @Serializable(displayItem = "targetItem", description = "gui.action.target")
     @Serializable.Optional(defaultValue = "TARGET_DEFAULT")
@@ -67,7 +67,7 @@ public abstract class Action implements Model, Cloneable {
     }
 
     public ItemStack targetItem() {
-        return ItemUtils.skullFromValue(TARGET_HEAD);
+        return ItemUtils.skullFromValue(Textures.TARGET_HEAD);
     }
 
     public void changeSkillName(String oldName, String newName) {

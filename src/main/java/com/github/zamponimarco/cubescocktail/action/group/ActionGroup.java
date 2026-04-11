@@ -7,6 +7,7 @@ import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.CasterTarget;
@@ -24,15 +25,12 @@ import java.util.stream.Collectors;
 @Setter
 public class ActionGroup implements Model, Cloneable {
 
-    private static final String SOURCE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY3OWRmMzlkNzVmYzBjZDFhNTMxMGViOGE1ODYxZDI1NDg4OGVkM2Y2ZDllMjVjMTNkNTFkZmUzYzFjODc5OSJ9fX0=";
-    private static final String TARGET_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzc4N2I3YWZiNWE1OTk1Mzk3NWJiYTI0NzM3NDliNjAxZDU0ZDZmOTNjZWFjN2EwMmFjNjlhYWU3ZjliOCJ9fX0=";
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2Y0ZDVhNGFiYjY0ZGIxMWI0NTcxZTc0N2M1OGU0MDMwMThmNjQ5YzE4MTZjNjUwOWY5YTNmN2E3ODIxYjQ4ZSJ9fX0=";
 
-    @Serializable(headTexture = SOURCE_HEAD, description = "gui.group.source")
+    @Serializable(headTexture = Textures.SOURCE_HEAD, description = "gui.group.source")
     private Source source;
-    @Serializable(headTexture = TARGET_HEAD, description = "gui.group.target")
+    @Serializable(headTexture = Textures.TARGET_HEAD, description = "gui.group.target")
     private Target target;
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.group.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD_3F4D5A4A, description = "gui.group.actions")
     private List<Action> actions;
 
     public ActionGroup() {
@@ -69,7 +67,7 @@ public class ActionGroup implements Model, Cloneable {
 
     @Override
     public ItemStack getGUIItem() {
-        return ItemUtils.getNamedItem(ItemUtils.skullFromValue(ACTIONS_HEAD),
+        return ItemUtils.getNamedItem(ItemUtils.skullFromValue(Textures.ACTIONS_HEAD_3F4D5A4A),
                 MessageUtils.color(String.format("&6&lGroup of %d actions", actions.size())),
                 Lists.newArrayList(
                         MessageUtils.color("&6&lSource: &c" + source.getName()),

@@ -10,6 +10,7 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.LocationTarget;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.NoEntity;
 import com.github.zamponimarco.cubescocktail.projectile.Projectile;
@@ -38,14 +39,12 @@ public class ProjectileAction extends AbstractProjectileAction {
     private static final NumericValue PROJECTILE_SPREAD_DEFAULT = new NumericValue(0);
     private static final boolean SHOOT_FROM_HAND_DEFAULT = false;
 
-    private static final String SHOOT_FROM_HAND_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNmYzUyMjY0ZDhhZDllNjU0ZjQxNWJlZjAxYTIzOTQ3ZWRiY2NjY2Y2NDkzNzMyODliZWE0ZDE0OTU0MWY3MCJ9fX0=";
-    private static final String SPREAD_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTAxMWU3NTE2ZGFhYzVmMjMyMGY2N2I5N2FkNTMwNGY5MDY2Zjg2NDA3YjU4YTUzMGY4MGY4ZmM5N2IzZTg2ZSJ9fX0=";
 
-    @Serializable(headTexture = SHOOT_FROM_HAND_HEAD, description = "gui.action.meta.projectile.shoot-hand")
+    @Serializable(headTexture = Textures.VECTOR_HEAD, description = "gui.action.meta.projectile.shoot-hand")
     @Serializable.Optional(defaultValue = "SHOOT_FROM_HAND_DEFAULT")
     private boolean shootFromHand;
 
-    @Serializable(headTexture = SPREAD_HEAD, description = "gui.action.meta.projectile.spread", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.SPREAD_HEAD, description = "gui.action.meta.projectile.spread", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, maxValue = 180, scale = 1)
     @Serializable.Optional(defaultValue = "PROJECTILE_SPREAD_DEFAULT")
     private NumericValue projectileSpread;

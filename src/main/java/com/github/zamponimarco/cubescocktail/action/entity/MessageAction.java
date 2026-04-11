@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.StringValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +24,8 @@ public class MessageAction extends EntityAction {
 
     private static final StringValue DEFAULT_MESSAGE = new StringValue("message");
 
-    private static final String MESSAGE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2RkNjM5NzhlODRlMjA5MjI4M2U5Y2QwNmU5ZWY0YmMyMjhiYjlmMjIyMmUxN2VlMzgzYjFjOWQ5N2E4YTAifX19";
 
-    @Serializable(headTexture = MESSAGE_HEAD, description = "gui.action.entity.message.message", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.MESSAGE_HEAD, description = "gui.action.entity.message.message", additionalDescription = {"gui.additional-tooltips.value"})
     private StringValue message;
 
     public MessageAction() {

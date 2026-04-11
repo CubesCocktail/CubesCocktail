@@ -12,6 +12,7 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.bool.TrueFalseCondition;
 import com.github.zamponimarco.cubescocktail.condition.numeric.NumericCondition;
 import com.github.zamponimarco.cubescocktail.condition.string.StringCondition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
@@ -22,9 +23,8 @@ public abstract class Condition implements Model, Cloneable {
 
     protected static final boolean NEGATE_DEFAULT = false;
 
-    private static final String NEGATE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWZkMjQwMDAwMmFkOWZiYmJkMDA2Njk0MWViNWIxYTM4NGFiOWIwZTQ4YTE3OGVlOTZlNGQxMjlhNTIwODY1NCJ9fX0=";
 
-    @Serializable(headTexture = NEGATE_HEAD, description = "gui.condition.negate")
+    @Serializable(headTexture = Textures.EXCLUDED_HEAD, description = "gui.condition.negate")
     @Serializable.Optional(defaultValue = "NEGATE_DEFAULT")
     protected boolean negate;
 

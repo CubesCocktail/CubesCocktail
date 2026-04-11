@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.ProjectileTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.projectile.AbstractProjectile;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
@@ -20,9 +21,8 @@ import java.util.Map;
 @Setter
 public class SetProjectileLifeAction extends ProjectileAction {
 
-    private static final String LIFE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzZmZGQ0YjEzZDU0ZjZjOTFkZDVmYTc2NWVjOTNkZDk0NThiMTlmOGFhMzRlZWI1YzgwZjQ1NWIxMTlmMjc4In19fQ";
 
-    @Serializable(headTexture = LIFE_HEAD, description = "gui.action.projectile.life.life")
+    @Serializable(headTexture = Textures.LIFE_HEAD, description = "gui.action.projectile.life.life")
     private NumericValue life;
 
     public SetProjectileLifeAction() {

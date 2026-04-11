@@ -12,6 +12,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,31 +39,26 @@ public class ParticleAction extends PacketAction {
     private static final NumericValue SPEED_DEFAULT = new NumericValue(0);
     private static final boolean FORCE_DEFAULT = false;
 
-    private static final String TYPE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWY4NDczNWZjOWM3NjBlOTVlYWYxMGNlYzRmMTBlZGI1ZjM4MjJhNWZmOTU1MWVlYjUwOTUxMzVkMWZmYTMwMiJ9fX0=";
-    private static final String COUNT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
-    private static final String OFFSET_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDI4OTIyMTdjZThmYTg0MTI4YWJlMjY0YjVlNzFkN2VlN2U2YTlkNTgyMzgyNThlZjdkMmVmZGMzNDcifX19";
-    private static final String SPEED_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNmYzUyMjY0ZDhhZDllNjU0ZjQxNWJlZjAxYTIzOTQ3ZWRiY2NjY2Y2NDkzNzMyODliZWE0ZDE0OTU0MWY3MCJ9fX0=";
-    private static final String FORCE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==";
 
-    @Serializable(headTexture = TYPE_HEAD, stringValue = true, description = "gui.action.location.particle.type", fromListMapper = "particlesMapper", fromList = "getParticles")
+    @Serializable(headTexture = Textures.TYPE_HEAD, stringValue = true, description = "gui.action.location.particle.type", fromListMapper = "particlesMapper", fromList = "getParticles")
     private Particle type;
 
-    @Serializable(headTexture = COUNT_HEAD, description = "gui.action.location.particle.count", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.action.location.particle.count", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, scale = 1)
     @Serializable.Optional(defaultValue = "COUNT_DEFAULT")
     private NumericValue count;
 
-    @Serializable(headTexture = OFFSET_HEAD, description = "gui.action.location.particle.offset", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.OFFSET_HEAD, description = "gui.action.location.particle.offset", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0)
     @Serializable.Optional(defaultValue = "OFFSET_DEFAULT")
     private NumericValue offset;
 
-    @Serializable(headTexture = SPEED_HEAD, description = "gui.action.location.particle.speed", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.VECTOR_HEAD, description = "gui.action.location.particle.speed", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0)
     @Serializable.Optional(defaultValue = "SPEED_DEFAULT")
     private NumericValue speed;
 
-    @Serializable(headTexture = FORCE_HEAD, description = "gui.action.location.particle.force")
+    @Serializable(headTexture = Textures.FORCE_HEAD, description = "gui.action.location.particle.force")
     @Serializable.Optional(defaultValue = "FORCE_DEFAULT")
     private boolean force;
 

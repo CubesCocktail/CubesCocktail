@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
@@ -23,13 +24,11 @@ public class ProximitySorter extends EntitySorter {
     protected static final boolean TARGET_DEFAULT = true;
     protected static final boolean INVERSE_DEFAULT = false;
 
-    private static final String TARGET_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzc4N2I3YWZiNWE1OTk1Mzk3NWJiYTI0NzM3NDliNjAxZDU0ZDZmOTNjZWFjN2EwMmFjNjlhYWU3ZjliOCJ9fX0==";
-    private static final String INVERSE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTAxMWU3NTE2ZGFhYzVmMjMyMGY2N2I5N2FkNTMwNGY5MDY2Zjg2NDA3YjU4YTUzMGY4MGY4ZmM5N2IzZTg2ZSJ9fX0=";
 
-    @Serializable(headTexture = TARGET_HEAD, description = "gui.entity.sorter.proximity.target")
+    @Serializable(headTexture = Textures.TARGET_HEAD, description = "gui.entity.sorter.proximity.target")
     @Serializable.Optional(defaultValue = "TARGET_DEFAULT")
     private boolean target;
-    @Serializable(headTexture = TARGET_HEAD, description = "gui.entity.sorter.proximity.inverse")
+    @Serializable(headTexture = Textures.TARGET_HEAD, description = "gui.entity.sorter.proximity.inverse")
     @Serializable.Optional(defaultValue = "INVERSE_DEFAULT")
     private boolean inverse;
 

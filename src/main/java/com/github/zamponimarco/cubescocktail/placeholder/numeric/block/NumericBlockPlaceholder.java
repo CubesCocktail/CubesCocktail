@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.block.BlockPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.block.LocationBlockPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
@@ -16,9 +17,8 @@ import java.util.Map;
 @Enumerable.Displayable(name = "&c&lNumeric Block Placeholders", description = "gui.placeholder.double.block.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2ZmOTgxN2Q3NjdkMmVkZTcxODFhMDU3YWEyNmYwOGY3ZWNmNDY1MWRlYzk3ZGU1YjU0ZWVkZTFkZDJiNDJjNyJ9fX0")
 public abstract class NumericBlockPlaceholder extends NumericPlaceholder {
 
-    private static final String BLOCK_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2ZmOTgxN2Q3NjdkMmVkZTcxODFhMDU3YWEyNmYwOGY3ZWNmNDY1MWRlYzk3ZGU1YjU0ZWVkZTFkZDJiNDJjNyJ9fX0";
 
-    @Serializable(headTexture = BLOCK_HEAD, description = "gui.placeholder.double.block.placeholder")
+    @Serializable(headTexture = Textures.MATERIAL_HEAD, description = "gui.placeholder.double.block.placeholder")
     protected BlockPlaceholder placeholder;
 
     public NumericBlockPlaceholder() {

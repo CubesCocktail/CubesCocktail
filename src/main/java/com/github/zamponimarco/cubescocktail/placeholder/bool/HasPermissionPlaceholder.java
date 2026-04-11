@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.placeholder.bool;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
@@ -16,9 +17,8 @@ public class HasPermissionPlaceholder extends PlayerPropertyBooleanPlaceholder {
 
     private static final String PERMISSION_DEFAULT = "permission.example";
 
-    private static final String PERMISSION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==";
 
-    @Serializable(headTexture = PERMISSION_HEAD, description = "gui.placeholder.boolean.has-permission.permission")
+    @Serializable(headTexture = Textures.FORCE_HEAD, description = "gui.placeholder.boolean.has-permission.permission")
     @Serializable.Optional(defaultValue = "PERMISSION_DEFAULT")
     private String permission;
 

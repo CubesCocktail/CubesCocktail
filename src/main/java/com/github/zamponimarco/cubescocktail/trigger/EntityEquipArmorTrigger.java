@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.trigger;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
 import com.github.zamponimarco.cubescocktail.source.RayTraceSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
@@ -22,9 +23,8 @@ import java.util.Map;
 @Setter
 public class EntityEquipArmorTrigger extends CombatTrigger {
 
-    private static final String EQUIP_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWNjZTgwMjQ2NzRiYTk0OGYzMWM0NjNjYmY5NzFiNDk0NmE1NGUzMjMxNDVmYWY0NTQ3YTYyNDJkY2Y2YTFjOCJ9fX0=";
 
-    @Serializable(headTexture = EQUIP_HEAD, description = "gui.trigger.combat.armor.equip")
+    @Serializable(headTexture = Textures.EQUIP_HEAD, description = "gui.trigger.combat.armor.equip")
     private boolean onEquip;
 
     public EntityEquipArmorTrigger() {

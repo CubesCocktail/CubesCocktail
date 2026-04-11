@@ -6,6 +6,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,17 +24,14 @@ public class ExplosionAction extends LocationAction {
     private static final boolean FIRE_DEFAULT = false;
     private static final boolean BLOCKS_DEFAULT = false;
 
-    private static final String POWER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2FmNTk3NzZmMmYwMzQxMmM3YjU5NDdhNjNhMGNmMjgzZDUxZmU2NWFjNmRmN2YyZjg4MmUwODM0NDU2NWU5In19fQ==";
-    private static final String FIRE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDA4MGJiZWZjYTg3ZGMwZjM2NTM2YjY1MDg0MjVjZmM0Yjk1YmE2ZThmNWU2YTQ2ZmY5ZTljYjQ4OGE5ZWQifX19";
-    private static final String BLOCKS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODNmYTBmYzA5OTZjZjc3MmQxZGJjMDUyYWEyNWIxMWRhYmFlOTc3ODIwYWY2NjNlZjAyMmQzY2UxZGI2MTEyMiJ9fX0=";
 
-    @Serializable(headTexture = POWER_HEAD, description = "gui.action.location.explosion.power")
+    @Serializable(headTexture = Textures.POWER_HEAD, description = "gui.action.location.explosion.power")
     @Serializable.Optional(defaultValue = "POWER_DEFAULT")
     private NumericValue power;
-    @Serializable(headTexture = FIRE_HEAD, description = "gui.action.location.explosion.fire")
+    @Serializable(headTexture = Textures.FIRE_HEAD, description = "gui.action.location.explosion.fire")
     @Serializable.Optional(defaultValue = "FIRE_DEFAULT")
     private boolean setFire;
-    @Serializable(headTexture = BLOCKS_HEAD, description = "gui.action.location.explosion.break-blocks")
+    @Serializable(headTexture = Textures.BLOCKS_HEAD, description = "gui.action.location.explosion.break-blocks")
     @Serializable.Optional(defaultValue = "BLOCKS_DEFAULT")
     private boolean breakBlocks;
 

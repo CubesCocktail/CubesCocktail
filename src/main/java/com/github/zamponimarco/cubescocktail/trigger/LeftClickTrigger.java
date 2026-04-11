@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.trigger;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
 import com.github.zamponimarco.cubescocktail.source.RayTraceSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
@@ -23,9 +24,8 @@ public class LeftClickTrigger extends InteractionTrigger {
 
     private static final boolean BLOCK_DEFAULT = false;
 
-    private static final String BLOCK_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU0ZDljNDg4YzNmYmRlNTQ1NGUzODYxOWY5Y2M1YjViYThjNmMwMTg2ZjhhYTFkYTYwOTAwZmNiYzNlYTYifX19";
 
-    @Serializable(headTexture = BLOCK_HEAD, description = "gui.trigger.interact.block-activate")
+    @Serializable(headTexture = Textures.BLOCK_HEAD, description = "gui.trigger.interact.block-activate")
     @Serializable.Optional(defaultValue = "BLOCK_DEFAULT")
     protected boolean activateOnBlock;
 

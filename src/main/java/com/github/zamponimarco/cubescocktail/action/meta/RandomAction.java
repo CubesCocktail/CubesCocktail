@@ -11,6 +11,7 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.entity.DamageAction;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -34,12 +35,10 @@ public class RandomAction extends MetaAction {
 
     private static final NumericValue VALUE_DEFAULT = new NumericValue(1);
 
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
-    private static final String ROLLS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.action.meta.random.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.action.meta.random.actions")
     private List<RandomActionEntry> actions;
-    @Serializable(headTexture = ROLLS_HEAD, description = "gui.action.meta.random.rolls",
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.action.meta.random.rolls",
             additionalDescription = "gui.additional-tooltips.value")
     @Serializable.Number(minValue = 1, scale = 1)
     private NumericValue rolls;
@@ -94,12 +93,11 @@ public class RandomAction extends MetaAction {
     @Setter
     public static class RandomActionEntry implements Model, Cloneable {
 
-        private static final String WEIGHT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ4NjEyMjExYmFhNzUyNjY3NGVmODEwYWYzNDFjNDhmZTFhOTAzM2FiYjg1NzI2MzlkYTIxNTc4NDJlM2U0MiJ9fX0=";
 
         @Serializable(displayItem = "getActionItem", description = "gui.action.meta.random.action",
                 additionalDescription = "gui.additional-tooltips.recreate")
         private Action action;
-        @Serializable(headTexture = WEIGHT_HEAD, description = "gui.action.meta.random.weight",
+        @Serializable(headTexture = Textures.WEIGHT_HEAD, description = "gui.action.meta.random.weight",
                 additionalDescription = "gui.additional-tooltips.value")
         @Serializable.Number(minValue = 1, scale = 1)
         private NumericValue weight;

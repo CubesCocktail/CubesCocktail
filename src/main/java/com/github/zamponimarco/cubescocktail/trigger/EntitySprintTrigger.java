@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.trigger;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
 import com.github.zamponimarco.cubescocktail.source.RayTraceSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
@@ -23,9 +24,8 @@ public class EntitySprintTrigger extends MovementTrigger {
 
     private static final boolean ACTIVATE_DEFAULT = true;
 
-    private static final String ACTIVATION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE4OTc4Y2NiZjU3NmY0NDZlMjFjNTFkM2U4MGZjN2Y4NTY2ZWI3MjY1Y2M0M2M0YWQ3MWNmYjc4YzE2NTI1NyJ9fX0=";
 
-    @Serializable(headTexture = ACTIVATION_HEAD, description = "gui.trigger.activate")
+    @Serializable(headTexture = Textures.ACTIVATION_HEAD, description = "gui.trigger.activate")
     private boolean onActivate;
 
     public EntitySprintTrigger() {

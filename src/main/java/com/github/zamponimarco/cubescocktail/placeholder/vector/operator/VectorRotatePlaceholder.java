@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.math.Vector;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.VectorPlaceholder;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
@@ -19,18 +20,15 @@ import java.util.Map;
 @Setter
 public class VectorRotatePlaceholder extends VectorOperatorPlaceholder {
 
-    private static final String ROTATE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFjYWNiODM2YzVlNDI4YjQ5YjVkMjI0Y2FiMjI4MjhlZmUyZjZjNzA0Zjc1OTM2NGQ3MWM2NTZlMzAxNDIwIn19fQ==";
-    private static final String AXIS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGJlNjIyNmQ2MWVjY2NkYjU3MzJiNmY3MTU2MGQ2NDAxZDJjYTBlZmY4ZTFhYWZiYmUzY2I3M2ZiNWE5ZiJ9fX0=";
-    private static final String ANGLE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzg2NzExOTgzODJkZTkzZTFkM2M3ODM0ZGU4NjcwNGE2ZWNjNzkxNDE5ZjBkZGI0OWE0MWE5NjA4YWQ0NzIifX19";
 
-    @Serializable(headTexture = ROTATE_HEAD, description = "gui.placeholder.vector.operator.rotate.vector",
+    @Serializable(headTexture = Textures.VECTOR_HEAD_AACACB83, description = "gui.placeholder.vector.operator.rotate.vector",
             additionalDescription = {"gui.additional-tooltips.value"})
     private VectorValue toRotate;
-    @Serializable(headTexture = AXIS_HEAD, description = "gui.placeholder.vector.operator.rotate.axis",
+    @Serializable(headTexture = Textures.AXIS_HEAD, description = "gui.placeholder.vector.operator.rotate.axis",
             additionalDescription = {"gui.additional-tooltips.value"})
     private VectorValue axis;
 
-    @Serializable(headTexture = ANGLE_HEAD, description = "gui.placeholder.vector.operator.rotate.angle",
+    @Serializable(headTexture = Textures.ANGLE_HEAD, description = "gui.placeholder.vector.operator.rotate.angle",
             additionalDescription = {"gui.additional-tooltips.value"})
     private NumericValue angle;
 

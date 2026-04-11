@@ -10,6 +10,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -26,11 +27,10 @@ import java.util.Map;
 @Setter
 public class ItemDrop extends Drop {
 
-    private static final String COUNT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
 
     @Serializable(displayItem = "getDisplayItem", description = "gui.loot.drop.item.item")
     private ItemStackWrapper item;
-    @Serializable(headTexture = COUNT_HEAD, description = "gui.loot.drop.item.count", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.loot.drop.item.count", additionalDescription = {"gui.additional-tooltips.value"})
     private NumericValue count;
 
     public ItemDrop() {

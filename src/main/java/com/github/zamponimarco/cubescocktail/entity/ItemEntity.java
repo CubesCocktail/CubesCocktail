@@ -5,6 +5,7 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.model.wrapper.ItemStackWrapper;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,18 +28,16 @@ public class ItemEntity extends Entity {
     private final static NumericValue DEFAULT_PICKUP = new NumericValue(37687);
     private final static boolean DEFAULT_GRAVITY = false;
 
-    private static final String PICKUP_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=";
-    private static final String GRAVITY_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTJiYWViNGEzNWRhOGE4NWQxNGJkY2NmNzE4NGY1NTQ1MDg4Zjk1NGRhNTUxNDRmMjM1YzI5ODNmZGI4ZTA1YiJ9fX0=";
 
     @Serializable(displayItem = "getFlatItem", description = "gui.entity.item-entity.item",
             additionalDescription = {"gui.additional-tooltips.item"})
     private ItemStackWrapper item;
 
-    @Serializable(headTexture = GRAVITY_HEAD, description = "gui.entity.item-entity.gravity")
+    @Serializable(headTexture = Textures.GRAVITY_HEAD_52BAEB4A, description = "gui.entity.item-entity.gravity")
     @Serializable.Optional(defaultValue = "DEFAULT_GRAVITY")
     private boolean gravity;
 
-    @Serializable(headTexture = PICKUP_HEAD, description = "gui.entity.item-entity.pickup", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.TICKS_HEAD, description = "gui.entity.item-entity.pickup", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, maxValue = 37687, scale = 1)
     @Serializable.Optional(defaultValue = "DEFAULT_PICKUP")
     private NumericValue pickupDelay;

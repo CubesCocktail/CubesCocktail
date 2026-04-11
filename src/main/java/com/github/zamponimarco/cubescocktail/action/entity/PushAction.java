@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.source.EntitySource;
 import com.github.zamponimarco.cubescocktail.action.source.LocationSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,14 +26,12 @@ public class PushAction extends EntityAction {
     private static final NumericValue HORIZONTAL_DEFAULT = new NumericValue(1.0);
     private static final NumericValue VERTICAL_DEFAULT = new NumericValue(0.5);
 
-    private static final String HORIZONTAL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNmYzUyMjY0ZDhhZDllNjU0ZjQxNWJlZjAxYTIzOTQ3ZWRiY2NjY2Y2NDkzNzMyODliZWE0ZDE0OTU0MWY3MCJ9fX0=";
-    private static final String VERTICAL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTk5YWFmMjQ1NmE2MTIyZGU4ZjZiNjI2ODNmMmJjMmVlZDlhYmI4MWZkNWJlYTFiNGMyM2E1ODE1NmI2NjkifX19";
 
-    @Serializable(headTexture = HORIZONTAL_HEAD, description = "gui.action.entity.push.horizontal", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.VECTOR_HEAD, description = "gui.action.entity.push.horizontal", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Optional(defaultValue = "HORIZONTAL_DEFAULT")
     private NumericValue horizontalVelocity;
 
-    @Serializable(headTexture = VERTICAL_HEAD, description = "gui.action.entity.push.vertical", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.VERTICAL_HEAD, description = "gui.action.entity.push.vertical", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Optional(defaultValue = "VERTICAL_DEFAULT")
     private NumericValue verticalVelocity;
 

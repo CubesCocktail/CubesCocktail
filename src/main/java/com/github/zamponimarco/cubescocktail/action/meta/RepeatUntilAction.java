@@ -9,6 +9,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
 import com.github.zamponimarco.cubescocktail.condition.bool.BooleanCondition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,22 +29,18 @@ public class RepeatUntilAction extends WrapperAction {
 
     private static final int TIMER_DEFAULT = 5;
 
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
-    private static final String FINAL_ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==";
-    private static final String CONDITION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmMyNzEwNTI3MTllZjY0MDc5ZWU4YzE0OTg5NTEyMzhhNzRkYWM0YzI3Yjk1NjQwZGI2ZmJkZGMyZDZiNWI2ZSJ9fX0=";
-    private static final String TIMER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=";
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.action.meta.wrapper.repeat-until.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.action.meta.wrapper.repeat-until.actions")
     @Serializable.Optional(defaultValue = "ACTIONS_DEFAULT")
     private List<Action> actions;
 
-    @Serializable(headTexture = FINAL_ACTIONS_HEAD, description = "gui.action.meta.wrapper.repeat-until.final-actions")
+    @Serializable(headTexture = Textures.FORCE_HEAD, description = "gui.action.meta.wrapper.repeat-until.final-actions")
     private List<Action> finalActions;
 
-    @Serializable(headTexture = CONDITION_HEAD, description = "gui.action.meta.wrapper.repeat-until.condition")
+    @Serializable(headTexture = Textures.CONDITION_HEAD, description = "gui.action.meta.wrapper.repeat-until.condition")
     private Condition condition;
 
-    @Serializable(headTexture = TIMER_HEAD, description = "gui.action.meta.wrapper.repeat-until.timer")
+    @Serializable(headTexture = Textures.TICKS_HEAD, description = "gui.action.meta.wrapper.repeat-until.timer")
     @Serializable.Number(minValue = 0, scale = 1)
     @Serializable.Optional(defaultValue = "TIMER_DEFAULT")
     private int timer;

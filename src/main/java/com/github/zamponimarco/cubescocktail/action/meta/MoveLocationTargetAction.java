@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.LocationTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.VectorValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -23,12 +24,10 @@ import java.util.stream.Collectors;
 @Enumerable.Displayable(name = "&c&lMove target location", description = "gui.action.meta.wrapper.move-location.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNmYzUyMjY0ZDhhZDllNjU0ZjQxNWJlZjAxYTIzOTQ3ZWRiY2NjY2Y2NDkzNzMyODliZWE0ZDE0OTU0MWY3MCJ9fX0=")
 public class MoveLocationTargetAction extends WrapperAction {
 
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
-    private static final String VECTOR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNmYzUyMjY0ZDhhZDllNjU0ZjQxNWJlZjAxYTIzOTQ3ZWRiY2NjY2Y2NDkzNzMyODliZWE0ZDE0OTU0MWY3MCJ9fX0";
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.action.meta.wrapper.move-location.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.action.meta.wrapper.move-location.actions")
     private List<Action> actions;
-    @Serializable(headTexture = VECTOR_HEAD, description = "gui.action.meta.wrapper.move-location.vector",
+    @Serializable(headTexture = Textures.VECTOR_HEAD, description = "gui.action.meta.wrapper.move-location.vector",
             additionalDescription = {"gui.additional-tooltips.value"})
     private VectorValue vector;
 

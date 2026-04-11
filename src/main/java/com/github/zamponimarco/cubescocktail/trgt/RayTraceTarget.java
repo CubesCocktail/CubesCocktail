@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.LocationTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
@@ -21,9 +22,8 @@ import java.util.Map;
 @Setter
 public class RayTraceTarget extends Target {
 
-    private static final String DISTANCE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzc4N2I3YWZiNWE1OTk1Mzk3NWJiYTI0NzM3NDliNjAxZDU0ZDZmOTNjZWFjN2EwMmFjNjlhYWU3ZjliOCJ9fX0=";
 
-    @Serializable(headTexture = DISTANCE_HEAD, description = "gui.target.raycast.distance")
+    @Serializable(headTexture = Textures.TARGET_HEAD, description = "gui.target.raycast.distance")
     private double rayCastMaxDistance;
 
     public RayTraceTarget() {

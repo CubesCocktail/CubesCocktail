@@ -13,6 +13,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -36,23 +37,19 @@ public class SoundAction extends PacketAction {
     private static final NumericValue PITCH_DEFAULT = new NumericValue(1f);
     private static final NumericValue VOLUME_DEFAULT = new NumericValue(10f);
 
-    private static final String TYPE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzkxOWZiZDFkZjQ4YzMyMmMxMzA1YmIxZjhlYWI5Njc0YzIxODQ0YTA0OTNhNTUzNWQ5NGNhYmExZWNhM2MxZCJ9fX0=";
-    private static final String CATEGORY_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmQzYjJlM2U5OTU0ZjgyMmI0M2ZlNWY5MTUwOTllMGE2Y2FhYTgxZjc5MTIyMmI1ODAzZDQxNDVhODUxNzAifX19";
-    private static final String PITCH_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmQzYjJlM2U5OTU0ZjgyMmI0M2ZlNWY5MTUwOTllMGE2Y2FhYTgxZjc5MTIyMmI1ODAzZDQxNDVhODUxNzAifX19";
-    private static final String VOLUME_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGYyMTAwNzM3NGQ0ODBkZTFkNzg1Y2E4Njc2NDE3NTY1MGUwMDc3MzU0MDQyN2FhZWYxYzBjYzE3MGRmM2ExNCJ9fX0=";
 
-    @Serializable(headTexture = TYPE_HEAD, stringValue = true, description = "gui.action.location.sound.type", fromList = "getSounds", fromListMapper = "soundsMapper")
+    @Serializable(headTexture = Textures.TYPE_HEAD_3919FBD1, stringValue = true, description = "gui.action.location.sound.type", fromList = "getSounds", fromListMapper = "soundsMapper")
     private Sound type;
 
-    @Serializable(headTexture = CATEGORY_HEAD, stringValue = true, description = "gui.action.location.sound.category", fromList = "getSoundCategories", fromListMapper = "soundCategoriesMapper")
+    @Serializable(headTexture = Textures.CATEGORY_HEAD, stringValue = true, description = "gui.action.location.sound.category", fromList = "getSoundCategories", fromListMapper = "soundCategoriesMapper")
     private SoundCategory category;
 
-    @Serializable(headTexture = PITCH_HEAD, description = "gui.action.location.sound.pitch", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.CATEGORY_HEAD, description = "gui.action.location.sound.pitch", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, maxValue = 2)
     @Serializable.Optional(defaultValue = "PITCH_DEFAULT")
     private NumericValue pitch;
 
-    @Serializable(headTexture = VOLUME_HEAD, description = "gui.action.location.sound.volume", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.VOLUME_HEAD, description = "gui.action.location.sound.volume", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0)
     @Serializable.Optional(defaultValue = "VOLUME_DEFAULT")
     private NumericValue volume;
@@ -86,7 +83,7 @@ public class SoundAction extends PacketAction {
     public static Function<Object, ItemStack> soundsMapper() {
         return obj -> {
             Sound type = (Sound) obj;
-            return ItemUtils.getNamedItem(ItemUtils.skullFromValue(TYPE_HEAD),
+            return ItemUtils.getNamedItem(ItemUtils.skullFromValue(Textures.TYPE_HEAD_3919FBD1),
                     MessageUtils.color(type.name()), new ArrayList<>());
         };
     }

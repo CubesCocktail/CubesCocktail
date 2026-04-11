@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,9 +22,8 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class ChangeSourceAction extends WrapperAction {
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.action.meta.wrapper.source.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.action.meta.wrapper.source.actions")
     @Serializable.Optional(defaultValue = "ACTIONS_DEFAULT")
     private List<ActionGroup> groups;
 

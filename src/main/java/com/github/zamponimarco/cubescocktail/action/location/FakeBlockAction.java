@@ -12,6 +12,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.MaterialValue;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Sets;
@@ -38,20 +39,16 @@ public class FakeBlockAction extends PacketAction {
 
     private static final boolean ALLOW_MATERIALS_DEFAULT = false;
 
-    private static final String MATERIAL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2ZmOTgxN2Q3NjdkMmVkZTcxODFhMDU3YWEyNmYwOGY3ZWNmNDY1MWRlYzk3ZGU1YjU0ZWVkZTFkZDJiNDJjNyJ9fX0";
-    private static final String EXCLUDED_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWZkMjQwMDAwMmFkOWZiYmJkMDA2Njk0MWViNWIxYTM4NGFiOWIwZTQ4YTE3OGVlOTZlNGQxMjlhNTIwODY1NCJ9fX0=";
-    private static final String ALLOW_MATERIALS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2U2MTdiZWQ4ZTk3ZDQwODc5OTNlYzBjODk4Zjg3NzJjNDUyYjk5ZDhiNGI5YTQ1ZTNlYzQzNDkzMDQwOWVlOSJ9fX0";
-    private static final String TICKS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=";
 
-    @Serializable(headTexture = ALLOW_MATERIALS_HEAD, description = "gui.action.location.fake-block.allow-materials")
+    @Serializable(headTexture = Textures.ALLOW_MATERIALS_HEAD, description = "gui.action.location.fake-block.allow-materials")
     @Serializable.Optional(defaultValue = "NEGATE_DEFAULT")
     protected boolean allowMaterials;
-    @Serializable(headTexture = MATERIAL_HEAD, stringValue = true, description = "gui.action.location.fake-block.material",
+    @Serializable(headTexture = Textures.MATERIAL_HEAD, stringValue = true, description = "gui.action.location.fake-block.material",
             additionalDescription = {"gui.additional-tooltips.value"})
     private MaterialValue material;
-    @Serializable(headTexture = EXCLUDED_HEAD, description = "gui.action.location.fake-block.excluded-materials")
+    @Serializable(headTexture = Textures.EXCLUDED_HEAD, description = "gui.action.location.fake-block.excluded-materials")
     private Set<Material> excludedMaterials;
-    @Serializable(headTexture = TICKS_HEAD, description = "gui.action.location.fake-block.ticks",
+    @Serializable(headTexture = Textures.TICKS_HEAD, description = "gui.action.location.fake-block.ticks",
             additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, scale = 1)
     private NumericValue ticks;

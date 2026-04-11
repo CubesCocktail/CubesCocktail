@@ -8,6 +8,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,12 +31,11 @@ public class ConsumeItemAction extends EntityAction {
 
     private static final NumericValue AMOUNT_DEFAULT = new NumericValue(1);
 
-    private static final String AMOUNT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
 
     @Serializable(displayItem = "getFlatItem", description = "gui.action.entity.consume-item.item", additionalDescription = {"gui.additional-tooltips.item"})
     private ItemStackWrapper item;
 
-    @Serializable(headTexture = AMOUNT_HEAD, description = "gui.action.entity.consume-item.amount", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.action.entity.consume-item.amount", additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Optional(defaultValue = "AMOUNT_DEFAULT")
     @Serializable.Number(minValue = 1, scale = 1)
     private NumericValue amount;

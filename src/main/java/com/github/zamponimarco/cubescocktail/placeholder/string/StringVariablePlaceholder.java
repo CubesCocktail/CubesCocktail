@@ -6,6 +6,7 @@ import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
@@ -22,9 +23,8 @@ public class StringVariablePlaceholder extends StringPlaceholder {
 
     private static final String NAME_DEFAULT = "var";
 
-    private static final String NAME_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTdlZDY2ZjVhNzAyMDlkODIxMTY3ZDE1NmZkYmMwY2EzYmYxMWFkNTRlZDVkODZlNzVjMjY1ZjdlNTAyOWVjMSJ9fX0=";
 
-    @Serializable(headTexture = NAME_HEAD, description = "gui.placeholder.string.variable.name")
+    @Serializable(headTexture = Textures.NAME_HEAD, description = "gui.placeholder.string.variable.name")
     @Serializable.Optional(defaultValue = "NAME_DEFAULT")
     private String name;
 

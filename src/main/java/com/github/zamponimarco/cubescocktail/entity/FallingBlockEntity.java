@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.MaterialValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,9 +22,8 @@ import java.util.Map;
 @Setter
 public class FallingBlockEntity extends Entity {
 
-    private static final String MATERIAL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTMzOThhYjNjYjY5NmIzNDQzMGJlOTQ0YjE0YWZiZDIyN2ZkODdlOTkwMjZiY2ZjOGI3Mzg3YTg2MWJkZSJ9fX0=";
 
-    @Serializable(headTexture = MATERIAL_HEAD, description = "gui.entity.falling-block.material",
+    @Serializable(headTexture = Textures.MATERIAL_HEAD_53398AB3, description = "gui.entity.falling-block.material",
             additionalDescription = {"gui.additional-tooltips.value"})
     private MaterialValue material;
 

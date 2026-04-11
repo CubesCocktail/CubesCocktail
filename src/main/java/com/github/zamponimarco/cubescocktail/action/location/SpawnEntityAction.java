@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.entity.Entity;
 import com.github.zamponimarco.cubescocktail.entity.GenericEntity;
 import lombok.Getter;
@@ -19,9 +20,8 @@ import java.util.Map;
 @Getter
 @Setter
 public class SpawnEntityAction extends LocationAction {
-    private static final String ENTITY_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNjOGFhM2ZkZTI5NWZhOWY5YzI3ZjczNGJkYmFiMTFkMzNhMmU0M2U4NTVhY2NkNzQ2NTM1MjM3NzQxM2IifX19";
 
-    @Serializable(headTexture = ENTITY_HEAD, description = "gui.action.location.spawn.entity", additionalDescription = {"gui.additional-tooltips.recreate"})
+    @Serializable(headTexture = Textures.ENTITY_HEAD, description = "gui.action.location.spawn.entity", additionalDescription = {"gui.additional-tooltips.recreate"})
     private Entity entity;
 
     public SpawnEntityAction() {

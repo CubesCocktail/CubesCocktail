@@ -5,6 +5,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.EntityTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -20,9 +21,8 @@ import java.util.stream.Collectors;
 
 public abstract class PacketAction extends LocationAction {
 
-    private static final String CONDITION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmMyNzEwNTI3MTllZjY0MDc5ZWU4YzE0OTg5NTEyMzhhNzRkYWM0YzI3Yjk1NjQwZGI2ZmJkZGMyZDZiNWI2ZSJ9fX0=";
 
-    @Serializable(headTexture = CONDITION_HEAD, description = "gui.action.location.condition")
+    @Serializable(headTexture = Textures.CONDITION_HEAD, description = "gui.action.location.condition")
     protected Condition condition;
 
     public PacketAction(boolean target, Condition condition) {

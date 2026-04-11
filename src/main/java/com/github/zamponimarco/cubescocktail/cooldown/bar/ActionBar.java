@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownInfo;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,21 +25,18 @@ public class ActionBar extends CooldownBar {
     protected static final String COOLDOWN_MESSAGE_BAR_DEFAULT = "|";
     protected static final int COOLDOWN_MESSAGE_BAR_COUNT_DEFAULT = 30;
 
-    private static final String FORMAT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWZlMTk3MmYyY2ZhNGQzMGRjMmYzNGU4ZDIxNTM1OGMwYzU3NDMyYTU1ZjZjMzdhZDkxZTBkZDQ0MTkxYSJ9fX0=";
-    private static final String BAR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjcxYjVjYTNhNjFiZWYyOTE2NWViMTI2NmI0MDVhYzI1OTE1NzJjMTZhNGIzOWNiMzZlZGFmNDZjODZjMDg4In19fQ==";
-    private static final String BAR_COUNT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
 
     private static final Map<Player, Integer> cooldownMessagesMap = new HashMap<>();
 
-    @Serializable(headTexture = FORMAT_HEAD, description = "gui.skill.cooldown.bar.action.format")
+    @Serializable(headTexture = Textures.FORMAT_HEAD, description = "gui.skill.cooldown.bar.action.format")
     @Serializable.Optional(defaultValue = "COOLDOWN_MESSAGE_FORMAT_DEFAULT")
     private String cooldownMessageFormat;
 
-    @Serializable(headTexture = BAR_HEAD, description = "gui.skill.cooldown.bar.action.bar")
+    @Serializable(headTexture = Textures.NAMESPACE_HEAD, description = "gui.skill.cooldown.bar.action.bar")
     @Serializable.Optional(defaultValue = "COOLDOWN_MESSAGE_BAR_DEFAULT")
     private String cooldownMessageBar;
 
-    @Serializable(headTexture = BAR_COUNT_HEAD, description = "gui.skill.cooldown.bar.action.bar-count")
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.skill.cooldown.bar.action.bar-count")
     @Serializable.Optional(defaultValue = "COOLDOWN_MESSAGE_BAR_COUNT_DEFAULT")
     private int cooldownMessageBarCount;
 

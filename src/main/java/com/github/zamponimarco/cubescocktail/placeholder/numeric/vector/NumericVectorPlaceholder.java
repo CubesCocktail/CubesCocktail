@@ -2,6 +2,7 @@ package com.github.zamponimarco.cubescocktail.placeholder.numeric.vector;
 
 import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.DirectionPlaceholder;
 import com.github.zamponimarco.cubescocktail.placeholder.vector.VectorPlaceholder;
@@ -13,9 +14,8 @@ import java.util.Map;
 @Enumerable.Parent(classArray = {VectorYPlaceholder.class, VectorXPlaceholder.class, VectorZPlaceholder.class})
 public abstract class NumericVectorPlaceholder extends NumericPlaceholder {
 
-    private static final String PLACEHOLDER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q0ZTZjMzkyZTE0ZjM0YjZhMzFlMzYzNWE4YmYxOGQ5NzNlZWY2ZGM5YjFhMzUxOTQ1MTQ5NzE5N2Q0YyJ9fX0";
 
-    @Serializable(headTexture = PLACEHOLDER_HEAD, description = "gui.placeholder.double.vector.placeholder")
+    @Serializable(headTexture = Textures.VECTOR_HEAD_CD4E6C39, description = "gui.placeholder.double.vector.placeholder")
     protected VectorPlaceholder placeholder;
 
     public NumericVectorPlaceholder(boolean target, VectorPlaceholder placeholder) {

@@ -10,6 +10,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,14 +27,12 @@ import java.util.Random;
 @Setter
 public class SetBlockCrackAction extends PacketAction {
 
-    private static final String CRACK_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzlhNDZiMmFiMzJmMjE2ZTJkOTIyYzcyMzdiYTIzMTlmOTFiNzFmYTI0ZmU0NTFhZDJjYTgxNDIzZWEzYzgifX19";
-    private static final String TICKS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=";
 
-    @Serializable(headTexture = CRACK_HEAD, description = "gui.action.location.crack.stage",
+    @Serializable(headTexture = Textures.CRACK_HEAD, description = "gui.action.location.crack.stage",
             additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, maxValue = 9, scale = 1)
     private NumericValue destroyStage;
-    @Serializable(headTexture = TICKS_HEAD, description = "gui.action.location.crack.ticks",
+    @Serializable(headTexture = Textures.TICKS_HEAD, description = "gui.action.location.crack.ticks",
             additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, scale = 1)
     private NumericValue ticks;

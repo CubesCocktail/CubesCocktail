@@ -5,6 +5,7 @@ import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,14 +26,12 @@ public class NumericVariablePlaceholder extends EntityNumericPlaceholder {
     private static final String NAME_DEFAULT = "var";
     private static final boolean PERSISTENT_DEFAULT = false;
 
-    private static final String NAME_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTdlZDY2ZjVhNzAyMDlkODIxMTY3ZDE1NmZkYmMwY2EzYmYxMWFkNTRlZDVkODZlNzVjMjY1ZjdlNTAyOWVjMSJ9fX0=";
-    private static final String PERSISTENT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTViMzRjNmNlZTY4NGQ3MTcxNGIzYTFjNzExNTExY2JkNjkyNDQ3ODIwYmM5YTExMzYyOGMxZDM1ODA0ODI1ZSJ9fX0=";
 
-    @Serializable(headTexture = NAME_HEAD, description = "gui.placeholder.double.entity.variable.name")
+    @Serializable(headTexture = Textures.NAME_HEAD, description = "gui.placeholder.double.entity.variable.name")
     @Serializable.Optional(defaultValue = "NAME_DEFAULT")
     private String name;
 
-    @Serializable(headTexture = PERSISTENT_HEAD, description = "gui.placeholder.double.entity.variable.persistent")
+    @Serializable(headTexture = Textures.PERSISTENT_HEAD, description = "gui.placeholder.double.entity.variable.persistent")
     @Serializable.Optional(defaultValue = "PERSISTENT_DEFAULT")
     private boolean persistent;
 

@@ -7,6 +7,7 @@ import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.ai.trgt.impl.NearestAttackableTargetGoal;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -22,9 +23,8 @@ import java.util.Map;
 public class NearestAttackableTargetSelector extends TargetSelector {
 
 
-    private static final String SELECTOR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM4ZDI3NTk1NjlkNTE1ZDI0NTRkNGE3ODkxYTk0Y2M2M2RkZmU3MmQwM2JmZGY3NmYxZDQyNzdkNTkwIn19fQ==";
 
-    @Serializable(headTexture = SELECTOR_HEAD, description = "gui.target-selector.nearest.selectors")
+    @Serializable(headTexture = Textures.SELECTOR_HEAD, description = "gui.target-selector.nearest.selectors")
     private Condition condition;
 
     public NearestAttackableTargetSelector() {

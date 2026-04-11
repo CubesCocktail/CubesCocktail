@@ -13,6 +13,7 @@ import com.github.zamponimarco.cubescocktail.area.Area;
 import com.github.zamponimarco.cubescocktail.area.SphericArea;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.source.SelectedBlockSource;
 import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.SelectedBlockTarget;
@@ -38,17 +39,14 @@ import java.util.stream.Collectors;
 @Enumerable.Displayable(name = "&c&lApply actions to blocks in Area", description = "gui.action.meta.wrapper.area-blocks.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZjZDQxNGIwNWE1MzJjNjA5YzJhYTQ4ZDZjMDYyYzI5MmQ1MzNkZmFmNGQ3MzJhYmU5YWY1NzQxNTg5ZSJ9fX0=")
 public class AreaBlocksAction extends WrapperAction {
 
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
-    private static final String SHAPE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2IyYjVkNDhlNTc1Nzc1NjNhY2EzMTczNTUxOWNiNjIyMjE5YmMwNThiMWYzNDY0OGI2N2I4ZTcxYmMwZmEifX19";
-    private static final String CONDITION_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmMyNzEwNTI3MTllZjY0MDc5ZWU4YzE0OTg5NTEyMzhhNzRkYWM0YzI3Yjk1NjQwZGI2ZmJkZGMyZDZiNWI2ZSJ9fX0=";
 
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.action.meta.wrapper.area-blocks.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.action.meta.wrapper.area-blocks.actions")
     private List<Action> actions;
-    @Serializable(headTexture = SHAPE_HEAD, description = "gui.action.meta.wrapper.area-blocks.area",
+    @Serializable(headTexture = Textures.SHAPE_HEAD, description = "gui.action.meta.wrapper.area-blocks.area",
             additionalDescription = {"gui.additional-tooltips.recreate"})
     private Area area;
-    @Serializable(headTexture = CONDITION_HEAD, description = "gui.action.meta.wrapper.area-blocks.condition",
+    @Serializable(headTexture = Textures.CONDITION_HEAD, description = "gui.action.meta.wrapper.area-blocks.condition",
             additionalDescription = {"gui.additional-tooltips.recreate"})
     private Condition condition;
 

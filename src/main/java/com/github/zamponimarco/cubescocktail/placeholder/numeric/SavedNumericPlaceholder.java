@@ -8,6 +8,7 @@ import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.savedplaceholder.SavedPlaceholder;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -25,9 +26,8 @@ import java.util.stream.Collectors;
 @Setter
 public class SavedNumericPlaceholder extends NumericPlaceholder {
 
-    private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTdlZDY2ZjVhNzAyMDlkODIxMTY3ZDE1NmZkYmMwY2EzYmYxMWFkNTRlZDVkODZlNzVjMjY1ZjdlNTAyOWVjMSJ9fX0=";
 
-    @Serializable(headTexture = HEAD, fromList = "getPlaceholders", fromListMapper = "placeholdersMapper", description = "gui.placeholder.double.saved-placeholder.name")
+    @Serializable(headTexture = Textures.NAME_HEAD, fromList = "getPlaceholders", fromListMapper = "placeholdersMapper", description = "gui.placeholder.double.saved-placeholder.name")
     private String placeholderName;
 
     public SavedNumericPlaceholder(boolean target, String placeholderName) {

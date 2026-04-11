@@ -7,6 +7,7 @@ import com.github.jummes.libs.util.ItemUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -26,12 +27,10 @@ import java.util.function.Function;
 @Setter
 public class MobDrinkEntity extends Entity {
 
-    private static final String MOB_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZmYzg1NGJiODRjZjRiNzY5NzI5Nzk3M2UwMmI3OWJjMTA2OTg0NjBiNTFhNjM5YzYwZTVlNDE3NzM0ZTExIn19fQ";
-    private static final String LEVEL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjUwNTU2YTg0MTY0MDY5ZGYzYjg5NTkzOWQwYWI1MDhmZmE4ZTE0MDQ3MTA2OTM4YjU1OWY1ODg5ZTViZmJlNCJ9fX0=";
 
-    @Serializable(headTexture = MOB_HEAD, description = "gui.entity.supreme.mob", fromList = "getMobs", fromListMapper = "mobsMapper")
+    @Serializable(headTexture = Textures.MOB_HEAD, description = "gui.entity.supreme.mob", fromList = "getMobs", fromListMapper = "mobsMapper")
     private String mob;
-    @Serializable(headTexture = LEVEL_HEAD, description = "gui.entity.supreme.level", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.LEVEL_HEAD, description = "gui.entity.supreme.level", additionalDescription = {"gui.additional-tooltips.value"})
     private NumericValue level;
 
     public MobDrinkEntity() {

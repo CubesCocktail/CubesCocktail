@@ -13,6 +13,7 @@ import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.jummes.libs.model.NamedModel;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.Placeholder;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.entity.MaxHealthPlaceholder;
 import lombok.Getter;
@@ -31,11 +32,10 @@ import java.util.Map;
 @Setter
 public class SavedPlaceholder extends NamedModel {
 
-    private static final String PLACEHOLDER_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzcyMzcwNGE5ZDU5MTBiOWNkNTA1ZGM5OWM3NzliZjUwMzc5Y2I4NDc0NWNjNzE5ZTlmNzg0ZGQ4YyJ9fX0=";
 
     private static int counter = 1;
 
-    @Serializable(headTexture = PLACEHOLDER_HEAD, description = "gui.saved-placeholder.placeholder")
+    @Serializable(headTexture = Textures.PLACEHOLDER_HEAD, description = "gui.saved-placeholder.placeholder")
     private Placeholder<?> placeholder;
     @Serializable
     private ItemStackWrapper item;

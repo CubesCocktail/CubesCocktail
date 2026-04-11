@@ -4,6 +4,7 @@ import com.github.jummes.libs.annotation.Enumerable;
 import com.github.jummes.libs.annotation.Serializable;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import lombok.Getter;
@@ -21,15 +22,12 @@ public class RandomNumberPlaceholder extends NumberOperatorPlaceholder {
     private static final NumericValue MAX_DEFAULT = new NumericValue(1);
     private static final boolean IS_NATURAL_DEFAULT = true;
 
-    private static final String MIN_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzkxMmQ0NWIxYzc4Y2MyMjQ1MjcyM2VlNjZiYTJkMTU3NzdjYzI4ODU2OGQ2YzFiNjJhNTQ1YjI5YzcxODcifX19";
-    private static final String MAX_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTk5YWFmMjQ1NmE2MTIyZGU4ZjZiNjI2ODNmMmJjMmVlZDlhYmI4MWZkNWJlYTFiNGMyM2E1ODE1NmI2NjkifX19";
-    private static final String NATURAL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmM0ZDc1Yjk5ZmFlYzVlMTJhZDJmOTJkYTYxYWM0OTI2MjZlNTA1YjZhODRmNmQ2OWJiZjI0OTllN2I4NDQyNyJ9fX0=";
 
-    @Serializable(headTexture = NATURAL_HEAD, description = "gui.placeholder.double.operator.random.is-natural")
+    @Serializable(headTexture = Textures.NATURAL_HEAD, description = "gui.placeholder.double.operator.random.is-natural")
     private boolean isNatural;
-    @Serializable(headTexture = MAX_HEAD, description = "gui.placeholder.double.operator.random.max", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.VERTICAL_HEAD, description = "gui.placeholder.double.operator.random.max", additionalDescription = {"gui.additional-tooltips.value"})
     private NumericValue max;
-    @Serializable(headTexture = MIN_HEAD, description = "gui.placeholder.double.operator.random.min", additionalDescription = {"gui.additional-tooltips.value"})
+    @Serializable(headTexture = Textures.MIN_HEAD, description = "gui.placeholder.double.operator.random.min", additionalDescription = {"gui.additional-tooltips.value"})
     private NumericValue min;
 
     public RandomNumberPlaceholder() {

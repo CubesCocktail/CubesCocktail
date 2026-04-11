@@ -7,6 +7,7 @@ import com.github.jummes.libs.model.ModelPath;
 import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.annotation.CasterOnlyPlayer;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.source.Source;
 import com.github.zamponimarco.cubescocktail.trgt.Target;
 import com.google.common.collect.Lists;
@@ -26,7 +27,6 @@ public abstract class Trigger implements Model, Cloneable {
     @Getter
     private static final List<TriggerListener> listeners = Lists.newArrayList();
 
-    private static final String BLOCK_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDU0ZDljNDg4YzNmYmRlNTQ1NGUzODYxOWY5Y2M1YjViYThjNmMwMTg2ZjhhYTFkYTYwOTAwZmNiYzNlYTYifX19";
 
 
     public Trigger() {

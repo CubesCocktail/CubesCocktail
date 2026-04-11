@@ -7,6 +7,7 @@ import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,11 +25,10 @@ public class Function extends AbstractFunction implements Cloneable {
 
     private static final List<Action> ACTIONS_DEFAULT = Lists.newArrayList();
 
-    private static final String ACTIONS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIxNmVlNDA1OTNjMDk4MWVkMjhmNWJkNjc0ODc5NzgxYzQyNWNlMDg0MWI2ODc0ODFjNGY3MTE4YmI1YzNiMSJ9fX0=";
 
     private static int counter = 1;
 
-    @Serializable(headTexture = ACTIONS_HEAD, description = "gui.function.actions")
+    @Serializable(headTexture = Textures.ACTIONS_HEAD, description = "gui.function.actions")
     @Serializable.Optional(defaultValue = "ACTIONS_DEFAULT")
     private List<Action> actions;
     @Serializable

@@ -13,6 +13,7 @@ import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
 import com.github.zamponimarco.cubescocktail.condition.AlwaysTrueCondition;
 import com.github.zamponimarco.cubescocktail.condition.Condition;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.NumericValue;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -33,13 +34,11 @@ import java.util.stream.Collectors;
 @Setter
 public class HighlightBlockAction extends PacketAction {
 
-    private static final String COLOR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmVjNTk2M2UxZjc4ZjJmMDU5NDNmNGRkMzIyMjQ2NjEzNzRjMjIwZWNmZGUxZTU0NzU0ZjVlZTFlNTU1ZGQifX19";
-    private static final String TICKS_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmZlOGNmZjc1ZjdkNDMzMjYwYWYxZWNiMmY3NzNiNGJjMzgxZDk1MWRlNGUyZWI2NjE0MjM3NzlhNTkwZTcyYiJ9fX0=";
 
-    @Serializable(headTexture = COLOR_HEAD, description = "gui.action.location.highlight.color", fromList = "getColors",
+    @Serializable(headTexture = Textures.COLOR_HEAD, description = "gui.action.location.highlight.color", fromList = "getColors",
             fromListMapper = "colorsMapper")
     private ChatColor color;
-    @Serializable(headTexture = TICKS_HEAD, description = "gui.action.location.highlight.ticks",
+    @Serializable(headTexture = Textures.TICKS_HEAD, description = "gui.action.location.highlight.ticks",
             additionalDescription = {"gui.additional-tooltips.value"})
     @Serializable.Number(minValue = 0, scale = 1)
     private NumericValue ticks;
@@ -65,7 +64,7 @@ public class HighlightBlockAction extends PacketAction {
     }
 
     public static Function<Object, ItemStack> colorsMapper() {
-        return obj -> ItemUtils.getNamedItem(ItemUtils.skullFromValue(COLOR_HEAD), MessageUtils.color(((ChatColor) obj).name()),
+        return obj -> ItemUtils.getNamedItem(ItemUtils.skullFromValue(Textures.COLOR_HEAD), MessageUtils.color(((ChatColor) obj).name()),
                 Lists.newArrayList());
     }
 

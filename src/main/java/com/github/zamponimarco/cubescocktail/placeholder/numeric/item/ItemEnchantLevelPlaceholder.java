@@ -7,6 +7,7 @@ import com.github.jummes.libs.util.ItemUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.placeholder.numeric.NumericPlaceholder;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -26,9 +27,8 @@ import java.util.function.Function;
 @Setter
 public class ItemEnchantLevelPlaceholder extends ItemNumericPlaceholder {
 
-    private static final String ENCHANT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc2MmExNWIwNDY5MmEyZTRiM2ZiMzY2M2JkNGI3ODQzNGRjZTE3MzJiOGViMWM3YTlmN2MwZmJmNmYifX19";
 
-    @Serializable(headTexture = ENCHANT_HEAD, description = "gui.placeholder.double.item.enchant.enchantment",
+    @Serializable(headTexture = Textures.ENCHANT_HEAD, description = "gui.placeholder.double.item.enchant.enchantment",
             fromList = "getEnchants", fromListMapper = "getEnchantsMapper")
     private Enchantment enchantment;
 

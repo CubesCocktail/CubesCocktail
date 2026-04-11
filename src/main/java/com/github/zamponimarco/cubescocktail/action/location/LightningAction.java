@@ -6,6 +6,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
@@ -18,16 +19,14 @@ import java.util.Map;
 @Setter
 public class LightningAction extends LocationAction {
 
-    private static final String EFFECT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWVlMTE4ZWRkYWVlMGRmYjJjYmMyYzNkNTljMTNhNDFhN2Q2OGNjZTk0NWU0MjE2N2FhMWRjYjhkMDY3MDUxNyJ9fX0=";
-    private static final String SILENT_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGYxMzBmNDg1YzNmNzY5N2YzMjBkZGMxMTI4Y2QzZjE3Y2RiZDM3OTE3NjRmN2E3YmI5NWNmMjUyNzM4NTg4In19fQ==";
 
     private static boolean EFFECT_DEFAULT = false;
     private static boolean SILENT_DEFAULT = false;
 
-    @Serializable(headTexture = EFFECT_HEAD, description = "gui.action.location.lightning.effect")
+    @Serializable(headTexture = Textures.EFFECT_HEAD, description = "gui.action.location.lightning.effect")
     @Serializable.Optional(defaultValue = "EFFECT_DEFAULT")
     private boolean effect;
-    @Serializable(headTexture = SILENT_HEAD, description = "gui.action.location.lightning.silent")
+    @Serializable(headTexture = Textures.SILENT_HEAD, description = "gui.action.location.lightning.silent")
     @Serializable.Optional(defaultValue = "SILENT_DEFAULT")
     private boolean silent;
 

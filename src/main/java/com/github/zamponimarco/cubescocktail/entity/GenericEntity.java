@@ -8,6 +8,7 @@ import com.github.jummes.libs.util.MapperUtils;
 import com.github.jummes.libs.util.MessageUtils;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,9 +31,8 @@ import java.util.stream.Collectors;
 @Getter
 public class GenericEntity extends Entity {
 
-    private static final String HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
 
-    @Serializable(headTexture = HEAD, stringValue = true, fromList = "getSpawnableEntities", fromListMapper = "spawnableEntitiesMapper", description = "gui.entity.generic-entity.type")
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, stringValue = true, fromList = "getSpawnableEntities", fromListMapper = "spawnableEntitiesMapper", description = "gui.entity.generic-entity.type")
     private EntityType type;
 
     public GenericEntity() {

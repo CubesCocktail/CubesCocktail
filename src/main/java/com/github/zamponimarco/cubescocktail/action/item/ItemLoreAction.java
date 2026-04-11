@@ -6,6 +6,7 @@ import com.github.zamponimarco.cubescocktail.action.Action;
 import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.source.ActionSource;
 import com.github.zamponimarco.cubescocktail.action.targeter.ActionTarget;
+import com.github.zamponimarco.cubescocktail.constant.Textures;
 import com.github.zamponimarco.cubescocktail.value.StringValue;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,9 +28,8 @@ public class ItemLoreAction extends ItemAction {
     private static final StringValue LORE_DEFAULT = new StringValue("example");
 
     private final static String LORE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDg4M2Q2NTZlNDljMzhjNmI1Mzc4NTcyZjMxYzYzYzRjN2E1ZGQ0Mzc1YjZlY2JjYTQzZjU5NzFjMmNjNGZmIn19fQ";
-    private static final String LINE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ==";
 
-    @Serializable(headTexture = LINE_HEAD, description = "gui.action.item.lore.line")
+    @Serializable(headTexture = Textures.AMOUNT_HEAD, description = "gui.action.item.lore.line")
     @Serializable.Number(minValue = 0, scale = 1)
     private int line;
     @Serializable(headTexture = LORE_HEAD, description = "gui.action.item.lore.lore", additionalDescription = {"gui.additional-tooltips.value"})
